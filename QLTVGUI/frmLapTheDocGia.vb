@@ -59,7 +59,7 @@ Public Class frmLapTheDocGia
 		' 1.Mapping data from GUI control
 		docgia.MaDocGia = txtMaDocGia.Text
 		docgia.HoTen = txtHoTen.Text
-		docgia.MaLoaiDocGia = Convert.ToInt32(cbLoaiDocGia.SelectedValue)
+		' docgia.MaLoaiDocGia = Convert.ToInt32(cbLoaiDocGia.SelectedValue)
 		docgia.NgaySinh = dtNgaySinh.Value
 		docgia.DiaChi = txtDiaChi.Text
 		docgia.Email = txtEmail.Text

@@ -18,4 +18,10 @@ Public Class frmMain
 		' Read ConnectionString value from App.config file
 		ConnectionString = ConfigurationManager.AppSettings("ConnectionString")
 	End Sub
+
+	Private Sub QuảnLýToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuảnLýToolStripMenuItem.Click
+		Dim frmdg As frmThemLoaiDocGia = New frmThemLoaiDocGia()
+		frmdg.MdiParent = Me
+		frmdg.Show()
+	End Sub
 End Class

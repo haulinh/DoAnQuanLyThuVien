@@ -26,7 +26,6 @@ Partial Class frmLapTheDocGia
 		Me.btnNhapDong = New MetroFramework.Controls.MetroButton()
 		Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
 		Me.MetroLabel2 = New MetroFramework.Controls.MetroLabel()
-		Me.MetroLabel3 = New MetroFramework.Controls.MetroLabel()
 		Me.MetroLabel4 = New MetroFramework.Controls.MetroLabel()
 		Me.MetroLabel5 = New MetroFramework.Controls.MetroLabel()
 		Me.MetroLabel7 = New MetroFramework.Controls.MetroLabel()
@@ -38,7 +37,6 @@ Partial Class frmLapTheDocGia
 		Me.txtDiaChi = New MetroFramework.Controls.MetroTextBox()
 		Me.dtNgayLapThe = New MetroFramework.Controls.MetroDateTime()
 		Me.MetroLabel6 = New MetroFramework.Controls.MetroLabel()
-		Me.cbLoaiDocGia = New MetroFramework.Controls.MetroComboBox()
 		Me.SuspendLayout()
 		'
 		'btnNhap
@@ -77,19 +75,10 @@ Partial Class frmLapTheDocGia
 		Me.MetroLabel2.TabIndex = 7
 		Me.MetroLabel2.Text = "Họ và tên"
 		'
-		'MetroLabel3
-		'
-		Me.MetroLabel3.AutoSize = True
-		Me.MetroLabel3.Location = New System.Drawing.Point(40, 130)
-		Me.MetroLabel3.Name = "MetroLabel3"
-		Me.MetroLabel3.Size = New System.Drawing.Size(81, 19)
-		Me.MetroLabel3.TabIndex = 8
-		Me.MetroLabel3.Text = "Loại độc giả"
-		'
 		'MetroLabel4
 		'
 		Me.MetroLabel4.AutoSize = True
-		Me.MetroLabel4.Location = New System.Drawing.Point(40, 165)
+		Me.MetroLabel4.Location = New System.Drawing.Point(40, 136)
 		Me.MetroLabel4.Name = "MetroLabel4"
 		Me.MetroLabel4.Size = New System.Drawing.Size(66, 19)
 		Me.MetroLabel4.TabIndex = 9
@@ -175,7 +164,7 @@ Partial Class frmLapTheDocGia
 		'
 		'dtNgaySinh
 		'
-		Me.dtNgaySinh.Location = New System.Drawing.Point(158, 155)
+		Me.dtNgaySinh.Location = New System.Drawing.Point(158, 136)
 		Me.dtNgaySinh.MinimumSize = New System.Drawing.Size(0, 29)
 		Me.dtNgaySinh.Name = "dtNgaySinh"
 		Me.dtNgaySinh.Size = New System.Drawing.Size(196, 29)
@@ -267,23 +256,11 @@ Partial Class frmLapTheDocGia
 		Me.MetroLabel6.TabIndex = 16
 		Me.MetroLabel6.Text = "Lập thẻ độc giả"
 		'
-		'cbLoaiDocGia
-		'
-		Me.cbLoaiDocGia.FormattingEnabled = True
-		Me.cbLoaiDocGia.ItemHeight = 23
-		Me.cbLoaiDocGia.Items.AddRange(New Object() {"X", "Y"})
-		Me.cbLoaiDocGia.Location = New System.Drawing.Point(158, 118)
-		Me.cbLoaiDocGia.Name = "cbLoaiDocGia"
-		Me.cbLoaiDocGia.Size = New System.Drawing.Size(196, 29)
-		Me.cbLoaiDocGia.TabIndex = 17
-		Me.cbLoaiDocGia.UseSelectable = True
-		'
 		'frmLapTheDocGia
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(447, 386)
-		Me.Controls.Add(Me.cbLoaiDocGia)
 		Me.Controls.Add(Me.MetroLabel6)
 		Me.Controls.Add(Me.txtDiaChi)
 		Me.Controls.Add(Me.txtEmail)
@@ -295,7 +272,6 @@ Partial Class frmLapTheDocGia
 		Me.Controls.Add(Me.MetroLabel8)
 		Me.Controls.Add(Me.MetroLabel5)
 		Me.Controls.Add(Me.MetroLabel4)
-		Me.Controls.Add(Me.MetroLabel3)
 		Me.Controls.Add(Me.MetroLabel2)
 		Me.Controls.Add(Me.MetroLabel1)
 		Me.Controls.Add(Me.btnNhapDong)
@@ -310,7 +286,6 @@ Partial Class frmLapTheDocGia
 	Friend WithEvents btnNhapDong As MetroFramework.Controls.MetroButton
 	Friend WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
 	Friend WithEvents MetroLabel2 As MetroFramework.Controls.MetroLabel
-	Friend WithEvents MetroLabel3 As MetroFramework.Controls.MetroLabel
 	Friend WithEvents MetroLabel4 As MetroFramework.Controls.MetroLabel
 	Friend WithEvents MetroLabel5 As MetroFramework.Controls.MetroLabel
 	Friend WithEvents MetroLabel7 As MetroFramework.Controls.MetroLabel
@@ -322,5 +297,4 @@ Partial Class frmLapTheDocGia
 	Friend WithEvents txtDiaChi As MetroFramework.Controls.MetroTextBox
 	Friend WithEvents dtNgayLapThe As MetroFramework.Controls.MetroDateTime
 	Friend WithEvents MetroLabel6 As MetroFramework.Controls.MetroLabel
-	Friend WithEvents cbLoaiDocGia As MetroFramework.Controls.MetroComboBox
 End Class
