@@ -4,32 +4,32 @@ Imports Utility
 
 Public Class frmThemLoaiDocGia
 
-	Private ldgBus As LoaiDocGiaBUS
+	Private loaiDocGiaBUS As LoaiDocGiaBUS
 
 	Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click
-		Dim ldg As LoaiDocGiaDTO
-		ldg = New LoaiDocGiaDTO()
+		Dim loaiDocGia As LoaiDocGiaDTO
+		loaiDocGia = New LoaiDocGiaDTO()
 
 		'1. Mapping data from GUI control
-		ldg.MaLoaiDG = Convert.ToInt32(txtMaLoaiDocGia.Text)
-		ldg.TenLoaiDG = txtTenLoaiDocGia.Text
+		loaiDocGia.MaLoaidocgia = Convert.ToInt32(txtMaLoaiDocGia.Text)
+		loaiDocGia.TenLoaidocgia = txtTenLoaiDocGia.Text
 
 		'2. Business .....
-		If (ldgBus.isValidName(ldg) = False) Then
+		If (loaiDocGiaBUS.isValidName(loaiDocGia) = False) Then
 			MessageBox.Show("Tên Loại độc giả không đúng. Vui lòng kiểm tra lại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			txtTenLoaiDocGia.Focus()
 			Return
 		End If
 		'3. Insert to DB
 		Dim result As Result
-		result = ldgBus.insert(ldg)
+		result = loaiDocGiaBUS.insert(loaiDocGia)
 		If (result.FlagResult = True) Then
 			MessageBox.Show("Thêm loại độc giả thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
 			txtTenLoaiDocGia.Text = String.Empty
 
 			' Get Next ID
 			Dim nextID As Integer
-			result = ldgBus.getNextID(nextID)
+			result = loaiDocGiaBUS.getNextID(nextID)
 			If (result.FlagResult = True) Then
 				txtMaLoaiDocGia.Text = nextID.ToString()
 			Else
@@ -44,12 +44,12 @@ Public Class frmThemLoaiDocGia
 	End Sub
 
 	Private Sub frmThemLoaiDocGia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		ldgBus = New LoaiDocGiaBUS()
+		loaiDocGiaBUS = New LoaiDocGiaBUS()
 
 		' Get Next ID
 		Dim nextID As Integer
 		Dim result As Result
-		result = ldgBus.getNextID(nextID)
+		result = loaiDocGiaBUS.getNextID(nextID)
 		If (result.FlagResult = True) Then
 			txtMaLoaiDocGia.Text = nextID.ToString()
 		Else
@@ -60,22 +60,22 @@ Public Class frmThemLoaiDocGia
 	End Sub
 
 	Private Sub btnNhapVaDong_Click(sender As Object, e As EventArgs) Handles btnNhapVaDong.Click
-		Dim ldg As LoaiDocGiaDTO
-		ldg = New LoaiDocGiaDTO()
+		Dim loaiDocGia As LoaiDocGiaDTO
+		loaiDocGia = New LoaiDocGiaDTO()
 
 		'1. Mapping data from GUI control
-		ldg.MaLoaiDG = Convert.ToInt32(txtMaLoaiDocGia.Text)
-		ldg.TenLoaiDG = txtTenLoaiDocGia.Text
+		loaiDocGia.MaLoaidocgia = Convert.ToInt32(txtMaLoaiDocGia.Text)
+		loaiDocGia.TenLoaidocgia = txtTenLoaiDocGia.Text
 
 		'2. Business .....
-		If (ldgBus.isValidName(ldg) = False) Then
+		If (loaiDocGiaBUS.isValidName(loaiDocGia) = False) Then
 			MessageBox.Show("Tên Loại độc giả không đúng. Vui lòng kiểm tra lại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			txtTenLoaiDocGia.Focus()
 			Return
 		End If
 		'3. Insert to DB
 		Dim result As Result
-		result = ldgBus.insert(ldg)
+		result = loaiDocGiaBUS.insert(loaiDocGia)
 		If (result.FlagResult = True) Then
 			MessageBox.Show("Thêm loại độc giả thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
 			txtTenLoaiDocGia.Text = String.Empty

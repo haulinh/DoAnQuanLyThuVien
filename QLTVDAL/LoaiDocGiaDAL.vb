@@ -52,7 +52,7 @@ Public Class LoaiDocGiaDAL
 		Return New Result(True) ' thanh cong
 	End Function
 
-	Public Function insert(ldg As LoaiDocGiaDTO) As Result
+	Public Function insert(loaiDocGia As LoaiDocGiaDTO) As Result
 		Dim query As String = String.Empty
 		query &= "INSERT INTO [tblLoaiDocGia] ([maloaidocgia, [tenloaidocgia])"
 		query &= "VALUES (@maloaidocgia,@tenloaidocgia)"
@@ -63,7 +63,7 @@ Public Class LoaiDocGiaDAL
 		If (result.FlagResult = False) Then
 			Return result
 		End If
-		ldg.MaLoaiDG = nextID
+		loaiDocGia.MaLoaiDocGia = nextID
 
 		Using conn As New SqlConnection(connectionString)
 			Using comm As New SqlCommand()
@@ -71,8 +71,8 @@ Public Class LoaiDocGiaDAL
 					.Connection = conn
 					.CommandType = CommandType.Text
 					.CommandText = query
-					.Parameters.AddWithValue("@maloaihocsinh", ldg.MaLoaiDG)
-					.Parameters.AddWithValue("@tenloaidocgia", ldg.TenLoaiDG)
+					.Parameters.AddWithValue("@maloaihocsinh", loaiDocGia.MaLoaiDocGia)
+					.Parameters.AddWithValue("@tenloaidocgia", loaiDocGia.MaLoaiDocGia)
 				End With
 				Try
 					conn.Open()
@@ -81,6 +81,41 @@ Public Class LoaiDocGiaDAL
 					conn.Close()
 					' them that bai!!!
 					Return New Result(False, "Thêm độc giả không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+		Return New Result(True) ' thanh cong
+	End Function
+
+	Public Function selectALL(ByRef listLoaiDocGia As List(Of LoaiDocGiaDTO)) As Result
+
+		Dim query As String = String.Empty
+		query &= " SELECT [maloaidocgia], [tenloaidocgia]"
+		query &= " FROM [tblLoaiDocGia]"
+
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+				End With
+				Try
+					conn.Open()
+					Dim reader As SqlDataReader
+					reader = comm.ExecuteReader()
+					If reader.HasRows = True Then
+						listLoaiDocGia.Clear()
+						While reader.Read()
+							listLoaiDocGia.Add(New LoaiDocGiaDTO(reader("maloaidocgia"), reader("tenloaidocgia")))
+						End While
+					End If
+				Catch ex As Exception
+					Console.WriteLine(ex.StackTrace)
+					conn.Close()
+					' them that bai!!!
+					Return New Result(False, "Lấy tất cả loại đọc giả không thành công", ex.StackTrace)
 				End Try
 			End Using
 		End Using

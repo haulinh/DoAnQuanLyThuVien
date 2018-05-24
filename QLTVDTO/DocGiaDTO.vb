@@ -1,72 +1,72 @@
 ﻿Public Class DocGiaDTO
-	Private strmaDocGia As String
-	Private strhoTen As String
-	Private strmaLoaiDocGia As String
-	Private datengaySinh As Date
-	Private strdiaChi As String
-	Private stremail As String
-	Private datengayLapThe As Date
+	Private _maDocGia As String
+	Private _hoTen As String
+	Private _maLoaiDocGia As String
+	Private _ngaySinh As Date
+	Private _diaChi As String
+	Private _email As String
+	Private _ngayLapThe As Date
 
 	Public Property HoTen As String
 		Get
-			Return strhoTen
+			Return _hoTen
 		End Get
 		Set(value As String)
-			strhoTen = value
+			_hoTen = value
 		End Set
 	End Property
 
 	Public Property MaLoaiDocGia As String
 		Get
-			Return strmaLoaiDocGia
+			Return _maLoaiDocGia
 		End Get
 		Set(value As String)
-			strmaLoaiDocGia = value
+			_maLoaiDocGia = value
 		End Set
 	End Property
 
 	Public Property NgaySinh As Date
 		Get
-			Return datengaySinh
+			Return _ngaySinh
 		End Get
 		Set(value As Date)
-			datengaySinh = value
+			_ngaySinh = value
 		End Set
 	End Property
 
 	Public Property DiaChi As String
 		Get
-			Return strdiaChi
+			Return _diaChi
 		End Get
 		Set(value As String)
-			strdiaChi = value
+			_diaChi = value
 		End Set
 	End Property
 
 	Public Property Email As String
 		Get
-			Return stremail
+			Return _email
 		End Get
 		Set(value As String)
-			stremail = value
+			_email = value
 		End Set
 	End Property
 
 	Public Property NgayLapThe As Date
 		Get
-			Return datengayLapThe
+			Return _ngayLapThe
 		End Get
 		Set(value As Date)
-			datengayLapThe = value
+			_ngayLapThe = value
 		End Set
 	End Property
 
 	Public Property MaDocGia As String
 		Get
-			Return strmaLoaiDocGia
+			Return _maDocGia
 		End Get
 		Set(value As String)
-			strmaLoaiDocGia = value
+			_maDocGia = value
 		End Set
 	End Property
 End Class

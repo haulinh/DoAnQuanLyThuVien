@@ -1,30 +1,30 @@
 ﻿Public Class LoaiDocGiaDTO
-	Private iMaLoaiDG As Integer
-	Private strTenLoaiDG As String
+	Private _maLoaiDocGia As Integer
+	Private _tenLoaiDocGia As String
 
 	Public Sub New()
 	End Sub
 
-	Public Sub New(ml As Integer, tl As String)
-		iMaLoaiDG = ml
-		strTenLoaiDG = tl
+	Public Sub New(maLoai As Integer, tenLoai As String)
+		_maLoaiDocGia = maLoai
+		_tenLoaiDocGia = tenLoai
 	End Sub
 
-	Public Property MaLoaiDG As Integer
+	Public Property MaLoaiDocGia As Integer
 		Get
-			Return iMaLoaiDG
+			Return _maLoaiDocGia
 		End Get
 		Set(value As Integer)
-			iMaLoaiDG = value
+			_maLoaiDocGia = value
 		End Set
 	End Property
 
-	Public Property TenLoaiDG As String
+	Public Property TenLoaiDocGia As String
 		Get
-			Return strTenLoaiDG
+			Return _tenLoaiDocGia
 		End Get
 		Set(value As String)
-			strTenLoaiDG = value
+			_tenLoaiDocGia = value
 		End Set
 	End Property
 End Class

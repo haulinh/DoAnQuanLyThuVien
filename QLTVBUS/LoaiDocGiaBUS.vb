@@ -3,17 +3,17 @@ Imports QLTVDTO
 Imports Utility
 
 Public Class LoaiDocGiaBUS
-	Private ldgDAL As LoaiDocGiaDAL
+	Private loaiDocGiaDAL As LoaiDocGiaDAL
 	Public Sub New()
-		ldgDAL = New LoaiDocGiaDAL()
+		loaiDocGiaDAL = New LoaiDocGiaDAL()
 	End Sub
 
 	Public Sub New(connectionString As String)
-		ldgDAL = New LoaiDocGiaDAL(connectionString)
+		loaiDocGiaDAL = New LoaiDocGiaDAL(connectionString)
 	End Sub
 
-	Public Function isValidName(ldg As LoaiDocGiaDTO) As Boolean
-		If (ldg.TenLoaiDG.Length < 1) Then
+	Public Function isValidName(loaiDocGia As LoaiDocGiaDTO) As Boolean
+		If (loaiDocGia.TenLoaiDocGia.Length < 1) Then
 			Return False
 		End If
 
@@ -21,14 +21,21 @@ Public Class LoaiDocGiaBUS
 
 	End Function
 
-	Public Function insert(ldg As LoaiDocGiaDTO) As Result
+	Public Function insert(loaiDocGia As LoaiDocGiaDTO) As Result
 		'1. verify data here!!
 
 		'2. insert to DB
-		Return ldgDAL.insert(ldg)
+		Return loaiDocGiaDAL.insert(loaiDocGia)
+	End Function
+
+	Public Function selectAll(ByRef listLoaiDocGia As List(Of LoaiDocGiaDTO)) As Result
+		'1. verify data here!!
+
+		'2. insert to DB
+		Return loaiDocGiaDAL.selectALL(listLoaiDocGia)
 	End Function
 
 	Public Function getNextID(ByRef nextID As Integer) As Result
-		Return ldgDAL.getNextID(nextID)
+		Return loaiDocGiaDAL.getNextID(nextID)
 	End Function
 End Class

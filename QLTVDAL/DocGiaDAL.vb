@@ -14,11 +14,11 @@ Public Class DocGiaDAL
 		Me.connectionString = ConnectionString
 	End Sub
 
-	Public Function buildMSDG(ByRef nextMsdg As String) As Result
-		nextMsdg = String.Empty
+	Public Function BuildMaSoDocGia(ByRef NextMaSoDocGia As String) As Result
+		NextMaSoDocGia = String.Empty
 		Dim y = DateTime.Now.Year
 		Dim x = y.ToString().Substring(2)
-		nextMsdg = x
+		NextMaSoDocGia = x
 
 		Dim query As String = String.Empty
 		query &= "SELECT TOP 1 [madocgia] "
@@ -52,14 +52,14 @@ Public Class DocGiaDAL
 						If (year < icurrentYearOnDB) Then
 							year = icurrentYearOnDB
 						End If
-						nextMsdg = year.ToString()
+						NextMaSoDocGia = year.ToString()
 						Dim v = msOnDB.Substring(2)
 						Dim convertDecimal = Convert.ToDecimal(v)
 						convertDecimal = convertDecimal + 1
 						Dim tmp = convertDecimal.ToString()
 						tmp = tmp.PadLeft(msOnDB.Length - 2, "0")
-						nextMsdg = nextMsdg + tmp
-						System.Console.WriteLine(nextMsdg)
+						NextMaSoDocGia = NextMaSoDocGia + tmp
+						System.Console.WriteLine(NextMaSoDocGia)
 					End If
 
 				Catch ex As Exception
@@ -72,16 +72,18 @@ Public Class DocGiaDAL
 		Return New Result(True) ' thanh cong
 	End Function
 
-	Public Function insert(dg As DocGiaDTO) As Result
+	Public Function insert(docGia As DocGiaDTO) As Result
 
 		Dim query As String = String.Empty
 		query &= "INSERT INTO [tblDocGia] ([madocgia], [hoten], [maloaidocgia], [ngaysinh], [diachi], [email], [ngaylapthe])"
-		query &= "VALUES (@madocgia,@hoten,@maloaidocgia,@ngaysinh,@diachi, @email, @ngaylapthe)"
+		query &= "VALUES (@madocgia, @hoten, @maloaidocgia, @ngaysinh, @diachi, @email, @ngaylapthe)"
+		'query &= "INSERT INTO [tblLoaiDocGia] ([maloaidocgia], [tenloaidocgia])"
+		'query &= "VALUES (@maloaiddocgia, @tenloaidocgia)"
 
 		'get madocgia
 		Dim nextmadocgia = "1"
-		buildMSDG(nextmadocgia)
-		dg.MaDocGia = nextmadocgia
+		BuildMaSoDocGia(nextmadocgia)
+		docGia.MaDocGia = nextmadocgia
 
 		Using conn As New SqlConnection(connectionString)
 			Using comm As New SqlCommand()
@@ -89,13 +91,13 @@ Public Class DocGiaDAL
 					.Connection = conn
 					.CommandType = CommandType.Text
 					.CommandText = query
-					.Parameters.AddWithValue("@madocgia", dg.MaDocGia)
-					.Parameters.AddWithValue("@hoten", dg.HoTen)
-					.Parameters.AddWithValue("@maloaidocgia", dg.MaLoaiDocGia)
-					.Parameters.AddWithValue("@ngaysinh", dg.NgaySinh)
-					.Parameters.AddWithValue("@diachi", dg.DiaChi)
-					.Parameters.AddWithValue("@email", dg.Email)
-					.Parameters.AddWithValue("@ngaylapthe", dg.NgayLapThe)
+					.Parameters.AddWithValue("@madocgia", docGia.MaDocGia)
+					.Parameters.AddWithValue("@hoten", docGia.HoTen)
+					.Parameters.AddWithValue("@maloaidocgia", docGia.MaLoaiDocGia)
+					.Parameters.AddWithValue("@ngaysinh", docGia.NgaySinh)
+					.Parameters.AddWithValue("@diachi", docGia.DiaChi)
+					.Parameters.AddWithValue("@email", docGia.Email)
+					.Parameters.AddWithValue("@ngaylapthe", docGia.NgayLapThe)
 				End With
 				Try
 					conn.Open()
@@ -109,6 +111,5 @@ Public Class DocGiaDAL
 		End Using
 		Return New Result(True) ' thanh cong
 	End Function
-
 
 End Class
