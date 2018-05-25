@@ -11,7 +11,7 @@ Public Class DocGiaBUS
 		docGiaDAL = New DocGiaDAL(connectionString)
 	End Sub
 
-	Public Function isValidName(docgia As DocGiaDTO) As Boolean
+	Public Function IsVaildName(docgia As DocGiaDTO) As Boolean
 
 		If (docgia.HoTen.Length < 1) Then
 			Return False

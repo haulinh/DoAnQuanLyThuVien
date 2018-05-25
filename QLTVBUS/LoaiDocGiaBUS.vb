@@ -12,7 +12,7 @@ Public Class LoaiDocGiaBUS
 		loaiDocGiaDAL = New LoaiDocGiaDAL(connectionString)
 	End Sub
 
-	Public Function isValidName(loaiDocGia As LoaiDocGiaDTO) As Boolean
+	Public Function IsVaildName(loaiDocGia As LoaiDocGiaDTO) As Boolean
 		If (loaiDocGia.TenLoaiDocGia.Length < 1) Then
 			Return False
 		End If
@@ -35,7 +35,7 @@ Public Class LoaiDocGiaBUS
 		Return loaiDocGiaDAL.selectALL(listLoaiDocGia)
 	End Function
 
-	Public Function getNextID(ByRef nextID As Integer) As Result
-		Return loaiDocGiaDAL.getNextID(nextID)
+	Public Function GetNextID(ByRef nextID As Integer) As Result
+		Return loaiDocGiaDAL.GetNextID(nextID)
 	End Function
 End Class

@@ -14,7 +14,7 @@ Public Class LoaiDocGiaDAL
 		Me.connectionString = ConnectionString
 	End Sub
 
-	Public Function getNextID(ByRef nextID As Integer) As Result
+	Public Function GetNextID(ByRef nextID As Integer) As Result
 
 		Dim query As String = String.Empty
 		query &= "SELECT TOP 1 [maloaidocgia] "
@@ -53,13 +53,14 @@ Public Class LoaiDocGiaDAL
 	End Function
 
 	Public Function insert(loaiDocGia As LoaiDocGiaDTO) As Result
+
 		Dim query As String = String.Empty
-		query &= "INSERT INTO [tblLoaiDocGia] ([maloaidocgia, [tenloaidocgia])"
-		query &= "VALUES (@maloaidocgia,@tenloaidocgia)"
+		query &= "INSERT INTO [tblLoaiDocGia] ([maloaidocgia], [tenloaidocgia])"
+		query &= "VALUES (@maloaidocgia, @tenloaidocgia)"
 
 		Dim nextID = 0
 		Dim result As Result
-		result = getNextID(nextID)
+		result = GetNextID(nextID)
 		If (result.FlagResult = False) Then
 			Return result
 		End If
@@ -71,8 +72,8 @@ Public Class LoaiDocGiaDAL
 					.Connection = conn
 					.CommandType = CommandType.Text
 					.CommandText = query
-					.Parameters.AddWithValue("@maloaihocsinh", loaiDocGia.MaLoaiDocGia)
-					.Parameters.AddWithValue("@tenloaidocgia", loaiDocGia.MaLoaiDocGia)
+					.Parameters.AddWithValue("@maloaidocgia", loaiDocGia.MaLoaiDocGia)
+					.Parameters.AddWithValue("@tenloaidocgia", loaiDocGia.TenLoaiDocGia)
 				End With
 				Try
 					conn.Open()

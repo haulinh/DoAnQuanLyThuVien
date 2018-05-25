@@ -6,9 +6,9 @@ Public Class frmLapTheDocGia
 
 	Private docGiaBUS As DocGiaBUS
 	Private loaiDocGiaBUS As LoaiDocGiaBUS
-	' Private loaiDocGiaBUS	As LoaiDocGiaBus
 
 	Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click
+
 		Dim docgia As DocGiaDTO
 		docgia = New DocGiaDTO()
 
@@ -22,19 +22,22 @@ Public Class frmLapTheDocGia
 		docgia.NgayLapThe = dtNgayLapThe.Value
 
 		'2. Business .....
-		If (docGiaBUS.isValidName(docgia) = False) Then
+		If (docGiaBUS.IsVaildName(docgia) = False) Then
 			MessageBox.Show("Họ tên độc giả không đúng")
 			txtHoTen.Focus()
 			Return
 		End If
+
 		'3. Insert to DB
 		Dim result As Result
 		result = docGiaBUS.insert(docgia)
 		If (result.FlagResult = True) Then
 			MessageBox.Show("Thêm độc giả thành công", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
 			'Set MSdocgia auto
 			Dim NextMaSoDocGia = "1"
 			result = docGiaBUS.BuildMaSoDocGia(NextMaSoDocGia)
+
 			If (result.FlagResult = False) Then
 				MessageBox.Show("Lấy danh sách tự động mã Độc giả không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 				Me.Close()
@@ -48,12 +51,12 @@ Public Class frmLapTheDocGia
 		Else
 			MessageBox.Show("Thêm Độc giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			System.Console.WriteLine(result.SystemMessage)
-
 		End If
 
 	End Sub
 
 	Private Sub btnNhapDong_Click(sender As Object, e As EventArgs) Handles btnNhapDong.Click
+
 		Dim docgia As DocGiaDTO
 		docgia = New DocGiaDTO()
 
@@ -67,7 +70,7 @@ Public Class frmLapTheDocGia
 		docgia.NgayLapThe = dtNgayLapThe.Value
 
 		'2. Business .....
-		If (docGiaBUS.isValidName(docgia) = False) Then
+		If (docGiaBUS.IsVaildName(docgia) = False) Then
 			MessageBox.Show("Họ tên độc giả không đúng")
 			txtHoTen.Focus()
 			Return
@@ -86,6 +89,7 @@ Public Class frmLapTheDocGia
 	End Sub
 
 	Private Sub frmLapTheDocGia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
 		docGiaBUS = New DocGiaBUS()
 		loaiDocGiaBUS = New LoaiDocGiaBUS()
 
@@ -116,4 +120,5 @@ Public Class frmLapTheDocGia
 		End If
 		txtMaDocGia.Text = NextMaSoDocGia
 	End Sub
+
 End Class

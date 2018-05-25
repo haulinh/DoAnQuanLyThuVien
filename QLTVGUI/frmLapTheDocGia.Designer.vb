@@ -43,7 +43,7 @@ Partial Class frmLapTheDocGia
 		'
 		'btnNhap
 		'
-		Me.btnNhap.Location = New System.Drawing.Point(167, 380)
+		Me.btnNhap.Location = New System.Drawing.Point(100, 380)
 		Me.btnNhap.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNhap.Name = "btnNhap"
 		Me.btnNhap.Size = New System.Drawing.Size(100, 28)
@@ -53,7 +53,7 @@ Partial Class frmLapTheDocGia
 		'
 		'btnNhapDong
 		'
-		Me.btnNhapDong.Location = New System.Drawing.Point(303, 380)
+		Me.btnNhapDong.Location = New System.Drawing.Point(254, 380)
 		Me.btnNhapDong.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNhapDong.Name = "btnNhapDong"
 		Me.btnNhapDong.Size = New System.Drawing.Size(125, 28)
@@ -302,7 +302,7 @@ Partial Class frmLapTheDocGia
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8!, 16!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(596, 475)
+		Me.ClientSize = New System.Drawing.Size(481, 475)
 		Me.Controls.Add(Me.cbLoaiDocGia)
 		Me.Controls.Add(Me.MetroLabel6)
 		Me.Controls.Add(Me.txtDiaChi)

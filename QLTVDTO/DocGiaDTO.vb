@@ -7,7 +7,7 @@
 	Private _email As String
 	Private _ngayLapThe As Date
 
-	Public Sub New(_maDocgia As Integer, _hoTen As String, _maLoaiDocGia As Integer, _ngaySinh As Date, _diaChi As String, _email As String, _ngayLapThe As Date)
+	Public Sub New(_maDocgia As String, _hoTen As String, _maLoaiDocGia As Integer, _ngaySinh As Date, _diaChi As String, _email As String, _ngayLapThe As Date)
 		Me.MaDocGia = _maDocgia
 		Me.HoTen = _hoTen
 		Me.MaLoaiDocGia = _maLoaiDocGia

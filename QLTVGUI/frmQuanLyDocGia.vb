@@ -27,7 +27,7 @@ Public Class frmQuanLyDocGia
 				docGia.MaLoaiDocGia = Convert.ToInt32(cbLoaiDocGiaCapNhat.SelectedValue)
 
 				'2. Business .....
-				If (docGiaBus.isValidName(docGia) = False) Then
+				If (docGiaBus.IsVaildName(docGia) = False) Then
 					MessageBox.Show("Họ tên Độc Giả không đúng.")
 					txtHoTenDocGia.Focus()
 					Return

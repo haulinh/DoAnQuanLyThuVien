@@ -15,7 +15,7 @@ Public Class frmThemLoaiDocGia
 		loaiDocGia.TenLoaiDocGia = txtTenLoaiDocGia.Text
 
 		'2. Business .....
-		If (loaiDocGiaBUS.isValidName(loaiDocGia) = False) Then
+		If (loaiDocGiaBUS.IsVaildName(loaiDocGia) = False) Then
 			MessageBox.Show("Tên Loại độc giả không đúng. Vui lòng kiểm tra lại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			txtTenLoaiDocGia.Focus()
 			Return
@@ -29,7 +29,7 @@ Public Class frmThemLoaiDocGia
 
 			' Get Next ID
 			Dim nextID As Integer
-			result = loaiDocGiaBUS.getNextID(nextID)
+			result = loaiDocGiaBUS.GetNextID(nextID)
 			If (result.FlagResult = True) Then
 				txtMaLoaiDocGia.Text = nextID.ToString()
 			Else
@@ -49,7 +49,7 @@ Public Class frmThemLoaiDocGia
 		' Get Next ID
 		Dim nextID As Integer
 		Dim result As Result
-		result = loaiDocGiaBUS.getNextID(nextID)
+		result = loaiDocGiaBUS.GetNextID(nextID)
 		If (result.FlagResult = True) Then
 			txtMaLoaiDocGia.Text = nextID.ToString()
 		Else
@@ -68,7 +68,7 @@ Public Class frmThemLoaiDocGia
 		loaiDocGia.TenLoaiDocGia = txtTenLoaiDocGia.Text
 
 		'2. Business .....
-		If (loaiDocGiaBUS.isValidName(loaiDocGia) = False) Then
+		If (loaiDocGiaBUS.IsVaildName(loaiDocGia) = False) Then
 			MessageBox.Show("Tên Loại độc giả không đúng. Vui lòng kiểm tra lại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			txtTenLoaiDocGia.Focus()
 			Return

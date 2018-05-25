@@ -18,7 +18,7 @@ Public Class DocGiaDAL
 		NextMaSoDocGia = String.Empty
 		Dim y = DateTime.Now.Year
 		Dim x = y.ToString().Substring(2)
-		NextMaSoDocGia = x
+		NextMaSoDocGia = x + "000000"
 
 		Dim query As String = String.Empty
 		query &= "SELECT TOP 1 [madocgia] "
@@ -77,8 +77,6 @@ Public Class DocGiaDAL
 		Dim query As String = String.Empty
 		query &= "INSERT INTO [tblDocGia] ([madocgia], [hoten], [maloaidocgia], [ngaysinh], [diachi], [email], [ngaylapthe])"
 		query &= "VALUES (@madocgia, @hoten, @maloaidocgia, @ngaysinh, @diachi, @email, @ngaylapthe)"
-		'query &= "INSERT INTO [tblLoaiDocGia] ([maloaidocgia], [tenloaidocgia])"
-		'query &= "VALUES (@maloaiddocgia, @tenloaidocgia)"
 
 		'get madocgia
 		Dim nextmadocgia = "1"
