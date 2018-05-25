@@ -112,4 +112,148 @@ Public Class DocGiaDAL
 		Return New Result(True) ' thanh cong
 	End Function
 
+	Public Function selectALL(ByRef listDocGia As List(Of DocGiaDTO)) As Result
+
+		Dim query As String = String.Empty
+		query &= "SELECT [madocgia], [hoten], [maloaidocgia], [ngaysinh], [diachi], [email], [ngaylapthe]"
+		query &= "FROM [tblDocGia]"
+
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+				End With
+				Try
+					conn.Open()
+					Dim reader As SqlDataReader
+					reader = comm.ExecuteReader()
+					If reader.HasRows = True Then
+						listDocGia.Clear()
+						While reader.Read()
+							listDocGia.Add(New DocGiaDTO(reader("madocgia"), reader("hoten"), reader("maloaidocgia"), reader("ngaysinh"), reader("diachi"), reader("email"), reader("ngaylapthe")))
+						End While
+					End If
+
+				Catch ex As Exception
+					conn.Close()
+					System.Console.WriteLine(ex.StackTrace)
+					Return New Result(False, "Lấy tất cả Độc Giả không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+		Return New Result(True) ' thanh cong
+
+	End Function
+
+	Public Function selectALL_ByType(maLoai As Integer, ByRef listDocGia As List(Of DocGiaDTO)) As Result
+		Dim query As String = String.Empty
+		query &= "SELECT [madocgia], [hoten], [maloaidocgia],  [ngaysinh], [diachi], [email], [ngaylapthe] "
+		query &= "FROM [tblDocGia] "
+		query &= "WHERE [maloaidocgia] = @maloaidocgia"
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+					.Parameters.AddWithValue("@maloaidocgia", maLoai)
+				End With
+				Try
+					conn.Open()
+					Dim reader As SqlDataReader
+					reader = comm.ExecuteReader()
+					If reader.HasRows = True Then
+						listDocGia.Clear()
+						While reader.Read()
+							listDocGia.Add(New DocGiaDTO(reader("madocgia"), reader("hoten"), reader("maloaidocgia"), reader("ngaysinh"), reader("diachi"), reader("email"), reader("ngaylapthe")))
+						End While
+					End If
+
+				Catch ex As Exception
+					conn.Close()
+					System.Console.WriteLine(ex.StackTrace)
+					Return New Result(False, "Lấy tất cả Độc giả theo Loại không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+		Return New Result(True) ' thanh cong
+	End Function
+
+
+
+	Public Function update(docGia As DocGiaDTO) As Result
+
+		Dim query As String = String.Empty
+		query &= " UPDATE [tblDocGia] SET"
+		query &= " [hoten] = @hoten "
+		query &= " ,[maloaidocgia] = @maloaidocgia "
+		query &= " ,[ngaysinh] = @ngaysinh "
+		query &= " ,[diachi] = @diachi "
+		query &= " ,[email] = @email "
+		query &= " ,[ngaylapthe] = @ngaylapthe "
+		query &= " WHERE "
+		query &= " [madocgia] = @madocgia "
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+					.Parameters.AddWithValue("@hoten", docGia.HoTen)
+					.Parameters.AddWithValue("@maloaidocgia", docGia.MaLoaiDocGia)
+					.Parameters.AddWithValue("@ngaysinh", docGia.NgaySinh)
+					.Parameters.AddWithValue("@diachi", docGia.DiaChi)
+					.Parameters.AddWithValue("@email", docGia.Email)
+					.Parameters.AddWithValue("@ngaylapthe", docGia.NgayLapThe)
+					.Parameters.AddWithValue("@madocgia", docGia.MaDocGia)
+				End With
+				Try
+					conn.Open()
+					comm.ExecuteNonQuery()
+				Catch ex As Exception
+					Console.WriteLine(ex.StackTrace)
+					conn.Close()
+					System.Console.WriteLine(ex.StackTrace)
+					Return New Result(False, "Cập nhật độc giả không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+		Return New Result(True) ' thanh cong
+	End Function
+
+
+	Public Function delete(maHocSinh As String) As Result
+
+		Dim query As String = String.Empty
+		query &= " DELETE FROM [tblDocGia] "
+		query &= " WHERE "
+		query &= " [madocgia] = @madocgia "
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+					.Parameters.AddWithValue("@madocgia", maHocSinh)
+				End With
+				Try
+					conn.Open()
+					comm.ExecuteNonQuery()
+				Catch ex As Exception
+					Console.WriteLine(ex.StackTrace)
+					conn.Close()
+					System.Console.WriteLine(ex.StackTrace)
+					Return New Result(False, "Xóa Độc Giả không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+		Return New Result(True)  ' thanh cong
+	End Function
+
 End Class

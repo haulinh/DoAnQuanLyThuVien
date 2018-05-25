@@ -24,4 +24,10 @@ Public Class frmMain
 		frmdg.MdiParent = Me
 		frmdg.Show()
 	End Sub
+
+	Private Sub QuảnLíĐộcGiảToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuảnLíĐộcGiảToolStripMenuItem.Click
+		Dim frmDocGia As frmQuanLyDocGia = New frmQuanLyDocGia()
+		frmDocGia.MdiParent = Me
+		frmDocGia.Show()
+	End Sub
 End Class

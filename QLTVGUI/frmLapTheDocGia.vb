@@ -88,7 +88,7 @@ Public Class frmLapTheDocGia
 	Private Sub frmLapTheDocGia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		docGiaBUS = New DocGiaBUS()
 		loaiDocGiaBUS = New LoaiDocGiaBUS()
-		
+
 		'Load LoaiDocGia list
 		Dim listLoaiDocGia = New List(Of LoaiDocGiaDTO)
 		Dim result As Result
@@ -101,16 +101,16 @@ Public Class frmLapTheDocGia
 			Return
 		End If
 
-		cbLoaiDocGia.DataSource = new BindingSource(listLoaiDocGia, String.Empty)
+		cbLoaiDocGia.DataSource = New BindingSource(listLoaiDocGia, String.Empty)
 		cbLoaiDocGia.DisplayMember = "TenLoaiDocGia"
 		cbLoaiDocGia.ValueMember = "MaLoaiDocGia"
 
 		'Set Ma so doc gia auto
 		Dim NextMaSoDocGia = "1"
-		Result = docGiaBUS.BuildMaSoDocGia(NextMaSoDocGia)
-		If (Result.FlagResult = False) Then
+		result = docGiaBUS.BuildMaSoDocGia(NextMaSoDocGia)
+		If (result.FlagResult = False) Then
 			MessageBox.Show("Lấy danh tự động mã độc giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-			System.Console.WriteLine(Result.SystemMessage)
+			System.Console.WriteLine(result.SystemMessage)
 			Me.Close()
 			Return
 		End If

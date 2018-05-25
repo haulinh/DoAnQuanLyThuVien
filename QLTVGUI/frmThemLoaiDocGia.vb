@@ -11,8 +11,8 @@ Public Class frmThemLoaiDocGia
 		loaiDocGia = New LoaiDocGiaDTO()
 
 		'1. Mapping data from GUI control
-		loaiDocGia.MaLoaidocgia = Convert.ToInt32(txtMaLoaiDocGia.Text)
-		loaiDocGia.TenLoaidocgia = txtTenLoaiDocGia.Text
+		loaiDocGia.MaLoaiDocGia = Convert.ToInt32(txtMaLoaiDocGia.Text)
+		loaiDocGia.TenLoaiDocGia = txtTenLoaiDocGia.Text
 
 		'2. Business .....
 		If (loaiDocGiaBUS.isValidName(loaiDocGia) = False) Then
@@ -64,8 +64,8 @@ Public Class frmThemLoaiDocGia
 		loaiDocGia = New LoaiDocGiaDTO()
 
 		'1. Mapping data from GUI control
-		loaiDocGia.MaLoaidocgia = Convert.ToInt32(txtMaLoaiDocGia.Text)
-		loaiDocGia.TenLoaidocgia = txtTenLoaiDocGia.Text
+		loaiDocGia.MaLoaiDocGia = Convert.ToInt32(txtMaLoaiDocGia.Text)
+		loaiDocGia.TenLoaiDocGia = txtTenLoaiDocGia.Text
 
 		'2. Business .....
 		If (loaiDocGiaBUS.isValidName(loaiDocGia) = False) Then

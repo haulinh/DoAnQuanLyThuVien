@@ -102,6 +102,12 @@
       <DependentUpon>frmMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmQuanLyDocGia.Designer.vb">
+      <DependentUpon>frmQuanLyDocGia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyDocGia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmThemLoaiDocGia.Designer.vb">
       <DependentUpon>frmThemLoaiDocGia.vb</DependentUpon>
     </Compile>
@@ -123,6 +129,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="QLTVDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLTVDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmLapTheDocGia.resx">
@@ -130,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyDocGia.resx">
+      <DependentUpon>frmQuanLyDocGia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemLoaiDocGia.resx">
       <DependentUpon>frmThemLoaiDocGia.vb</DependentUpon>
@@ -153,6 +167,17 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="QLTVDataSet.xsc">
+      <DependentUpon>QLTVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLTVDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLTVDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLTVDataSet.xss">
+      <DependentUpon>QLTVDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QLTVBUS\QLTVBUS.vbproj">

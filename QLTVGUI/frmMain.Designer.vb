@@ -36,7 +36,7 @@ Partial Class frmMain
 		'
 		Me.cmHoSoDocGia.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuảnLýToolStripMenuItem, Me.QuảnLíToolStripMenuItem, Me.ThêmLoạiĐộcGiảToolStripMenuItem, Me.QuảnLíĐộcGiảToolStripMenuItem})
 		Me.cmHoSoDocGia.Name = "MetroContextMenu1"
-		Me.cmHoSoDocGia.Size = New System.Drawing.Size(180, 92)
+		Me.cmHoSoDocGia.Size = New System.Drawing.Size(180, 114)
 		Me.cmHoSoDocGia.Text = "Hồ sơ độc giả"
 		'
 		'QuảnLýToolStripMenuItem
