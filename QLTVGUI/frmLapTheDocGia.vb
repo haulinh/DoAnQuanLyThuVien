@@ -3,12 +3,10 @@ Imports QLTVDTO
 Imports Utility
 
 Public Class frmLapTheDocGia
-
-	Private docGiaBUS As DocGiaBUS
-	Private loaiDocGiaBUS As LoaiDocGiaBUS
+	Private docGiaBUS As docGiaBUS
+	Private loaiDocGiaBUS As LoaidocGiaBUS
 
 	Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click
-
 		Dim docgia As DocGiaDTO
 		docgia = New DocGiaDTO()
 
@@ -30,13 +28,13 @@ Public Class frmLapTheDocGia
 
 		'3. Insert to DB
 		Dim result As Result
-		result = docGiaBUS.insert(docgia)
+		result = docGiaBUS.Insert(docgia)
 		If (result.FlagResult = True) Then
 			MessageBox.Show("Thêm độc giả thành công", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
 			'Set MSdocgia auto
-			Dim NextMaSoDocGia = "1"
-			result = docGiaBUS.BuildMaSoDocGia(NextMaSoDocGia)
+			Dim nextMaSoDocGia = "1"
+			result = docGiaBUS.BuildMaSoDocGia(nextMaSoDocGia)
 
 			If (result.FlagResult = False) Then
 				MessageBox.Show("Lấy danh sách tự động mã Độc giả không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -44,7 +42,7 @@ Public Class frmLapTheDocGia
 				Return
 			End If
 
-			txtMaDocGia.Text = NextMaSoDocGia
+			txtMaDocGia.Text = nextMaSoDocGia
 			txtHoTen.Text = String.Empty
 			txtDiaChi.Text = String.Empty
 			txtEmail.Text = String.Empty
@@ -56,7 +54,6 @@ Public Class frmLapTheDocGia
 	End Sub
 
 	Private Sub btnNhapDong_Click(sender As Object, e As EventArgs) Handles btnNhapDong.Click
-
 		Dim docgia As DocGiaDTO
 		docgia = New DocGiaDTO()
 
@@ -77,7 +74,7 @@ Public Class frmLapTheDocGia
 		End If
 		'3. Insert to DB
 		Dim result As Result
-		result = docGiaBUS.insert(docgia)
+		result = docGiaBUS.Insert(docgia)
 		If (result.FlagResult = True) Then
 			MessageBox.Show("Thêm độc giả thành công", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
 			Me.Close()
@@ -89,15 +86,14 @@ Public Class frmLapTheDocGia
 	End Sub
 
 	Private Sub frmLapTheDocGia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-		docGiaBUS = New DocGiaBUS()
-		loaiDocGiaBUS = New LoaiDocGiaBUS()
+		docGiaBUS = New docGiaBUS()
+		loaiDocGiaBUS = New LoaidocGiaBUS()
 
 		'Load LoaiDocGia list
 		Dim listLoaiDocGia = New List(Of LoaiDocGiaDTO)
 		Dim result As Result
 
-		result = loaiDocGiaBUS.selectAll(listLoaiDocGia)
+		result = loaiDocGiaBUS.SelectAll(listLoaiDocGia)
 		If (result.FlagResult = False) Then
 			MessageBox.Show("Lấy danh sách loại đọc giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			System.Console.WriteLine(result.SystemMessage)
@@ -110,15 +106,16 @@ Public Class frmLapTheDocGia
 		cbLoaiDocGia.ValueMember = "MaLoaiDocGia"
 
 		'Set Ma so doc gia auto
-		Dim NextMaSoDocGia = "1"
-		result = docGiaBUS.BuildMaSoDocGia(NextMaSoDocGia)
+		Dim nextMaSoDocGia = "1"
+		result = docGiaBUS.BuildMaSoDocGia(nextMaSoDocGia)
 		If (result.FlagResult = False) Then
 			MessageBox.Show("Lấy danh tự động mã độc giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			System.Console.WriteLine(result.SystemMessage)
 			Me.Close()
 			Return
 		End If
-		txtMaDocGia.Text = NextMaSoDocGia
+		txtMaDocGia.Text = nextMaSoDocGia
+
 	End Sub
 
 End Class

@@ -3,12 +3,10 @@ Imports QLTVDTO
 Imports Utility
 
 Public Class frmQuanLyDocGia
-
-	Private docGiaBus As DocGiaBUS
-	Private loaiDocGiaBus As LoaiDocGiaBUS
+	Private docGiaBUS As docGiaBUS
+	Private loaiDocGiaBUS As LoaidocGiaBUS
 
 	Private Sub btnCapNhat_Click(sender As Object, e As EventArgs) Handles btnCapNhat.Click
-
 		' Get the current cell location.
 		Dim currentRowIndex As Integer = dgvListDocGia.CurrentCellAddress.Y ' current row selected
 
@@ -23,18 +21,19 @@ Public Class frmQuanLyDocGia
 				docGia.HoTen = txtHoTenDocGia.Text
 				docGia.NgaySinh = dtpNgaySinh.Value
 				docGia.Email = txtEmail.Text
+				docGia.DiaChi = txtDiaChi.Text
 				docGia.NgayLapThe = dtNgayLapThe.Value
 				docGia.MaLoaiDocGia = Convert.ToInt32(cbLoaiDocGiaCapNhat.SelectedValue)
 
 				'2. Business .....
-				If (docGiaBus.IsVaildName(docGia) = False) Then
+				If (docGiaBUS.IsVaildName(docGia) = False) Then
 					MessageBox.Show("Họ tên Độc Giả không đúng.")
 					txtHoTenDocGia.Focus()
 					Return
 				End If
 				'3. Insert to DB
 				Dim result As Result
-				result = docGiaBus.update(docGia)
+				result = docGiaBUS.Update(docGia)
 				If (result.FlagResult = True) Then
 					' Re-Load docGia list
 					LoadListDocGia(cbLoaiDocGia.SelectedValue)
@@ -50,24 +49,22 @@ Public Class frmQuanLyDocGia
 				Console.WriteLine(ex.StackTrace)
 			End Try
 		End If
+
 	End Sub
 
-
-
 	Private Sub btnXoa_Click(sender As Object, e As EventArgs) Handles btnXoa.Click
-
 		' Get the current cell location.
 		Dim currentRowIndex As Integer = dgvListDocGia.CurrentCellAddress.Y 'current row selected
-
 
 		'Verify that indexing OK
 		If (-1 < currentRowIndex And currentRowIndex < dgvListDocGia.RowCount) Then
 			Select Case MsgBox("Bạn có thực sự muốn xóa học sinh có mã số: " + txtMaDocGia.Text, MsgBoxStyle.YesNo, "Information")
+
 				Case MsgBoxResult.Yes
 					Try
 						'1. Delete from DB
 						Dim result As Result
-						result = docGiaBus.delete(txtMaDocGia.Text)
+						result = docGiaBUS.Delete(txtMaDocGia.Text)
 						If (result.FlagResult = True) Then
 
 							' Re-Load LoaiHocSinh list
@@ -98,32 +95,33 @@ Public Class frmQuanLyDocGia
 	End Sub
 
 	Private Sub frmQuanLyDocGia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		docGiaBUS = New docGiaBUS()
+		loaiDocGiaBUS = New LoaidocGiaBUS()
 
-		docGiaBus = New DocGiaBUS()
-		loaiDocGiaBus = New LoaiDocGiaBUS()
-
+		'Load LoaiDocGia list
 		Dim listLoaiDocGia = New List(Of LoaiDocGiaDTO)
 		Dim result As Result
-		result = loaiDocGiaBus.selectAll(listLoaiDocGia)
+		result = loaiDocGiaBUS.SelectAll(listLoaiDocGia)
 		If (result.FlagResult = False) Then
-			MessageBox.Show("Lấy danh sách loại Độc Giá không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			MessageBox.Show("Lấy danh sách loại Độc Giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			System.Console.WriteLine(result.SystemMessage)
 			Return
 		End If
 
 		cbLoaiDocGia.DataSource = New BindingSource(listLoaiDocGia, String.Empty)
-		cbLoaiDocGia.DisplayMember = "TenLoai"
+		cbLoaiDocGia.DisplayMember = "TenLoaiDocGia"
 		cbLoaiDocGia.ValueMember = "MaLoaiDocGia"
 
 		cbLoaiDocGiaCapNhat.DataSource = New BindingSource(listLoaiDocGia, String.Empty)
-		cbLoaiDocGiaCapNhat.DisplayMember = "TenLoai"
-		cbLoaiDocGiaCapNhat.ValueMember = "MaLoaiHS"
+		cbLoaiDocGiaCapNhat.DisplayMember = "TenLoaiDocGia"
+		cbLoaiDocGiaCapNhat.ValueMember = "MaLoaiDocGia"
+
 	End Sub
 
 	Private Sub LoadListDocGia()
 		Dim listDocGia = New List(Of DocGiaDTO)
 		Dim result As Result
-		result = docGiaBus.selectAll(listDocGia)
+		result = docGiaBUS.SelectAll(listDocGia)
 
 		If (result.FlagResult = False) Then
 			MessageBox.Show("Lấy danh sách Độc Giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -145,9 +143,6 @@ Public Class frmQuanLyDocGia
 		clMa.DataPropertyName = "MaDocGia"
 		dgvListDocGia.Columns.Add(clMa)
 
-
-
-
 		Dim clHoTen = New DataGridViewTextBoxColumn()
 		clHoTen.Name = "HoTen"
 		clHoTen.HeaderText = "Họ Tên"
@@ -159,7 +154,6 @@ Public Class frmQuanLyDocGia
 		'clLoaiHS.HeaderText = "Tên Loại"
 		'clLoaiHS.DataPropertyName = "LoaiHS"
 		'dgvListDocGia.Columns.Add(clLoaiHS)
-
 
 		Dim clNgaySinh = New DataGridViewTextBoxColumn()
 		clNgaySinh.Name = "NgaySinh"
@@ -194,7 +188,7 @@ Public Class frmQuanLyDocGia
 	Private Sub LoadListDocGia(maLoai As String)
 		Dim listDocGia = New List(Of DocGiaDTO)
 		Dim result As Result
-		result = docGiaBus.selectALL_ByType(maLoai, listDocGia)
+		result = docGiaBUS.SelectAllByType(maLoai, listDocGia)
 		If (result.FlagResult = False) Then
 			MessageBox.Show("Lấy danh sách Độc Giả theo loại không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			System.Console.WriteLine(result.SystemMessage)
@@ -212,10 +206,8 @@ Public Class frmQuanLyDocGia
 		Dim clMa = New DataGridViewTextBoxColumn()
 		clMa.Name = "MaDocGia"
 		clMa.HeaderText = "Mã Độc Giả"
-		clMa.DataPropertyName = "MSHS"
+		clMa.DataPropertyName = "MaDocGia"
 		dgvListDocGia.Columns.Add(clMa)
-
-
 
 		Dim clHoTen = New DataGridViewTextBoxColumn()
 		clHoTen.Name = "HoTen"
@@ -228,7 +220,6 @@ Public Class frmQuanLyDocGia
 		'clLoaiHS.HeaderText = "Tên Loại"
 		'clLoaiHS.DataPropertyName = "LoaiHS"
 		'dgvListDocGia.Columns.Add(clLoaiHS)
-
 
 		Dim clNgaySinh = New DataGridViewTextBoxColumn()
 		clNgaySinh.Name = "NgaySinh"
@@ -254,19 +245,19 @@ Public Class frmQuanLyDocGia
 		clDiaChi.HeaderText = "Ngày Lập Thẻ"
 		clDiaChi.DataPropertyName = "NgayLapThe"
 		dgvListDocGia.Columns.Add(clNgayLapThe)
+
 	End Sub
-	Private Sub cbLoaiHS_SELECTedIndexChanged(sender As Object, e As EventArgs) Handles cbLoaiDocGia.SelectedIndexChanged
+
+	Private Sub cbLoaiDocGia_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbLoaiDocGia.SelectedIndexChanged
 		Try
-			Dim maLoai = Convert.ToInt32(cbLoaiDocGia.SelectedValue)
+			Dim maLoai = Convert.ToInt32(cbLoaiDocGia.SELECTedValue)
 			LoadListDocGia(maLoai)
-
 		Catch ex As Exception
-
 		End Try
 
 	End Sub
 
-	Private Sub dgvListHS_SELECTionChanged(sender As Object, e As EventArgs) Handles dgvListDocGia.SelectionChanged
+	Private Sub dgvListDocGia_SelectionChanged(sender As Object, e As EventArgs) Handles dgvListDocGia.SelectionChanged
 		' Get the current cell location.
 		Dim currentRowIndex As Integer = dgvListDocGia.CurrentCellAddress.Y 'current row selected
 		'Dim x As Integer = dgvListHS.CurrentCellAddress.X 'curent column selected
@@ -289,6 +280,7 @@ Public Class frmQuanLyDocGia
 				Console.WriteLine(ex.StackTrace)
 			End Try
 		End If
+
 	End Sub
 
 End Class

@@ -15,7 +15,6 @@ Public Class LoaiDocGiaDAL
 	End Sub
 
 	Public Function GetNextID(ByRef nextID As Integer) As Result
-
 		Dim query As String = String.Empty
 		query &= "SELECT TOP 1 [maloaidocgia] "
 		query &= "FROM [tblLoaiDocGia] "
@@ -50,10 +49,10 @@ Public Class LoaiDocGiaDAL
 			End Using
 		End Using
 		Return New Result(True) ' thanh cong
+
 	End Function
 
-	Public Function insert(loaiDocGia As LoaiDocGiaDTO) As Result
-
+	Public Function Insert(loaiDocGia As LoaiDocGiaDTO) As Result
 		Dim query As String = String.Empty
 		query &= "INSERT INTO [tblLoaiDocGia] ([maloaidocgia], [tenloaidocgia])"
 		query &= "VALUES (@maloaidocgia, @tenloaidocgia)"
@@ -86,14 +85,13 @@ Public Class LoaiDocGiaDAL
 			End Using
 		End Using
 		Return New Result(True) ' thanh cong
+
 	End Function
 
-	Public Function selectALL(ByRef listLoaiDocGia As List(Of LoaiDocGiaDTO)) As Result
-
+	Public Function SelectAll(ByRef listLoaiDocGia As List(Of LoaiDocGiaDTO)) As Result
 		Dim query As String = String.Empty
 		query &= " SELECT [maloaidocgia], [tenloaidocgia]"
 		query &= " FROM [tblLoaiDocGia]"
-
 
 		Using conn As New SqlConnection(connectionString)
 			Using comm As New SqlCommand()
@@ -121,6 +119,7 @@ Public Class LoaiDocGiaDAL
 			End Using
 		End Using
 		Return New Result(True) ' thanh cong
+
 	End Function
 
 End Class

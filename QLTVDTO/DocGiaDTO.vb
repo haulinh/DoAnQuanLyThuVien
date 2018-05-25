@@ -7,7 +7,17 @@
 	Private _email As String
 	Private _ngayLapThe As Date
 
-	Public Sub New(_maDocgia As String, _hoTen As String, _maLoaiDocGia As Integer, _ngaySinh As Date, _diaChi As String, _email As String, _ngayLapThe As Date)
+	Public Sub New()
+	End Sub
+
+	Public Sub New(_maDocgia As String, 
+	               _hoTen As String, 
+	               _maLoaiDocGia As Integer, 
+	               _ngaySinh As Date, 
+	               _diaChi As String,
+	               _email As String, 
+	               _ngayLapThe As Date)
+
 		Me.MaDocGia = _maDocgia
 		Me.HoTen = _hoTen
 		Me.MaLoaiDocGia = _maLoaiDocGia
@@ -16,9 +26,6 @@
 		Me.DiaChi = _diaChi
 		Me.Email = _email
 		Me.NgayLapThe = _ngayLapThe
-	End Sub
-
-	Public Sub New()
 	End Sub
 
 	Public Property HoTen As String

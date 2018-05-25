@@ -1574,7 +1574,7 @@ Namespace QLTVDataSetTableAdapters
                 backupDataSet.Merge(dataSet)
             End If
             Try 
-                '---- Prepare for update -----------
+                '---- Prepare for Update -----------
                 '
                 If (Not (Me._tblDocGiaTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._tblDocGiaTableAdapter, Me._tblDocGiaTableAdapter.Connection)

@@ -10,15 +10,16 @@ Public Class DocGiaDAL
 		' Read ConnectionString value from App.config file
 		connectionString = ConfigurationManager.AppSettings("ConnectionString")
 	End Sub
+
 	Public Sub New(ConnectionString As String)
 		Me.connectionString = ConnectionString
 	End Sub
 
-	Public Function BuildMaSoDocGia(ByRef NextMaSoDocGia As String) As Result
-		NextMaSoDocGia = String.Empty
+	Public Function BuildMaSoDocGia(ByRef nextMaSoDocGia As String) As Result
+		nextMaSoDocGia = String.Empty
 		Dim y = DateTime.Now.Year
 		Dim x = y.ToString().Substring(2)
-		NextMaSoDocGia = x + "000000"
+		nextMaSoDocGia = x + "000000"
 
 		Dim query As String = String.Empty
 		query &= "SELECT TOP 1 [madocgia] "
@@ -52,16 +53,15 @@ Public Class DocGiaDAL
 						If (year < icurrentYearOnDB) Then
 							year = icurrentYearOnDB
 						End If
-						NextMaSoDocGia = year.ToString()
+						nextMaSoDocGia = year.ToString()
 						Dim v = msOnDB.Substring(2)
 						Dim convertDecimal = Convert.ToDecimal(v)
 						convertDecimal = convertDecimal + 1
 						Dim tmp = convertDecimal.ToString()
 						tmp = tmp.PadLeft(msOnDB.Length - 2, "0")
-						NextMaSoDocGia = NextMaSoDocGia + tmp
-						System.Console.WriteLine(NextMaSoDocGia)
+						nextMaSoDocGia = nextMaSoDocGia + tmp
+						System.Console.WriteLine(nextMaSoDocGia)
 					End If
-
 				Catch ex As Exception
 					conn.Close() ' that bai!!!
 					System.Console.WriteLine(ex.StackTrace)
@@ -70,10 +70,10 @@ Public Class DocGiaDAL
 			End Using
 		End Using
 		Return New Result(True) ' thanh cong
+
 	End Function
 
-	Public Function insert(docGia As DocGiaDTO) As Result
-
+	Public Function Insert(docGia As DocGiaDTO) As Result
 		Dim query As String = String.Empty
 		query &= "INSERT INTO [tblDocGia] ([madocgia], [hoten], [maloaidocgia], [ngaysinh], [diachi], [email], [ngaylapthe])"
 		query &= "VALUES (@madocgia, @hoten, @maloaidocgia, @ngaysinh, @diachi, @email, @ngaylapthe)"
@@ -108,14 +108,13 @@ Public Class DocGiaDAL
 			End Using
 		End Using
 		Return New Result(True) ' thanh cong
+
 	End Function
 
-	Public Function selectALL(ByRef listDocGia As List(Of DocGiaDTO)) As Result
-
+	Public Function SelectAll(ByRef listDocGia As List(Of DocGiaDTO)) As Result
 		Dim query As String = String.Empty
 		query &= "SELECT [madocgia], [hoten], [maloaidocgia], [ngaysinh], [diachi], [email], [ngaylapthe]"
 		query &= "FROM [tblDocGia]"
-
 
 		Using conn As New SqlConnection(connectionString)
 			Using comm As New SqlCommand()
@@ -134,7 +133,6 @@ Public Class DocGiaDAL
 							listDocGia.Add(New DocGiaDTO(reader("madocgia"), reader("hoten"), reader("maloaidocgia"), reader("ngaysinh"), reader("diachi"), reader("email"), reader("ngaylapthe")))
 						End While
 					End If
-
 				Catch ex As Exception
 					conn.Close()
 					System.Console.WriteLine(ex.StackTrace)
@@ -146,7 +144,7 @@ Public Class DocGiaDAL
 
 	End Function
 
-	Public Function selectALL_ByType(maLoai As Integer, ByRef listDocGia As List(Of DocGiaDTO)) As Result
+	Public Function SelectAllByType(maLoai As Integer, ByRef listDocGia As List(Of DocGiaDTO)) As Result
 		Dim query As String = String.Empty
 		query &= "SELECT [madocgia], [hoten], [maloaidocgia],  [ngaysinh], [diachi], [email], [ngaylapthe] "
 		query &= "FROM [tblDocGia] "
@@ -179,12 +177,10 @@ Public Class DocGiaDAL
 			End Using
 		End Using
 		Return New Result(True) ' thanh cong
+
 	End Function
 
-
-
-	Public Function update(docGia As DocGiaDTO) As Result
-
+	Public Function Update(docGia As DocGiaDTO) As Result
 		Dim query As String = String.Empty
 		query &= " UPDATE [tblDocGia] SET"
 		query &= " [hoten] = @hoten "
@@ -222,11 +218,10 @@ Public Class DocGiaDAL
 			End Using
 		End Using
 		Return New Result(True) ' thanh cong
+
 	End Function
 
-
-	Public Function delete(maHocSinh As String) As Result
-
+	Public Function Delete(maHocSinh As String) As Result
 		Dim query As String = String.Empty
 		query &= " DELETE FROM [tblDocGia] "
 		query &= " WHERE "

@@ -21,18 +21,18 @@ Public Class LoaiDocGiaBUS
 
 	End Function
 
-	Public Function insert(loaiDocGia As LoaiDocGiaDTO) As Result
+	Public Function Insert(loaiDocGia As LoaiDocGiaDTO) As Result
 		'1. verify data here!!
 
-		'2. insert to DB
-		Return loaiDocGiaDAL.insert(loaiDocGia)
+		'2. Insert to DB
+		Return loaiDocGiaDAL.Insert(loaiDocGia)
 	End Function
 
-	Public Function selectAll(ByRef listLoaiDocGia As List(Of LoaiDocGiaDTO)) As Result
+	Public Function SelectAll(ByRef listLoaiDocGia As List(Of LoaiDocGiaDTO)) As Result
 		'1. verify data here!!
 
-		'2. insert to DB
-		Return loaiDocGiaDAL.selectALL(listLoaiDocGia)
+		'2. Insert to DB
+		Return loaiDocGiaDAL.SelectAll(listLoaiDocGia)
 	End Function
 
 	Public Function GetNextID(ByRef nextID As Integer) As Result
