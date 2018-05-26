@@ -391,7 +391,7 @@ Partial Class frmQuanLyDocGia
 		Me.Margin = New System.Windows.Forms.Padding(4)
 		Me.Name = "frmQuanLyDocGia"
 		Me.Padding = New System.Windows.Forms.Padding(27, 74, 27, 25)
-		Me.Text = "frmQuanLyDocGia"
+		Me.Text = "Quản Lý Độc Giả"
 		CType(Me.dgvListDocGia,System.ComponentModel.ISupportInitialize).EndInit
 		Me.ResumeLayout(false)
 		Me.PerformLayout

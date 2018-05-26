@@ -37,7 +37,7 @@ Partial Class frmMain
 		Me.cmHoSoDocGia.ImageScalingSize = New System.Drawing.Size(20, 20)
 		Me.cmHoSoDocGia.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuảnLýToolStripMenuItem, Me.QuảnLíToolStripMenuItem, Me.ThêmLoạiĐộcGiảToolStripMenuItem, Me.QuảnLíĐộcGiảToolStripMenuItem})
 		Me.cmHoSoDocGia.Name = "MetroContextMenu1"
-		Me.cmHoSoDocGia.Size = New System.Drawing.Size(213, 100)
+		Me.cmHoSoDocGia.Size = New System.Drawing.Size(213, 128)
 		Me.cmHoSoDocGia.Text = "Hồ sơ độc giả"
 		'
 		'QuảnLýToolStripMenuItem
@@ -67,7 +67,7 @@ Partial Class frmMain
 		'btnHoSoDocGia
 		'
 		Me.btnHoSoDocGia.Location = New System.Drawing.Point(29, 75)
-		Me.btnHoSoDocGia.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnHoSoDocGia.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnHoSoDocGia.Name = "btnHoSoDocGia"
 		Me.btnHoSoDocGia.Size = New System.Drawing.Size(133, 28)
 		Me.btnHoSoDocGia.TabIndex = 2
@@ -81,7 +81,7 @@ Partial Class frmMain
 		Me.ClientSize = New System.Drawing.Size(1368, 770)
 		Me.Controls.Add(Me.btnHoSoDocGia)
 		Me.IsMdiContainer = true
-		Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Margin = New System.Windows.Forms.Padding(4)
 		Me.Name = "frmMain"
 		Me.Padding = New System.Windows.Forms.Padding(27, 74, 27, 25)
 		Me.Text = "Quản lí độc giả"

@@ -88,7 +88,71 @@ Public Class LoaiDocGiaDAL
 
 	End Function
 
-	Public Function SelectAll(ByRef listLoaiDocGia As List(Of LoaiDocGiaDTO)) As Result
+	Public Function Update(loaiDocGia As LoaiDocGiaDTO) As Result
+
+		Dim query As String = String.Empty
+		query &= " UPDATE [tblLoaiDocGia] SET"
+		query &= " [tenloaidocgia] = @tenloaidocgia "
+		query &= "WHERE "
+		query &= " [maloaidocgia] = @maloaidocgia "
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+					.Parameters.AddWithValue("@maloaidocgia", loaiDocGia.MaLoaiDocGia)
+					.Parameters.AddWithValue("@tenloaidocgia", loaiDocGia.TenLoaiDocGia)
+				End With
+				Try
+					conn.Open()
+					comm.ExecuteNonQuery()
+				Catch ex As Exception
+					Console.WriteLine(ex.StackTrace)
+					conn.Close()
+					' them that bai!!!
+					Return New Result(False, "Cập nhật độc giả không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+
+		Return New Result(True) ' thanh cong
+
+	End Function
+
+	Public Function Delete(maLoai As Integer) As Result
+
+		Dim query As String = String.Empty
+		query &= " DELETE FROM [tblLoaiDocGia] "
+		query &= " WHERE "
+		query &= " [maloaidocgia] = @maloaidocgia "
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+					.Parameters.AddWithValue("@maloaidocgia", maLoai)
+				End With
+				Try
+					conn.Open()
+					comm.ExecuteNonQuery()
+				Catch ex As Exception
+					Console.WriteLine(ex.StackTrace)
+					conn.Close()
+					' them that bai!!!
+					Return New Result(False, "Xóa độc giả không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+
+		Return New Result(True) ' thanh cong
+
+	End Function
+
+	Public Function SelectAll(ByRef LoaiDocGiaDTO As List(Of LoaiDocGiaDTO)) As Result
 		Dim query As String = String.Empty
 		query &= " SELECT [maloaidocgia], [tenloaidocgia]"
 		query &= " FROM [tblLoaiDocGia]"
@@ -105,9 +169,9 @@ Public Class LoaiDocGiaDAL
 					Dim reader As SqlDataReader
 					reader = comm.ExecuteReader()
 					If reader.HasRows = True Then
-						listLoaiDocGia.Clear()
+						LoaiDocGiaDTO.Clear()
 						While reader.Read()
-							listLoaiDocGia.Add(New LoaiDocGiaDTO(reader("maloaidocgia"), reader("tenloaidocgia")))
+							LoaiDocGiaDTO.Add(New LoaiDocGiaDTO(reader("maloaidocgia"), reader("tenloaidocgia")))
 						End While
 					End If
 				Catch ex As Exception

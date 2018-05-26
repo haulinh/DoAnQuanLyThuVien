@@ -28,11 +28,25 @@ Public Class LoaiDocGiaBUS
 		Return loaiDocGiaDAL.Insert(loaiDocGia)
 	End Function
 
-	Public Function SelectAll(ByRef listLoaiDocGia As List(Of LoaiDocGiaDTO)) As Result
+	Public Function Update(loaiDocGia As LoaiDocGiaDTO) As Result
+		'1. verify data here!!
+
+		'2. insert to DB
+		Return loaiDocGiaDAL.Update(loaiDocGia)
+	End Function
+
+	Public Function Delete(maLoai As Integer) As Result
+		'1. verify data here!!
+
+		'2. insert to DB
+		Return loaiDocGiaDAL.Delete(maLoai)
+	End Function
+
+	Public Function SelectAll(ByRef LoaiDocGiaDTO As List(Of LoaiDocGiaDTO)) As Result
 		'1. verify data here!!
 
 		'2. Insert to DB
-		Return loaiDocGiaDAL.SelectAll(listLoaiDocGia)
+		Return loaiDocGiaDAL.SelectAll(LoaiDocGiaDTO)
 	End Function
 
 	Public Function GetNextID(ByRef nextID As Integer) As Result

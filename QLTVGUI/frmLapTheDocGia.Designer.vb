@@ -36,7 +36,6 @@ Partial Class frmLapTheDocGia
 		Me.MetroLabel8 = New MetroFramework.Controls.MetroLabel()
 		Me.txtDiaChi = New MetroFramework.Controls.MetroTextBox()
 		Me.dtNgayLapThe = New MetroFramework.Controls.MetroDateTime()
-		Me.MetroLabel6 = New MetroFramework.Controls.MetroLabel()
 		Me.MetroLabel3 = New MetroFramework.Controls.MetroLabel()
 		Me.cbLoaiDocGia = New System.Windows.Forms.ComboBox()
 		Me.SuspendLayout
@@ -270,16 +269,6 @@ Partial Class frmLapTheDocGia
 		Me.dtNgayLapThe.Size = New System.Drawing.Size(260, 30)
 		Me.dtNgayLapThe.TabIndex = 14
 		'
-		'MetroLabel6
-		'
-		Me.MetroLabel6.AutoSize = true
-		Me.MetroLabel6.Location = New System.Drawing.Point(237, 11)
-		Me.MetroLabel6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.MetroLabel6.Name = "MetroLabel6"
-		Me.MetroLabel6.Size = New System.Drawing.Size(104, 20)
-		Me.MetroLabel6.TabIndex = 16
-		Me.MetroLabel6.Text = "Lập thẻ độc giả"
-		'
 		'MetroLabel3
 		'
 		Me.MetroLabel3.AutoSize = true
@@ -304,7 +293,6 @@ Partial Class frmLapTheDocGia
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(481, 475)
 		Me.Controls.Add(Me.cbLoaiDocGia)
-		Me.Controls.Add(Me.MetroLabel6)
 		Me.Controls.Add(Me.txtDiaChi)
 		Me.Controls.Add(Me.txtEmail)
 		Me.Controls.Add(Me.dtNgayLapThe)
@@ -323,7 +311,7 @@ Partial Class frmLapTheDocGia
 		Me.Margin = New System.Windows.Forms.Padding(4)
 		Me.Name = "frmLapTheDocGia"
 		Me.Padding = New System.Windows.Forms.Padding(27, 74, 27, 25)
-		Me.Text = "frmLapTheDocGia"
+		Me.Text = "Lập thẻ độc giả"
 		Me.ResumeLayout(false)
 		Me.PerformLayout
 
@@ -342,7 +330,6 @@ End Sub
 	Friend WithEvents MetroLabel8 As MetroFramework.Controls.MetroLabel
 	Friend WithEvents txtDiaChi As MetroFramework.Controls.MetroTextBox
 	Friend WithEvents dtNgayLapThe As MetroFramework.Controls.MetroDateTime
-	Friend WithEvents MetroLabel6 As MetroFramework.Controls.MetroLabel
 	Friend WithEvents MetroLabel3 As MetroFramework.Controls.MetroLabel
 	Friend WithEvents cbLoaiDocGia As ComboBox
 End Class

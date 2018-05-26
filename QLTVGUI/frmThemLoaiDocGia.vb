@@ -11,12 +11,12 @@ Public Class frmThemLoaiDocGia
 
 		'1. Mapping data from GUI control
 		loaiDocGia.MaLoaiDocGia = Convert.ToInt32(txtMaLoaiDocGia.Text)
-		loaiDocGia.TenLoaiDocGia = txtTenLoaiDocGia.Text
+		loaiDocGia.TenLoaiDocGia = txtTenLoaiDocGiaDocGia.Text
 
 		'2. Business .....
 		If (docGiaBUS.IsVaildName(loaiDocGia) = False) Then
 			MessageBox.Show("Tên Loại độc giả không đúng. Vui lòng kiểm tra lại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-			txtTenLoaiDocGia.Focus()
+			txtTenLoaiDocGiaDocGia.Focus()
 
 			Return
 		End If
@@ -25,7 +25,7 @@ Public Class frmThemLoaiDocGia
 		result = docGiaBUS.Insert(loaiDocGia)
 		If (result.FlagResult = True) Then
 			MessageBox.Show("Thêm loại độc giả thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-			txtTenLoaiDocGia.Text = String.Empty
+			txtTenLoaiDocGiaDocGia.Text = String.Empty
 
 			' Get Next ID
 			Dim nextID As Integer
@@ -66,12 +66,12 @@ Public Class frmThemLoaiDocGia
 
 		'1. Mapping data from GUI control
 		loaiDocGia.MaLoaiDocGia = Convert.ToInt32(txtMaLoaiDocGia.Text)
-		loaiDocGia.TenLoaiDocGia = txtTenLoaiDocGia.Text
+		loaiDocGia.TenLoaiDocGia = txtTenLoaiDocGiaDocGia.Text
 
 		'2. Business .....
 		If (docGiaBUS.IsVaildName(loaiDocGia) = False) Then
 			MessageBox.Show("Tên Loại độc giả không đúng. Vui lòng kiểm tra lại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-			txtTenLoaiDocGia.Focus()
+			txtTenLoaiDocGiaDocGia.Focus()
 			Return
 		End If
 		'3. Insert to DB
@@ -79,7 +79,7 @@ Public Class frmThemLoaiDocGia
 		result = docGiaBUS.Insert(loaiDocGia)
 		If (result.FlagResult = True) Then
 			MessageBox.Show("Thêm loại độc giả thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-			txtTenLoaiDocGia.Text = String.Empty
+			txtTenLoaiDocGiaDocGia.Text = String.Empty
 			Me.Close()
 		Else
 			MessageBox.Show("Thêm loại độc giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

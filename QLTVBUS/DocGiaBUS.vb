@@ -43,11 +43,11 @@ Public Class DocGiaBUS
 
 	End Function
 
-	Public Function SelectAll(ByRef listLoaiDocGia As List(Of DocGiaDTO)) As Result
+	Public Function SelectAll(ByRef LoaiDocGiaDTO As List(Of DocGiaDTO)) As Result
 		'1. verify data here!!
 
 		'2. Insert to DB
-		Return docGiaDAL.SelectAll(listLoaiDocGia)
+		Return docGiaDAL.SelectAll(LoaiDocGiaDTO)
 
 	End Function
 

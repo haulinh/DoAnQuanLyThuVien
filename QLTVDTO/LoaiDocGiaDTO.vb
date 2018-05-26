@@ -1,13 +1,13 @@
 ﻿Public Class LoaiDocGiaDTO
 	Private _maLoaiDocGia As Integer
-	Private _tenLoaiDocGia As String
+	Private _TenLoaiDocGia As String
 
 	Public Sub New()
 	End Sub
 
-	Public Sub New(maLoai As Integer, tenLoai As String)
+	Public Sub New(maLoai As Integer, TenLoaiDocGia As String)
 		_maLoaiDocGia = maLoai
-		_tenLoaiDocGia = tenLoai
+		_TenLoaiDocGia = TenLoaiDocGia
 	End Sub
 
 	Public Property MaLoaiDocGia As Integer
@@ -21,10 +21,10 @@
 
 	Public Property TenLoaiDocGia As String
 		Get
-			Return _tenLoaiDocGia
+			Return _TenLoaiDocGia
 		End Get
 		Set(value As String)
-			_tenLoaiDocGia = value
+			_TenLoaiDocGia = value
 		End Set
 	End Property
 End Class

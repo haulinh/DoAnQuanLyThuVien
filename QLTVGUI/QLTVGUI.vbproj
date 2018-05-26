@@ -108,6 +108,12 @@
     <Compile Include="frmQuanLyDocGia.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmQuanLyLoaiDocGia.Designer.vb">
+      <DependentUpon>frmQuanLyLoaiDocGia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyLoaiDocGia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmThemLoaiDocGia.Designer.vb">
       <DependentUpon>frmThemLoaiDocGia.vb</DependentUpon>
     </Compile>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyDocGia.resx">
       <DependentUpon>frmQuanLyDocGia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyLoaiDocGia.resx">
+      <DependentUpon>frmQuanLyLoaiDocGia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemLoaiDocGia.resx">
       <DependentUpon>frmThemLoaiDocGia.vb</DependentUpon>
@@ -183,6 +192,10 @@
     <ProjectReference Include="..\QLTVBUS\QLTVBUS.vbproj">
       <Project>{DB73C54B-0CF9-4A81-9CAA-348ABEF73046}</Project>
       <Name>QLTVBUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QLTVDAL\QLTVDAL.vbproj">
+      <Project>{5B1796FB-E5C3-43E7-B92E-E24262948F52}</Project>
+      <Name>QLTVDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\QLTVDTO\QLTVDTO.vbproj">
       <Project>{FE3717CE-771E-41F0-887B-05B667828D32}</Project>

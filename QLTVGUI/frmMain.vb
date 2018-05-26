@@ -9,9 +9,9 @@ Public Class frmMain
 	End Sub
 
 	Private Sub ThêmLoạiĐộcGiảToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ThêmLoạiĐộcGiảToolStripMenuItem.Click
-		Dim frmdg As frmLapTheDocGia = New frmLapTheDocGia()
-		frmdg.MdiParent = Me
-		frmdg.Show()
+		Dim frmLapTheDocGia As frmLapTheDocGia = New frmLapTheDocGia()
+		frmLapTheDocGia.MdiParent = Me
+		frmLapTheDocGia.Show()
 
 	End Sub
 
@@ -22,16 +22,22 @@ Public Class frmMain
 	End Sub
 
 	Private Sub QuảnLýToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuảnLýToolStripMenuItem.Click
-		Dim frmdg As frmThemLoaiDocGia = New frmThemLoaiDocGia()
-		frmdg.MdiParent = Me
-		frmdg.Show()
+		Dim frmThemLoaiDoGia As frmThemLoaiDocGia = New frmThemLoaiDocGia()
+		frmThemLoaiDoGia.MdiParent = Me
+		frmThemLoaiDoGia.Show()
 
 	End Sub
 
 	Private Sub QuảnLíĐộcGiảToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuảnLíĐộcGiảToolStripMenuItem.Click
-		Dim frmDocGia As frmQuanLyDocGia = New frmQuanLyDocGia()
-		frmDocGia.MdiParent = Me
-		frmDocGia.Show()
+		Dim frmQuanLyDocGia As frmQuanLyDocGia = New frmQuanLyDocGia()
+		frmQuanLyDocGia.MdiParent = Me
+		frmQuanLyDocGia.Show()
 
+	End Sub
+
+	Private Sub QuảnLíToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuảnLíToolStripMenuItem.Click
+		Dim frmQuanLyLoaiDocGia As frmQuanLyLoaiDocGia = New frmQuanLyLoaiDocGia()
+		frmQuanLyLoaiDocGia.MdiParent = Me
+		frmQuanLyLoaiDocGia.Show()
 	End Sub
 End Class

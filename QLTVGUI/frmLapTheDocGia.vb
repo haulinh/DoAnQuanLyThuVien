@@ -89,11 +89,11 @@ Public Class frmLapTheDocGia
 		docGiaBUS = New docGiaBUS()
 		loaiDocGiaBUS = New LoaidocGiaBUS()
 
-		'Load LoaiDocGia list
-		Dim listLoaiDocGia = New List(Of LoaiDocGiaDTO)
+		'Load LoaiDocGiaDTO list
+		Dim LoaiDocGiaDTo = New List(Of LoaiDocGiaDTo)
 		Dim result As Result
 
-		result = loaiDocGiaBUS.SelectAll(listLoaiDocGia)
+		result = loaiDocGiaBUS.SelectAll(LoaiDocGiaDTo)
 		If (result.FlagResult = False) Then
 			MessageBox.Show("Lấy danh sách loại đọc giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			System.Console.WriteLine(result.SystemMessage)
@@ -101,7 +101,7 @@ Public Class frmLapTheDocGia
 			Return
 		End If
 
-		cbLoaiDocGia.DataSource = New BindingSource(listLoaiDocGia, String.Empty)
+		cbLoaiDocGia.DataSource = New BindingSource(LoaiDocGiaDTo, String.Empty)
 		cbLoaiDocGia.DisplayMember = "TenLoaiDocGia"
 		cbLoaiDocGia.ValueMember = "MaLoaiDocGia"
 
