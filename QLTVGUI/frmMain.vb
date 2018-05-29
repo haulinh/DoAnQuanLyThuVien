@@ -40,4 +40,14 @@ Public Class frmMain
 		frmQuanLyLoaiDocGia.MdiParent = Me
 		frmQuanLyLoaiDocGia.Show()
 	End Sub
+
+	Private Sub btnQuanLi_Click(sender As Object, e As EventArgs) Handles btnQuanLi.Click
+		cmQuanLi.Show(btnQuanLi, 0, btnQuanLi.Height)
+	End Sub
+
+	Private Sub ThemSachToolTrip_Click(sender As Object, e As EventArgs) Handles ThemSachToolTrip.Click
+		Dim frmThemSach As frmThemSach = New frmThemSach()
+		frmThemSach.MdiParent = Me
+		frmThemSach.Show()
+	End Sub
 End Class
