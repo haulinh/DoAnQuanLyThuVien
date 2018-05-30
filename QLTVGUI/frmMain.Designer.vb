@@ -32,6 +32,7 @@ Partial Class frmMain
 		Me.cmQuanLi = New MetroFramework.Controls.MetroContextMenu(Me.components)
 		Me.ThemSachToolTrip = New System.Windows.Forms.ToolStripMenuItem()
 		Me.btnQuanLi = New MetroFramework.Controls.MetroButton()
+		Me.ThêmThểLoạiSáchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.cmHoSoDocGia.SuspendLayout()
 		Me.cmQuanLi.SuspendLayout()
 		Me.SuspendLayout()
@@ -70,33 +71,39 @@ Partial Class frmMain
 		'
 		'btnHoSoDocGia
 		'
-		Me.btnHoSoDocGia.Location = New System.Drawing.Point(104, 63)
+		Me.btnHoSoDocGia.Location = New System.Drawing.Point(98, 62)
 		Me.btnHoSoDocGia.Name = "btnHoSoDocGia"
 		Me.btnHoSoDocGia.Size = New System.Drawing.Size(100, 23)
-		Me.btnHoSoDocGia.TabIndex = 2
+		Me.btnHoSoDocGia.TabIndex = 1
 		Me.btnHoSoDocGia.Text = "Hồ sơ độc giả"
 		Me.btnHoSoDocGia.UseSelectable = True
 		'
 		'cmQuanLi
 		'
-		Me.cmQuanLi.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ThemSachToolTrip})
+		Me.cmQuanLi.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ThemSachToolTrip, Me.ThêmThểLoạiSáchToolStripMenuItem})
 		Me.cmQuanLi.Name = "cmQuanLi"
-		Me.cmQuanLi.Size = New System.Drawing.Size(153, 48)
+		Me.cmQuanLi.Size = New System.Drawing.Size(182, 48)
 		'
 		'ThemSachToolTrip
 		'
 		Me.ThemSachToolTrip.Name = "ThemSachToolTrip"
-		Me.ThemSachToolTrip.Size = New System.Drawing.Size(152, 22)
+		Me.ThemSachToolTrip.Size = New System.Drawing.Size(181, 22)
 		Me.ThemSachToolTrip.Text = "Thêm Sách"
 		'
 		'btnQuanLi
 		'
-		Me.btnQuanLi.Location = New System.Drawing.Point(23, 63)
+		Me.btnQuanLi.Location = New System.Drawing.Point(23, 62)
 		Me.btnQuanLi.Name = "btnQuanLi"
 		Me.btnQuanLi.Size = New System.Drawing.Size(75, 23)
-		Me.btnQuanLi.TabIndex = 5
+		Me.btnQuanLi.TabIndex = 0
 		Me.btnQuanLi.Text = "Quản Lí"
 		Me.btnQuanLi.UseSelectable = True
+		'
+		'ThêmThểLoạiSáchToolStripMenuItem
+		'
+		Me.ThêmThểLoạiSáchToolStripMenuItem.Name = "ThêmThểLoạiSáchToolStripMenuItem"
+		Me.ThêmThểLoạiSáchToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
+		Me.ThêmThểLoạiSáchToolStripMenuItem.Text = "Thêm Thể Loại Sách"
 		'
 		'frmMain
 		'
@@ -124,4 +131,5 @@ Partial Class frmMain
 	Friend WithEvents cmQuanLi As MetroFramework.Controls.MetroContextMenu
 	Friend WithEvents ThemSachToolTrip As ToolStripMenuItem
 	Friend WithEvents btnQuanLi As MetroFramework.Controls.MetroButton
+	Friend WithEvents ThêmThểLoạiSáchToolStripMenuItem As ToolStripMenuItem
 End Class

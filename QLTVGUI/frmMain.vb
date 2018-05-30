@@ -50,4 +50,10 @@ Public Class frmMain
 		frmThemSach.MdiParent = Me
 		frmThemSach.Show()
 	End Sub
+
+	Private Sub ThêmThểLoạiSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ThêmThểLoạiSáchToolStripMenuItem.Click
+		Dim frmThemTheLoaiSach As frmThemTheLoaiSach = New frmThemTheLoaiSach()
+		frmThemTheLoaiSach.MdiParent = Me
+		frmThemTheLoaiSach.Show()
+	End Sub
 End Class

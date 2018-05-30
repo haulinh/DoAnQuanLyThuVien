@@ -4,6 +4,7 @@ Imports Utility
 
 Public Class frmThemSach
 	Private sachBUS As SachBUS
+	Private theLoaiSachBUS As TheLoaiSachBUS
 
 	Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click
 		Dim sach As SachDTO
@@ -89,6 +90,32 @@ Public Class frmThemSach
 	End Sub
 
 	Private Sub frmThemSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		sachBUS = New SachBUS()
+		theLoaiSachBUS = New TheLoaiSachBUS()
 
+		Dim listTheLoaiSach = New List(Of TheLoaiSachDTO)
+		Dim result As Result
+
+		result = theLoaiSachBUS.selectAll(listTheLoaiSach)
+		If (result.FlagResult = False) Then
+			MessageBox.Show("Lấy danh sách Thể loại sách không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			System.Console.WriteLine(result.SystemMessage)
+			Me.Close()
+			Return
+		End If
+		cbMaTheLoaiSach.DataSource = New BindingSource(listTheLoaiSach, String.Empty)
+		cbMaTheLoaiSach.DisplayMember = "TenTheLoaiSach"
+		cbMaTheLoaiSach.ValueMember = "MaTheLoaiSach"
+
+		'set MSSH auto
+		Dim nextMaSoSach = "1"
+		result = sachBUS.BuildMaSoSach(nextMaSoSach)
+		If (result.FlagResult = False) Then
+			MessageBox.Show("Lấy danh tự động mã sách không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			System.Console.WriteLine(result.SystemMessage)
+			Me.Close()
+			Return
+		End If
+		txtMaSach.Text = nextMaSoSach
 	End Sub
 End Class
