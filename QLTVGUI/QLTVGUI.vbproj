@@ -146,6 +146,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLTVDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QLTVDataSet.vb">
+      <DependentUpon>QLTVDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmLapTheDocGia.resx">
