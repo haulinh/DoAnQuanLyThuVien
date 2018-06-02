@@ -22,6 +22,8 @@ Public Class DocGiaBUS
 
 	End Function
 
+
+
 	Public Function Insert(docgia As DocGiaDTO) As Result
 		'1. verify data here!!
 
@@ -65,4 +67,21 @@ Public Class DocGiaBUS
 
 	End Function
 
+	Public Function LayNgayHetHan(ngayLapThe As Date) As Date
+		Return ngayLapThe.AddMonths(ThamSoDTO.ThoiHanSuDung)
+	End Function
+
+	Public Function IsVaildAge(docGiaDTO As DocGiaDTO) As Boolean
+		Dim age As Integer
+		age = DateTime.Today.Year - docGiaDTO.NgaySinh.Year
+		If DateTime.Today < docGiaDTO.NgaySinh.AddYears(age)
+			age = age - 1
+		End If
+
+		If age < ThamSoDTO.TuoiToiThieu Or age > ThamSoDTO.TuoiToiDa
+			Return False
+		End If
+
+		Return True
+	End Function
 End Class

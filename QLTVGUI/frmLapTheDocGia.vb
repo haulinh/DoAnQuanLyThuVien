@@ -1,4 +1,5 @@
-﻿Imports QLTVBUS
+﻿Imports System.Text.RegularExpressions
+Imports QLTVBUS
 Imports QLTVDTO
 Imports Utility
 
@@ -23,6 +24,12 @@ Public Class frmLapTheDocGia
 		If (docGiaBUS.IsVaildName(docgia) = False) Then
 			MessageBox.Show("Họ tên độc giả không đúng")
 			txtHoTen.Focus()
+			Return
+		End If
+
+		If (docGiaBUS.IsVaildAge(docgia) = False) Then
+			MessageBox.Show("Tuổi độc giả không đúng")
+			dtNgaySinh.Focus()
 			Return
 		End If
 
@@ -72,6 +79,12 @@ Public Class frmLapTheDocGia
 			txtHoTen.Focus()
 			Return
 		End If
+
+		If (docGiaBUS.IsVaildAge(docgia) = False) Then
+			MessageBox.Show("Tuổi độc giả không đúng")
+			dtNgaySinh.Focus()
+			Return
+		End If
 		'3. Insert to DB
 		Dim result As Result
 		result = docGiaBUS.Insert(docgia)
@@ -116,6 +129,13 @@ Public Class frmLapTheDocGia
 		End If
 		txtMaDocGia.Text = nextMaSoDocGia
 
+		dtNgayLapThe.Value = DateTime.Today
+		dtNgayHetHan.Value = docGiaBUS.LayNgayHetHan(dtNgayLapThe.Value)
+
+
 	End Sub
 
+	Private Sub txtHoTen_Leave(sender As Object, e As EventArgs) Handles txtHoTen.Leave
+		txtHoTen.Text = Regex.Replace(txtHoTen.Text, "\s\s+", " ")
+	End Sub
 End Class

@@ -81,6 +81,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="SachDTO.vb" />
+    <Compile Include="ThamSoDTO.vb" />
     <Compile Include="TheLoaiSachDTO.vb" />
   </ItemGroup>
   <ItemGroup>
