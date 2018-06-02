@@ -47,7 +47,7 @@ Partial Class frmThemSach
 		'MetroLabel1
 		'
 		Me.MetroLabel1.AutoSize = True
-		Me.MetroLabel1.Location = New System.Drawing.Point(72, 69)
+		Me.MetroLabel1.Location = New System.Drawing.Point(37, 69)
 		Me.MetroLabel1.Name = "MetroLabel1"
 		Me.MetroLabel1.Size = New System.Drawing.Size(78, 19)
 		Me.MetroLabel1.TabIndex = 0
@@ -56,7 +56,7 @@ Partial Class frmThemSach
 		'MetroLabel2
 		'
 		Me.MetroLabel2.AutoSize = True
-		Me.MetroLabel2.Location = New System.Drawing.Point(72, 107)
+		Me.MetroLabel2.Location = New System.Drawing.Point(37, 107)
 		Me.MetroLabel2.Name = "MetroLabel2"
 		Me.MetroLabel2.Size = New System.Drawing.Size(63, 19)
 		Me.MetroLabel2.TabIndex = 0
@@ -65,7 +65,7 @@ Partial Class frmThemSach
 		'MetroLabel3
 		'
 		Me.MetroLabel3.AutoSize = True
-		Me.MetroLabel3.Location = New System.Drawing.Point(72, 145)
+		Me.MetroLabel3.Location = New System.Drawing.Point(37, 145)
 		Me.MetroLabel3.Name = "MetroLabel3"
 		Me.MetroLabel3.Size = New System.Drawing.Size(116, 19)
 		Me.MetroLabel3.TabIndex = 0
@@ -74,7 +74,7 @@ Partial Class frmThemSach
 		'MetroLabel4
 		'
 		Me.MetroLabel4.AutoSize = True
-		Me.MetroLabel4.Location = New System.Drawing.Point(72, 183)
+		Me.MetroLabel4.Location = New System.Drawing.Point(37, 183)
 		Me.MetroLabel4.Name = "MetroLabel4"
 		Me.MetroLabel4.Size = New System.Drawing.Size(54, 19)
 		Me.MetroLabel4.TabIndex = 0
@@ -83,7 +83,7 @@ Partial Class frmThemSach
 		'MetroLabel5
 		'
 		Me.MetroLabel5.AutoSize = True
-		Me.MetroLabel5.Location = New System.Drawing.Point(72, 221)
+		Me.MetroLabel5.Location = New System.Drawing.Point(37, 221)
 		Me.MetroLabel5.Name = "MetroLabel5"
 		Me.MetroLabel5.Size = New System.Drawing.Size(94, 19)
 		Me.MetroLabel5.TabIndex = 0
@@ -92,7 +92,7 @@ Partial Class frmThemSach
 		'MetroLabel6
 		'
 		Me.MetroLabel6.AutoSize = True
-		Me.MetroLabel6.Location = New System.Drawing.Point(72, 259)
+		Me.MetroLabel6.Location = New System.Drawing.Point(37, 259)
 		Me.MetroLabel6.Name = "MetroLabel6"
 		Me.MetroLabel6.Size = New System.Drawing.Size(89, 19)
 		Me.MetroLabel6.TabIndex = 0
@@ -101,7 +101,7 @@ Partial Class frmThemSach
 		'MetroLabel7
 		'
 		Me.MetroLabel7.AutoSize = True
-		Me.MetroLabel7.Location = New System.Drawing.Point(72, 297)
+		Me.MetroLabel7.Location = New System.Drawing.Point(37, 297)
 		Me.MetroLabel7.Name = "MetroLabel7"
 		Me.MetroLabel7.Size = New System.Drawing.Size(76, 19)
 		Me.MetroLabel7.TabIndex = 0
@@ -110,7 +110,7 @@ Partial Class frmThemSach
 		'MetroLabel8
 		'
 		Me.MetroLabel8.AutoSize = True
-		Me.MetroLabel8.Location = New System.Drawing.Point(72, 335)
+		Me.MetroLabel8.Location = New System.Drawing.Point(37, 335)
 		Me.MetroLabel8.Name = "MetroLabel8"
 		Me.MetroLabel8.Size = New System.Drawing.Size(45, 19)
 		Me.MetroLabel8.TabIndex = 0
@@ -119,7 +119,7 @@ Partial Class frmThemSach
 		'MetroLabel9
 		'
 		Me.MetroLabel9.AutoSize = True
-		Me.MetroLabel9.Location = New System.Drawing.Point(72, 373)
+		Me.MetroLabel9.Location = New System.Drawing.Point(37, 373)
 		Me.MetroLabel9.Name = "MetroLabel9"
 		Me.MetroLabel9.Size = New System.Drawing.Size(100, 19)
 		Me.MetroLabel9.TabIndex = 0
@@ -139,11 +139,13 @@ Partial Class frmThemSach
 		Me.txtMaSach.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
 		Me.txtMaSach.CustomButton.UseSelectable = True
 		Me.txtMaSach.CustomButton.Visible = False
-		Me.txtMaSach.Lines = New String() {"a"}
-		Me.txtMaSach.Location = New System.Drawing.Point(229, 69)
+		Me.txtMaSach.ForeColor = System.Drawing.Color.Gray
+		Me.txtMaSach.Lines = New String(-1) {}
+		Me.txtMaSach.Location = New System.Drawing.Point(153, 69)
 		Me.txtMaSach.MaxLength = 32767
 		Me.txtMaSach.Name = "txtMaSach"
 		Me.txtMaSach.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+		Me.txtMaSach.ReadOnly = True
 		Me.txtMaSach.ScrollBars = System.Windows.Forms.ScrollBars.None
 		Me.txtMaSach.SelectedText = ""
 		Me.txtMaSach.SelectionLength = 0
@@ -151,7 +153,6 @@ Partial Class frmThemSach
 		Me.txtMaSach.ShortcutsEnabled = True
 		Me.txtMaSach.Size = New System.Drawing.Size(200, 23)
 		Me.txtMaSach.TabIndex = 1
-		Me.txtMaSach.Text = "a"
 		Me.txtMaSach.UseSelectable = True
 		Me.txtMaSach.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
 		Me.txtMaSach.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
@@ -171,7 +172,7 @@ Partial Class frmThemSach
 		Me.txtTenSach.CustomButton.UseSelectable = True
 		Me.txtTenSach.CustomButton.Visible = False
 		Me.txtTenSach.Lines = New String() {"tình yêu"}
-		Me.txtTenSach.Location = New System.Drawing.Point(229, 104)
+		Me.txtTenSach.Location = New System.Drawing.Point(153, 104)
 		Me.txtTenSach.MaxLength = 32767
 		Me.txtTenSach.Name = "txtTenSach"
 		Me.txtTenSach.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -202,7 +203,7 @@ Partial Class frmThemSach
 		Me.txtTacGia.CustomButton.UseSelectable = True
 		Me.txtTacGia.CustomButton.Visible = False
 		Me.txtTacGia.Lines = New String() {"a"}
-		Me.txtTacGia.Location = New System.Drawing.Point(229, 180)
+		Me.txtTacGia.Location = New System.Drawing.Point(153, 180)
 		Me.txtTacGia.MaxLength = 32767
 		Me.txtTacGia.Name = "txtTacGia"
 		Me.txtTacGia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -233,7 +234,7 @@ Partial Class frmThemSach
 		Me.txtNhaXuatBan.CustomButton.UseSelectable = True
 		Me.txtNhaXuatBan.CustomButton.Visible = False
 		Me.txtNhaXuatBan.Lines = New String() {"a"}
-		Me.txtNhaXuatBan.Location = New System.Drawing.Point(229, 256)
+		Me.txtNhaXuatBan.Location = New System.Drawing.Point(153, 256)
 		Me.txtNhaXuatBan.MaxLength = 32767
 		Me.txtNhaXuatBan.Name = "txtNhaXuatBan"
 		Me.txtNhaXuatBan.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -264,7 +265,7 @@ Partial Class frmThemSach
 		Me.txtTriGia.CustomButton.UseSelectable = True
 		Me.txtTriGia.CustomButton.Visible = False
 		Me.txtTriGia.Lines = New String() {"123"}
-		Me.txtTriGia.Location = New System.Drawing.Point(229, 332)
+		Me.txtTriGia.Location = New System.Drawing.Point(153, 332)
 		Me.txtTriGia.MaxLength = 32767
 		Me.txtTriGia.Name = "txtTriGia"
 		Me.txtTriGia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -282,7 +283,7 @@ Partial Class frmThemSach
 		'
 		'btnNhap
 		'
-		Me.btnNhap.Location = New System.Drawing.Point(229, 432)
+		Me.btnNhap.Location = New System.Drawing.Point(153, 432)
 		Me.btnNhap.Name = "btnNhap"
 		Me.btnNhap.Size = New System.Drawing.Size(88, 23)
 		Me.btnNhap.TabIndex = 3
@@ -291,7 +292,7 @@ Partial Class frmThemSach
 		'
 		'btnNhapVaDong
 		'
-		Me.btnNhapVaDong.Location = New System.Drawing.Point(336, 432)
+		Me.btnNhapVaDong.Location = New System.Drawing.Point(260, 432)
 		Me.btnNhapVaDong.Name = "btnNhapVaDong"
 		Me.btnNhapVaDong.Size = New System.Drawing.Size(93, 23)
 		Me.btnNhapVaDong.TabIndex = 3
@@ -300,7 +301,7 @@ Partial Class frmThemSach
 		'
 		'dtNgayNhap
 		'
-		Me.dtNgayNhap.Location = New System.Drawing.Point(229, 291)
+		Me.dtNgayNhap.Location = New System.Drawing.Point(153, 291)
 		Me.dtNgayNhap.MinimumSize = New System.Drawing.Size(0, 29)
 		Me.dtNgayNhap.Name = "dtNgayNhap"
 		Me.dtNgayNhap.Size = New System.Drawing.Size(200, 29)
@@ -311,7 +312,7 @@ Partial Class frmThemSach
 		Me.cbMaTheLoaiSach.FormattingEnabled = True
 		Me.cbMaTheLoaiSach.ItemHeight = 23
 		Me.cbMaTheLoaiSach.Items.AddRange(New Object() {"1", "2"})
-		Me.cbMaTheLoaiSach.Location = New System.Drawing.Point(229, 139)
+		Me.cbMaTheLoaiSach.Location = New System.Drawing.Point(153, 139)
 		Me.cbMaTheLoaiSach.Name = "cbMaTheLoaiSach"
 		Me.cbMaTheLoaiSach.Size = New System.Drawing.Size(200, 29)
 		Me.cbMaTheLoaiSach.TabIndex = 5
@@ -322,7 +323,7 @@ Partial Class frmThemSach
 		Me.cbNamXuatBan.FormattingEnabled = True
 		Me.cbNamXuatBan.ItemHeight = 23
 		Me.cbNamXuatBan.Items.AddRange(New Object() {"2017"})
-		Me.cbNamXuatBan.Location = New System.Drawing.Point(229, 215)
+		Me.cbNamXuatBan.Location = New System.Drawing.Point(153, 215)
 		Me.cbNamXuatBan.Name = "cbNamXuatBan"
 		Me.cbNamXuatBan.Size = New System.Drawing.Size(200, 29)
 		Me.cbNamXuatBan.TabIndex = 6
@@ -333,7 +334,7 @@ Partial Class frmThemSach
 		Me.cbTinhTrangSach.FormattingEnabled = True
 		Me.cbTinhTrangSach.ItemHeight = 23
 		Me.cbTinhTrangSach.Items.AddRange(New Object() {"Rỗng"})
-		Me.cbTinhTrangSach.Location = New System.Drawing.Point(229, 367)
+		Me.cbTinhTrangSach.Location = New System.Drawing.Point(153, 367)
 		Me.cbTinhTrangSach.Name = "cbTinhTrangSach"
 		Me.cbTinhTrangSach.Size = New System.Drawing.Size(200, 29)
 		Me.cbTinhTrangSach.TabIndex = 7
@@ -343,7 +344,7 @@ Partial Class frmThemSach
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(973, 520)
+		Me.ClientSize = New System.Drawing.Size(426, 498)
 		Me.Controls.Add(Me.cbTinhTrangSach)
 		Me.Controls.Add(Me.cbNamXuatBan)
 		Me.Controls.Add(Me.cbMaTheLoaiSach)
@@ -364,6 +365,8 @@ Partial Class frmThemSach
 		Me.Controls.Add(Me.MetroLabel3)
 		Me.Controls.Add(Me.MetroLabel2)
 		Me.Controls.Add(Me.MetroLabel1)
+		Me.MaximizeBox = False
+		Me.MinimizeBox = False
 		Me.Name = "frmThemSach"
 		Me.Text = "frmThemSach"
 		Me.ResumeLayout(False)

@@ -49,6 +49,7 @@ Partial Class frmThemTheLoaiSach
 		Me.txtMaTheLoaiSach.MaxLength = 32767
 		Me.txtMaTheLoaiSach.Name = "txtMaTheLoaiSach"
 		Me.txtMaTheLoaiSach.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+		Me.txtMaTheLoaiSach.ReadOnly = True
 		Me.txtMaTheLoaiSach.ScrollBars = System.Windows.Forms.ScrollBars.None
 		Me.txtMaTheLoaiSach.SelectedText = ""
 		Me.txtMaTheLoaiSach.SelectionLength = 0
@@ -130,13 +131,15 @@ Partial Class frmThemTheLoaiSach
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(395, 339)
+		Me.ClientSize = New System.Drawing.Size(395, 250)
 		Me.Controls.Add(Me.btnNhapVaDong)
 		Me.Controls.Add(Me.btnNhap)
 		Me.Controls.Add(Me.MetroLabel2)
 		Me.Controls.Add(Me.MetroLabel1)
 		Me.Controls.Add(Me.txtTenTheLoaiSach)
 		Me.Controls.Add(Me.txtMaTheLoaiSach)
+		Me.MaximizeBox = False
+		Me.MinimizeBox = False
 		Me.Name = "frmThemTheLoaiSach"
 		Me.Text = "frmThemTheLoaiSach"
 		Me.ResumeLayout(False)

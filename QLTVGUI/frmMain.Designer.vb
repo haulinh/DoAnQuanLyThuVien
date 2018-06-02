@@ -31,8 +31,8 @@ Partial Class frmMain
 		Me.btnHoSoDocGia = New MetroFramework.Controls.MetroButton()
 		Me.cmQuanLi = New MetroFramework.Controls.MetroContextMenu(Me.components)
 		Me.ThemSachToolTrip = New System.Windows.Forms.ToolStripMenuItem()
-		Me.btnQuanLi = New MetroFramework.Controls.MetroButton()
 		Me.ThêmThểLoạiSáchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.btnQuanLi = New MetroFramework.Controls.MetroButton()
 		Me.cmHoSoDocGia.SuspendLayout()
 		Me.cmQuanLi.SuspendLayout()
 		Me.SuspendLayout()
@@ -71,7 +71,7 @@ Partial Class frmMain
 		'
 		'btnHoSoDocGia
 		'
-		Me.btnHoSoDocGia.Location = New System.Drawing.Point(98, 62)
+		Me.btnHoSoDocGia.Location = New System.Drawing.Point(123, 62)
 		Me.btnHoSoDocGia.Name = "btnHoSoDocGia"
 		Me.btnHoSoDocGia.Size = New System.Drawing.Size(100, 23)
 		Me.btnHoSoDocGia.TabIndex = 1
@@ -90,20 +90,20 @@ Partial Class frmMain
 		Me.ThemSachToolTrip.Size = New System.Drawing.Size(181, 22)
 		Me.ThemSachToolTrip.Text = "Thêm Sách"
 		'
-		'btnQuanLi
-		'
-		Me.btnQuanLi.Location = New System.Drawing.Point(23, 62)
-		Me.btnQuanLi.Name = "btnQuanLi"
-		Me.btnQuanLi.Size = New System.Drawing.Size(75, 23)
-		Me.btnQuanLi.TabIndex = 0
-		Me.btnQuanLi.Text = "Quản Lí"
-		Me.btnQuanLi.UseSelectable = True
-		'
 		'ThêmThểLoạiSáchToolStripMenuItem
 		'
 		Me.ThêmThểLoạiSáchToolStripMenuItem.Name = "ThêmThểLoạiSáchToolStripMenuItem"
 		Me.ThêmThểLoạiSáchToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
 		Me.ThêmThểLoạiSáchToolStripMenuItem.Text = "Thêm Thể Loại Sách"
+		'
+		'btnQuanLi
+		'
+		Me.btnQuanLi.Location = New System.Drawing.Point(23, 62)
+		Me.btnQuanLi.Name = "btnQuanLi"
+		Me.btnQuanLi.Size = New System.Drawing.Size(100, 23)
+		Me.btnQuanLi.TabIndex = 0
+		Me.btnQuanLi.Text = "Quản Lí Sách"
+		Me.btnQuanLi.UseSelectable = True
 		'
 		'frmMain
 		'
