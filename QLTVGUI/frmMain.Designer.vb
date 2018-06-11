@@ -33,6 +33,7 @@ Partial Class frmMain
 		Me.ThemSachToolTrip = New System.Windows.Forms.ToolStripMenuItem()
 		Me.ThêmThểLoạiSáchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.btnQuanLi = New MetroFramework.Controls.MetroButton()
+		Me.LậpPhiếuMượnSáchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.cmHoSoDocGia.SuspendLayout()
 		Me.cmQuanLi.SuspendLayout()
 		Me.SuspendLayout()
@@ -80,20 +81,20 @@ Partial Class frmMain
 		'
 		'cmQuanLi
 		'
-		Me.cmQuanLi.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ThemSachToolTrip, Me.ThêmThểLoạiSáchToolStripMenuItem})
+		Me.cmQuanLi.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ThemSachToolTrip, Me.ThêmThểLoạiSáchToolStripMenuItem, Me.LậpPhiếuMượnSáchToolStripMenuItem})
 		Me.cmQuanLi.Name = "cmQuanLi"
-		Me.cmQuanLi.Size = New System.Drawing.Size(182, 48)
+		Me.cmQuanLi.Size = New System.Drawing.Size(190, 92)
 		'
 		'ThemSachToolTrip
 		'
 		Me.ThemSachToolTrip.Name = "ThemSachToolTrip"
-		Me.ThemSachToolTrip.Size = New System.Drawing.Size(181, 22)
+		Me.ThemSachToolTrip.Size = New System.Drawing.Size(189, 22)
 		Me.ThemSachToolTrip.Text = "Thêm Sách"
 		'
 		'ThêmThểLoạiSáchToolStripMenuItem
 		'
 		Me.ThêmThểLoạiSáchToolStripMenuItem.Name = "ThêmThểLoạiSáchToolStripMenuItem"
-		Me.ThêmThểLoạiSáchToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
+		Me.ThêmThểLoạiSáchToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
 		Me.ThêmThểLoạiSáchToolStripMenuItem.Text = "Thêm Thể Loại Sách"
 		'
 		'btnQuanLi
@@ -104,6 +105,12 @@ Partial Class frmMain
 		Me.btnQuanLi.TabIndex = 0
 		Me.btnQuanLi.Text = "Quản Lí Sách"
 		Me.btnQuanLi.UseSelectable = True
+		'
+		'LậpPhiếuMượnSáchToolStripMenuItem
+		'
+		Me.LậpPhiếuMượnSáchToolStripMenuItem.Name = "LậpPhiếuMượnSáchToolStripMenuItem"
+		Me.LậpPhiếuMượnSáchToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
+		Me.LậpPhiếuMượnSáchToolStripMenuItem.Text = "Lập Phiếu Mượn Sách"
 		'
 		'frmMain
 		'
@@ -132,4 +139,5 @@ Partial Class frmMain
 	Friend WithEvents ThemSachToolTrip As ToolStripMenuItem
 	Friend WithEvents btnQuanLi As MetroFramework.Controls.MetroButton
 	Friend WithEvents ThêmThểLoạiSáchToolStripMenuItem As ToolStripMenuItem
+	Friend WithEvents LậpPhiếuMượnSáchToolStripMenuItem As ToolStripMenuItem
 End Class

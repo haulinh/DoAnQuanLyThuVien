@@ -89,6 +89,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmLapPhieuMuonSach.Designer.vb">
+      <DependentUpon>frmLapPhieuMuonSach.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLapPhieuMuonSach.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmLapTheDocGia.Designer.vb">
       <DependentUpon>frmLapTheDocGia.vb</DependentUpon>
     </Compile>
@@ -157,6 +163,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmLapPhieuMuonSach.resx">
+      <DependentUpon>frmLapPhieuMuonSach.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLapTheDocGia.resx">
       <DependentUpon>frmLapTheDocGia.vb</DependentUpon>
     </EmbeddedResource>

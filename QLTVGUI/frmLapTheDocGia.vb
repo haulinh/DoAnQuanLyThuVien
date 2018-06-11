@@ -134,7 +134,7 @@ Public Class frmLapTheDocGia
 
 
 	End Sub
-
+	' xóa khoảng trắng 
 	Private Sub txtHoTen_Leave(sender As Object, e As EventArgs) Handles txtHoTen.Leave
 		txtHoTen.Text = Regex.Replace(txtHoTen.Text, "\s\s+", " ")
 	End Sub

@@ -15,7 +15,7 @@ Public Class frmQuanLyLoaiDocGia
 		' Load LoaiHocSinh list
 		Dim listLoaiDocGia = New List(Of LoaiDocGiaDTO)
 		Dim result As Result
-		result = loaiDocGiaBUS.selectAll(listLoaiDocGia)
+		result = loaiDocGiaBUS.SelectAll(listLoaiDocGia)
 		If (result.FlagResult = False) Then
 			MessageBox.Show("Lấy danh sách loại độc giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			System.Console.WriteLine(result.SystemMessage)
@@ -43,52 +43,52 @@ Public Class frmQuanLyLoaiDocGia
 	End Sub
 
 	Private Sub btnCapNhap_Click(sender As Object, e As EventArgs) Handles btnCapNhap.Click
-		  ' Get the current cell location.
-        Dim currentRowIndex As Integer = dgvDanhSachLoaiDocGia.CurrentCellAddress.Y 'current row selected
+		' Get the current cell location.
+		Dim currentRowIndex As Integer = dgvDanhSachLoaiDocGia.CurrentCellAddress.Y 'current row selected
 
 
-        'Verify that indexing OK
-        If (-1 < currentRowIndex And currentRowIndex < dgvDanhSachLoaiDocGia.RowCount) Then
-            Try
-                Dim loaiDocGia As LoaiDocGiaDTO
-                loaiDocGia = New LoaiDocGiaDTO()
+		'Verify that indexing OK
+		If (-1 < currentRowIndex And currentRowIndex < dgvDanhSachLoaiDocGia.RowCount) Then
+			Try
+				Dim loaiDocGia As LoaiDocGiaDTO
+				loaiDocGia = New LoaiDocGiaDTO()
 
-                '1. Mapping data from GUI control
-                loaiDocGia.MaLoaiDocGia = Convert.ToInt32(txtMaLoai.Text)
-                loaiDocGia.TenLoaiDocGia = txtTenLoai.Text
+				'1. Mapping data from GUI control
+				loaiDocGia.MaLoaiDocGia = Convert.ToInt32(txtMaLoai.Text)
+				loaiDocGia.TenLoaiDocGia = txtTenLoai.Text
 
-                '2. Business .....
-                If (loaiDocGiaBUS.IsVaildName(loaiDocGia) = False) Then
-                    MessageBox.Show("Tên Loại độc giả không đúng. Vui lòng kiểm tra lại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    txtTenLoai.Focus()
-                    Return
-                End If
+				'2. Business .....
+				If (loaiDocGiaBUS.IsVaildName(loaiDocGia) = False) Then
+					MessageBox.Show("Tên Loại độc giả không đúng. Vui lòng kiểm tra lại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+					txtTenLoai.Focus()
+					Return
+				End If
 
-                '3. Insert to DB
-                Dim result As Result
-                result = loaiDocGiaBUS.Update(loaiDocGia)
-                If (result.FlagResult = True) Then
-                    ' Re-Load LoaiHocSinh list
+				'3. Insert to DB
+				Dim result As Result
+				result = loaiDocGiaBUS.Update(loaiDocGia)
+				If (result.FlagResult = True) Then
+					' Re-Load LoaiHocSinh list
 					LoadListLoaiDocGia()
-                    ' Hightlight the row has been updated on table
-                    dgvDanhSachLoaiDocGia.Rows(currentRowIndex).SELECTed = True
-                    Try
-                        loaiDocGia = CType(dgvDanhSachLoaiDocGia.Rows(currentRowIndex).DataBoundItem, LoaiDocGiaDTO)
-                        txtMaLoai.Text = loaiDocGia.MaLoaiDocGia
-                        txtTenLoai.Text = loaiDocGia.TenLoaiDocGia
-                    Catch ex As Exception
-                        Console.WriteLine(ex.StackTrace)
-                    End Try
-                    MessageBox.Show("Cập nhật loại độc giả thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Else
-                    MessageBox.Show("Cập nhật loại độc giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    System.Console.WriteLine(result.SystemMessage)
-                End If
-            Catch ex As Exception
-                Console.WriteLine(ex.StackTrace)
-            End Try
+					' Hightlight the row has been updated on table
+					dgvDanhSachLoaiDocGia.Rows(currentRowIndex).Selected = True
+					Try
+						loaiDocGia = CType(dgvDanhSachLoaiDocGia.Rows(currentRowIndex).DataBoundItem, LoaiDocGiaDTO)
+						txtMaLoai.Text = loaiDocGia.MaLoaiDocGia
+						txtTenLoai.Text = loaiDocGia.TenLoaiDocGia
+					Catch ex As Exception
+						Console.WriteLine(ex.StackTrace)
+					End Try
+					MessageBox.Show("Cập nhật loại độc giả thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+				Else
+					MessageBox.Show("Cập nhật loại độc giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+					System.Console.WriteLine(result.SystemMessage)
+				End If
+			Catch ex As Exception
+				Console.WriteLine(ex.StackTrace)
+			End Try
 
-        End If
+		End If
 	End Sub
 
 	Private Sub dgvDanhSachLoaiDocGia_SelectionChanged(sender As Object, e As EventArgs) Handles dgvDanhSachLoaiDocGia.SelectionChanged
@@ -114,50 +114,50 @@ Public Class frmQuanLyLoaiDocGia
 
 	Private Sub btnXoa_Click(sender As Object, e As EventArgs) Handles btnXoa.Click
 		' Get the current cell location.
-        Dim currentRowIndex As Integer = dgvDanhSachLoaiDocGia.CurrentCellAddress.Y 'current row selected
+		Dim currentRowIndex As Integer = dgvDanhSachLoaiDocGia.CurrentCellAddress.Y 'current row selected
 
 
-        'Verify that indexing OK
-        If (-1 < currentRowIndex And currentRowIndex < dgvDanhSachLoaiDocGia.RowCount) Then
-            SELECT Case MsgBox("Bạn có thực sự muốn xóa loại học sinh có mã: " + txtMaLoai.Text, MsgBoxStyle.YesNo, "Information")
-                Case MsgBoxResult.Yes
-                    Try
+		'Verify that indexing OK
+		If (-1 < currentRowIndex And currentRowIndex < dgvDanhSachLoaiDocGia.RowCount) Then
+			Select Case MsgBox("Bạn có thực sự muốn xóa loại học sinh có mã: " + txtMaLoai.Text, MsgBoxStyle.YesNo, "Information")
+				Case MsgBoxResult.Yes
+					Try
 
-                        '1. Delete from DB
-                        Dim result As Result
-                        result = loaiDocGiaBUS.Delete(Convert.ToInt32(txtMaLoai.Text))
-                        If (result.FlagResult = True) Then
+						'1. Delete from DB
+						Dim result As Result
+						result = loaiDocGiaBUS.Delete(Convert.ToInt32(txtMaLoai.Text))
+						If (result.FlagResult = True) Then
 
-                            ' Re-Load LoaiHocSinh list
-                            LoadListLoaiDocGia()
+							' Re-Load LoaiHocSinh list
+							LoadListLoaiDocGia()
 
-                            ' Hightlight the next row on table
-                            If (currentRowIndex >= dgvDanhSachLoaiDocGia.Rows.Count) Then
-                                currentRowIndex = currentRowIndex - 1
-                            End If
-                            If (currentRowIndex >= 0) Then
-                                dgvDanhSachLoaiDocGia.Rows(currentRowIndex).SELECTed = True
-                                Try
-                                    Dim loaiDocGia = CType(dgvDanhSachLoaiDocGia.Rows(currentRowIndex).DataBoundItem, LoaiDocGiaDTO)
-                                    txtMaLoai.Text = loaiDocGia.MaLoaiDocGia
-                                    txtTenLoai.Text = loaiDocGia.TenLoaiDocGia
-                                Catch ex As Exception
-                                    Console.WriteLine(ex.StackTrace)
-                                End Try
-                            End If
-                            MessageBox.Show("Xóa Loại học sinh thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        Else
-                            MessageBox.Show("Xóa Loại học sinh không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            System.Console.WriteLine(result.SystemMessage)
-                        End If
-                    Catch ex As Exception
-                        Console.WriteLine(ex.StackTrace)
-                    End Try
-                Case MsgBoxResult.No
-                    Return
-            End SELECT
+							' Hightlight the next row on table
+							If (currentRowIndex >= dgvDanhSachLoaiDocGia.Rows.Count) Then
+								currentRowIndex = currentRowIndex - 1
+							End If
+							If (currentRowIndex >= 0) Then
+								dgvDanhSachLoaiDocGia.Rows(currentRowIndex).Selected = True
+								Try
+									Dim loaiDocGia = CType(dgvDanhSachLoaiDocGia.Rows(currentRowIndex).DataBoundItem, LoaiDocGiaDTO)
+									txtMaLoai.Text = loaiDocGia.MaLoaiDocGia
+									txtTenLoai.Text = loaiDocGia.TenLoaiDocGia
+								Catch ex As Exception
+									Console.WriteLine(ex.StackTrace)
+								End Try
+							End If
+							MessageBox.Show("Xóa Loại học sinh thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+						Else
+							MessageBox.Show("Xóa Loại học sinh không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+							System.Console.WriteLine(result.SystemMessage)
+						End If
+					Catch ex As Exception
+						Console.WriteLine(ex.StackTrace)
+					End Try
+				Case MsgBoxResult.No
+					Return
+			End Select
 
-        End If
+		End If
 
-    End Sub
+	End Sub
 End Class

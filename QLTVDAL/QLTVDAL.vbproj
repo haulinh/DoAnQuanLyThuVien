@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DocGiaDAL.vb" />
+    <Compile Include="LapPhieuMuonSachDAL.vb" />
     <Compile Include="LoaiDocGiaDAL.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
