@@ -121,4 +121,63 @@ Public Class TheLoaiSachDAL
 		Return New Result(True) ' thanh cong
 	End Function
 
+	Public Function Delete(maLoai As Integer) As Result
+		Dim query As String = String.Empty
+		query &= " DELETE FROM [tblTheLoaiSach] "
+		query &= " WHERE "
+		query &= " [matheloaisach] = @matheloaisach "
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+					.Parameters.AddWithValue("@matheloaisach", maLoai)
+				End With
+				Try
+					conn.Open()
+					comm.ExecuteNonQuery()
+				Catch ex As Exception
+					Console.WriteLine(ex.StackTrace)
+					conn.Close()
+					' them that bai!!!
+					Return New Result(False, "Xóa thể loại sách không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+
+		Return New Result(True) ' thanh cong
+	End Function
+
+	Public Function Update(theLoaiSach As TheLoaiSachDTO) As Result
+		Dim query As String = String.Empty
+		query &= " UPDATE [tblTheLoaiSach] SET"
+		query &= " [tentheloaisach] = @tentheloaisach "
+		query &= "WHERE "
+		query &= " [matheloaisach] = @matheloaisach "
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+					.Parameters.AddWithValue("@matheloaisach", theLoaiSach.MaTheLoaiSach)
+					.Parameters.AddWithValue("@tentheloaisach", theLoaiSach.TenTheLoaiSach)
+				End With
+				Try
+					conn.Open()
+					comm.ExecuteNonQuery()
+				Catch ex As Exception
+					Console.WriteLine(ex.StackTrace)
+					conn.Close()
+					' them that bai!!!
+					Return New Result(False, "Cập nhật the loai sach không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+
+		Return New Result(True) ' thanh cong
+	End Function
 End Class

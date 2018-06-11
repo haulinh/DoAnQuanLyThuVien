@@ -9,6 +9,20 @@
 	Private _triGia As Integer
 	Private _tinhTrangSach As String
 
+	Public Sub New(maSach As String, tenSach As String, maTheLoaiSach As Integer, tacGia As String, namXuatBan As Integer, nhaXuatBan As String, ngayNhap As Date, triGia As Integer, tinhTrangSach As String)
+		_maSach = maSach
+		_tenSach = tenSach
+		_maTheLoaiSach = maTheLoaiSach
+		_tacGia = tacGia
+		_namXuatBan = namXuatBan
+		_nhaXuatBan = nhaXuatBan
+		_ngayNhap = ngayNhap
+		_triGia = triGia
+		_tinhTrangSach = tinhTrangSach
+	End Sub
+
+	Public Sub New ()
+	End Sub
 	Public Property MaSach As String
 		Get
 			Return _maSach

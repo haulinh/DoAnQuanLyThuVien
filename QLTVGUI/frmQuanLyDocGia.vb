@@ -116,74 +116,11 @@ Public Class frmQuanLyDocGia
 		cbLoaiDocGiaCapNhat.DisplayMember = "TenLoaiDocGia"
 		cbLoaiDocGiaCapNhat.ValueMember = "MaLoaiDocGia"
 
-	End Sub
-
-	Private Sub LoadListDocGia()
-		Dim listDocGia = New List(Of DocGiaDTO)
-		Dim result As Result
-		result = docGiaBUS.SelectAll(listDocGia)
-
-		If (result.FlagResult = False) Then
-			MessageBox.Show("Lấy danh sách Độc Giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-			System.Console.WriteLine(result.SystemMessage)
-			Return
-		End If
-
-		'dgvListDocGia.SuspendLayout()
-		dgvListDocGia.Columns.Clear()
-		dgvListDocGia.DataSource = Nothing
-
-		dgvListDocGia.AutoGenerateColumns = False
-		dgvListDocGia.AllowUserToAddRows = False
-		dgvListDocGia.DataSource = listDocGia
-
-		Dim clMa = New DataGridViewTextBoxColumn()
-		clMa.Name = "madocgia"
-		clMa.HeaderText = "Mã Độc Giả"
-		clMa.DataPropertyName = "MaDocGia"
-		dgvListDocGia.Columns.Add(clMa)
-
-		Dim clHoTen = New DataGridViewTextBoxColumn()
-		clHoTen.Name = "HoTen"
-		clHoTen.HeaderText = "Họ Tên"
-		clHoTen.DataPropertyName = "HoTen"
-		dgvListDocGia.Columns.Add(clHoTen)
-
-		Dim clLoaiHS = New DataGridView()
-		'clLoaiHS.Name = "LoaiHS"
-		'clLoaiHS.HeaderText = "Tên Loại"
-		'clLoaiHS.DataPropertyName = "LoaiHS"
-		'dgvListDocGia.Columns.Add(clLoaiHS)
-
-		Dim clNgaySinh = New DataGridViewTextBoxColumn()
-		clNgaySinh.Name = "NgaySinh"
-		clNgaySinh.HeaderText = "Ngày Sinh"
-		clNgaySinh.DataPropertyName = "NgaySinh"
-		dgvListDocGia.Columns.Add(clNgaySinh)
-		'dgvListDocGia.ResumeLayout()
-
-		Dim clDiaChi = New DataGridViewTextBoxColumn()
-		clDiaChi.Name = "DiaChi"
-		clDiaChi.HeaderText = "Địa Chỉ"
-		clDiaChi.DataPropertyName = "DiaChi"
-		dgvListDocGia.Columns.Add(clDiaChi)
-
-		Dim clEmail = New DataGridViewTextBoxColumn()
-		clNgaySinh.Name = "Email"
-		clNgaySinh.HeaderText = "Email"
-		clNgaySinh.DataPropertyName = "Email"
-		dgvListDocGia.Columns.Add(clEmail)
-		'dgvListDocGia.ResumeLayout()
-
-		Dim clNgayLapThe = New DataGridViewTextBoxColumn()
-		clNgaySinh.Name = "NgayLapThe"
-		clNgaySinh.HeaderText = "Ngày Lập Thẻ"
-		clNgaySinh.DataPropertyName = "NgayLapThe"
-		dgvListDocGia.Columns.Add(clNgayLapThe)
-		'dgvListDocGia.ResumeLayout()
+		cbLoaiDocGia.DataSource = New BindingSource(listLoaiDocGia, String.Empty)
+		cbLoaiDocGia.DisplayMember = "TenLoaiDocGia"
+		cbLoaiDocGia.ValueMember = "MaLoaiDocGia"
 
 	End Sub
-
 
 	Private Sub LoadListDocGia(maLoai As String)
 		Dim listDocGia = New List(Of DocGiaDTO)
@@ -214,12 +151,6 @@ Public Class frmQuanLyDocGia
 		clHoTen.HeaderText = "Họ Tên"
 		clHoTen.DataPropertyName = "HoTen"
 		dgvListDocGia.Columns.Add(clHoTen)
-
-		Dim clLoaiHS = New DataGridView()
-		'clLoaiHS.Name = "LoaiHS"
-		'clLoaiHS.HeaderText = "Tên Loại"
-		'clLoaiHS.DataPropertyName = "LoaiHS"
-		'dgvListDocGia.Columns.Add(clLoaiHS)
 
 		Dim clNgaySinh = New DataGridViewTextBoxColumn()
 		clNgaySinh.Name = "NgaySinh"

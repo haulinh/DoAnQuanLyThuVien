@@ -31,21 +31,21 @@ Public Class LoaiDocGiaBUS
 	Public Function Update(loaiDocGia As LoaiDocGiaDTO) As Result
 		'1. verify data here!!
 
-		'2. insert to DB
+		'2. update to DB
 		Return loaiDocGiaDAL.Update(loaiDocGia)
 	End Function
 
 	Public Function Delete(maLoai As Integer) As Result
 		'1. verify data here!!
 
-		'2. insert to DB
+		'2. delete to DB
 		Return loaiDocGiaDAL.Delete(maLoai)
 	End Function
 
 	Public Function SelectAll(ByRef LoaiDocGiaDTO As List(Of LoaiDocGiaDTO)) As Result
 		'1. verify data here!!
 
-		'2. Insert to DB
+		'2. select to DB
 		Return loaiDocGiaDAL.SelectAll(LoaiDocGiaDTO)
 	End Function
 

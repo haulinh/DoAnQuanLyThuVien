@@ -15,7 +15,7 @@ Public Class frmThemSach
 		sach.TenSach = txtTenSach.Text
 		sach.MaTheLoaiSach = Convert.ToInt32(cbMaTheLoaiSach.SelectedValue)
 		sach.TacGia = txtTacGia.Text
-		sach.NamXuatBan = Convert.ToInt32(cbNamXuatBan.Text)
+		sach.NamXuatBan = cbNamXuatBan.SelectedValue
 		sach.NhaXuatBan = txtNhaXuatBan.Text
 		sach.NgayNhap = dtNgayNhap.Value
 		sach.TriGia = txtTriGia.Text
@@ -117,5 +117,9 @@ Public Class frmThemSach
 			Return
 		End If
 		txtMaSach.Text = nextMaSoSach
+
+		For year As Integer = 1950 To DateTime.Today.Year
+			cbNamXuatBan.Items.Add(year)
+		Next
 	End Sub
 End Class

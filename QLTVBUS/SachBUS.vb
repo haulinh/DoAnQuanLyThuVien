@@ -28,10 +28,21 @@ Public Class SachBUS
 		Return sachDAL.Insert(sach)
 	End Function
 
+	Public Function SelectAllByType(maLoai As Integer,Byref listSach As List(Of SachDTO)) As Result
+		Return sachDAL.SelectAllByType(maLoai, listSach)
+	End Function
+
 	Public Function BuildMaSoSach(ByRef nextMaSoSach As Integer) As Result
 
 		Return sachDAL.buildMaSoSach(nextMaSoSach)
 
 	End Function
 
+	Public Function Update(sach As SachDTO) As Result
+		Return sachDAL.Update(sach)
+	End Function
+
+	Public Function Delete(maSach As String) As Result
+		Return sachDAL.Delete(maSach)
+	End Function
 End Class

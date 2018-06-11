@@ -120,6 +120,18 @@
     <Compile Include="frmQuanLyLoaiDocGia.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmQuanLySach.Designer.vb">
+      <DependentUpon>frmQuanLySach.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLySach.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyTheLoaiSach.Designer.vb">
+      <DependentUpon>frmQuanLyTheLoaiSach.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyTheLoaiSach.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmThemLoaiDocGia.Designer.vb">
       <DependentUpon>frmThemLoaiDocGia.vb</DependentUpon>
     </Compile>
@@ -177,6 +189,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyLoaiDocGia.resx">
       <DependentUpon>frmQuanLyLoaiDocGia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLySach.resx">
+      <DependentUpon>frmQuanLySach.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyTheLoaiSach.resx">
+      <DependentUpon>frmQuanLyTheLoaiSach.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemLoaiDocGia.resx">
       <DependentUpon>frmThemLoaiDocGia.vb</DependentUpon>

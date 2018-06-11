@@ -35,4 +35,18 @@ Public Class TheLoaiSachBUS
 	Public Function getNextID(ByRef nextID As Integer) As Result
 		Return theLoaiSachDAL.getNextID(nextID)
 	End Function
+
+	Public Function Delete(maLoai As  Integer) As Result
+		'1. verify data here!!
+
+		'2. delete to DB
+		Return theLoaiSachDAL.Delete(maLoai)
+	End Function
+
+	Public Function Update(theLoaiSach As TheLoaiSachDTO) As Result
+		'1. verify data here!!
+
+		'2. update to DB
+		Return theLoaiSachDAL.Update(theLoaiSach)
+	End Function
 End Class
