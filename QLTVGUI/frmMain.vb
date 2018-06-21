@@ -58,14 +58,24 @@ Public Class frmMain
 	End Sub
 
 	Private Sub QuảnLýThểLoạiSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuảnLýThểLoạiSáchToolStripMenuItem.Click
-		Dim frmQuanLyTheLoaiSach As frmQuanLyTheLoaiSach = new frmQuanLyTheLoaiSach()
+		Dim frmQuanLyTheLoaiSach As frmQuanLyTheLoaiSach = New frmQuanLyTheLoaiSach()
 		frmQuanLyTheLoaiSach.MdiParent = Me
 		frmQuanLyTheLoaiSach.Show()
 	End Sub
 
 	Private Sub QuảnLýSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuảnLýSáchToolStripMenuItem.Click
-		Dim frmQuanLySach as frmQuanLySach = New frmQuanLySach()
+		Dim frmQuanLySach As frmQuanLySach = New frmQuanLySach()
 		frmQuanLySach.MdiParent = Me
 		frmQuanLySach.Show()
+	End Sub
+
+	Private Sub QuyĐịnhToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuyĐịnhToolStripMenuItem.Click
+		Dim frmQuyDinh As frmQuyDinh = New frmQuyDinh()
+		frmQuyDinh.MdiParent = Me
+		frmQuyDinh.Show()
+	End Sub
+
+	Private Sub btnQuyDinh_Click(sender As Object, e As EventArgs) Handles btnQuyDinh.Click
+		cmQuyDinh.Show(btnQuyDinh, 0, btnQuyDinh.Height)
 	End Sub
 End Class
