@@ -70,7 +70,7 @@ Public Class frmQuanLyTheLoaiSach
 
         'Verify that indexing OK
         If (-1 < currentRowIndex And currentRowIndex < dgvDanhSachTheLoaiSach.RowCount) Then
-            SELECT Case MsgBox("Bạn có thực sự muốn xóa loại học sinh có mã: " + txtMaLoai.Text, MsgBoxStyle.YesNo, "Information")
+            SELECT Case MsgBox("Bạn có thực sự muốn xóa thể loại sách có mã: " + txtMaLoai.Text, MsgBoxStyle.YesNo, "Information")
                 Case MsgBoxResult.Yes
                     Try
 

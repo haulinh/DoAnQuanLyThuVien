@@ -17,7 +17,7 @@ Public Class QuyDinhDAL
 	Public Function update(quyDinh As QuyDinhDTO) As Result
 
 		Dim query As String = String.Empty
-		query &= " UPDATE [[tblQuyDinh]] SET"
+		query &= " UPDATE [tblQuyDinh] SET"
 		query &= " [tuoitoithieu] = @tuoitoithieu "
 		query &= " ,[tuoitoida] = @tuoitoida "
 		query &= " ,[thoihansudung] = @thoihansudung "

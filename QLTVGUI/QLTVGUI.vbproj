@@ -156,6 +156,12 @@
     <Compile Include="frmThemTheLoaiSach.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmTraCuuSach.Designer.vb">
+      <DependentUpon>frmTraCuuSach.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTraCuuSach.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemTheLoaiSach.resx">
       <DependentUpon>frmThemTheLoaiSach.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTraCuuSach.resx">
+      <DependentUpon>frmTraCuuSach.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

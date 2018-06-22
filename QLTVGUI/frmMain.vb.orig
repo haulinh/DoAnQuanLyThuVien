@@ -57,22 +57,32 @@ Public Class frmMain
 		frmThemTheLoaiSach.Show()
 	End Sub
 
-<<<<<<< Updated upstream
-	Private Sub LậpPhiếuMượnSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LậpPhiếuMượnSáchToolStripMenuItem.Click
-		Dim frmLapPhieuMuonSach As frmLapPhieuMuonSach = New frmLapPhieuMuonSach()
-		frmLapPhieuMuonSach.MdiParent = Me
-		frmLapPhieuMuonSach.Show()
-=======
 	Private Sub QuảnLýThểLoạiSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuảnLýThểLoạiSáchToolStripMenuItem.Click
-		Dim frmQuanLyTheLoaiSach As frmQuanLyTheLoaiSach = new frmQuanLyTheLoaiSach()
+		Dim frmQuanLyTheLoaiSach As frmQuanLyTheLoaiSach = New frmQuanLyTheLoaiSach()
 		frmQuanLyTheLoaiSach.MdiParent = Me
 		frmQuanLyTheLoaiSach.Show()
 	End Sub
 
 	Private Sub QuảnLýSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuảnLýSáchToolStripMenuItem.Click
-		Dim frmQuanLySach as frmQuanLySach = New frmQuanLySach()
+		Dim frmQuanLySach As frmQuanLySach = New frmQuanLySach()
 		frmQuanLySach.MdiParent = Me
 		frmQuanLySach.Show()
+	End Sub
+
+<<<<<<< Updated upstream
+	Private Sub QuyĐịnhToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuyĐịnhToolStripMenuItem.Click
+		Dim frmQuyDinh As frmQuyDinh = New frmQuyDinh()
+		frmQuyDinh.MdiParent = Me
+		frmQuyDinh.Show()
+	End Sub
+
+	Private Sub btnQuyDinh_Click(sender As Object, e As EventArgs) Handles btnQuyDinh.Click
+		cmQuyDinh.Show(btnQuyDinh, 0, btnQuyDinh.Height)
+=======
+	Private Sub TraCứuSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TraCứuSáchToolStripMenuItem.Click
+		Dim frmTraCuuSach as frmTraCuuSach = New frmTraCuuSach()
+		frmTraCuuSach.MdiParent = Me
+		frmTraCuuSach.Show()
 >>>>>>> Stashed changes
 	End Sub
 End Class

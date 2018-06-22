@@ -58,7 +58,7 @@ Public Class frmQuanLyDocGia
 
 		'Verify that indexing OK
 		If (-1 < currentRowIndex And currentRowIndex < dgvListDocGia.RowCount) Then
-			Select Case MsgBox("Bạn có thực sự muốn xóa học sinh có mã số: " + txtMaDocGia.Text, MsgBoxStyle.YesNo, "Information")
+			Select Case MsgBox("Bạn có thực sự muốn xóa độc giả có mã số: " + txtMaDocGia.Text, MsgBoxStyle.YesNo, "Information")
 
 				Case MsgBoxResult.Yes
 					Try

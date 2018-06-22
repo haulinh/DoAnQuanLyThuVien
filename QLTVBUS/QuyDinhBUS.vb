@@ -1,4 +1,5 @@
-﻿Imports QLTVDTO
+﻿Imports QLTVDAL
+Imports QLTVDTO
 Imports Utility
 
 Public Class QuyDinhBUS

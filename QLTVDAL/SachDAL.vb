@@ -18,9 +18,7 @@ Public Class SachDAL
 	Public Function buildMaSoSach(ByRef nextMaSoSach As String) As Result 'ex: 18222229
 
 		nextMaSoSach = String.Empty
-		Dim y = DateTime.Now.Year
-		Dim x = y.ToString().Substring(2)
-		nextMaSoSach = x + "000000"
+		nextMaSoSach = "MGX000"
 
 		Dim query As String = String.Empty
 		query &= "SELECT TOP 1 [masach] "
@@ -45,21 +43,13 @@ Public Class SachDAL
 							msOnDB = reader("masach")
 						End While
 					End If
-					If (msOnDB <> Nothing And msOnDB.Length >= 8) Then
-						Dim currentYear = DateTime.Now.Year.ToString().Substring(2)
-						Dim iCurrentYear = Integer.Parse(currentYear)
-						Dim currentYearOnDB = msOnDB.Substring(0, 2)
-						Dim icurrentYearOnDB = Integer.Parse(currentYearOnDB)
-						Dim year = iCurrentYear
-						If (year < icurrentYearOnDB) Then
-							year = icurrentYearOnDB
-						End If
-						nextMaSoSach = year.ToString()
-						Dim v = msOnDB.Substring(2)
+					If (msOnDB <> Nothing And msOnDB.Length >= 4) Then
+						nextMaSoSach = "MGX00"
+						Dim v = msOnDB.Substring(3)
 						Dim convertDecimal = Convert.ToDecimal(v)
 						convertDecimal = convertDecimal + 1
 						Dim tmp = convertDecimal.ToString()
-						tmp = tmp.PadLeft(msOnDB.Length - 2, "0")
+						'tmp = tmp.PadLeft(msOnDB.Length - 2, "0")
 						nextMaSoSach = nextMaSoSach + tmp
 						System.Console.WriteLine(nextMaSoSach)
 					End If
@@ -106,7 +96,7 @@ Public Class SachDAL
 				Catch ex As Exception
 					conn.Close()
 					System.Console.WriteLine(ex.StackTrace)
-					Return New Result(False, "Thêm sách  không thành công", ex.StackTrace)
+					Return New Result(False, "Thêm sách không thành công", ex.StackTrace)
 				End Try
 			End Using
 		End Using
@@ -148,6 +138,70 @@ Public Class SachDAL
 		End Using
 		Return New Result(True) ' thanh cong
 	End Function
+
+	Public Function SelectAllCondition(maLoai As Integer, 
+	                                   tenSach As String,
+	                                   tacGia As String, 
+	                                   nhaXuatBan As String, 
+	                                   minTriGia As Integer,
+									   maxTriGia As Integer, 
+	                                   minNamXuatBan as Integer,
+	                                   maxNamXuatBan as Integer,
+	                                   minNgayNhap As String,
+	                                   maxNgayNhap As String,
+	                                   listSach As List(Of SachDTO)) As Result
+
+		Dim query As String = String.Empty
+
+		query &= "SELECT [masach], [tensach], [matheloaisach], [tacgia], [namxuatban], [nhaxuatban], [ngaynhap], [trigia], [tinhtrangsach] "
+		query &= "FROM [tblSach] "
+		query &= "WHERE " +
+				 Condition.CheckDTORangeAndGetQuery(minTriGia, maxTriGia, "mintrigia", "maxtrigia", "trigia") + " AND " +
+				 Condition.CheckDTORangeAndGetQuery(minNamXuatBan, maxNamXuatBan, "minnamxuatban", "maxnamxuatban", "namxuatban") + " AND " +
+				 "ngaynhap BETWEEN @minngaynhap AND @maxngaynhap AND " +
+				 Condition.CheckDTOEmptyAndGetQuery(maLoai, "matheloaisach") + " AND " +
+				 Condition.CheckDTOEmptyAndGetQuery(tenSach, "tensach") + " AND " +
+				 Condition.CheckDTOEmptyAndGetQuery(tacGia, "tacgia") + " AND " +
+				 Condition.CheckDTOEmptyAndGetQuery(nhaXuatBan, "nhaxuatban")
+
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+					.Parameters.AddWithValue("@matheloaisach", maLoai)
+					.Parameters.AddWithValue("@tensach", tenSach)
+					.Parameters.AddWithValue("@tacgia", tacGia)
+					.Parameters.AddWithValue("@nhaxuatban", nhaXuatBan)
+					.Parameters.AddWithValue("@mintrigia", minTriGia)
+					.Parameters.AddWithValue("@maxtrigia", maxTriGia)
+					.Parameters.AddWithValue("@minnamxuatban", minNamXuatBan)
+					.Parameters.AddWithValue("@maxnamxuatban", maxNamXuatBan)
+					.Parameters.AddWithValue("@minngaynhap", minNgayNhap)
+					.Parameters.AddWithValue("@maxngaynhap", maxNgayNhap)
+				End With
+				Try
+					conn.Open()
+					Dim reader As SqlDataReader
+					reader = comm.ExecuteReader()
+					If reader.HasRows = True Then
+						listSach.Clear()
+						While reader.Read()
+							listSach.Add(New SachDTO(reader("masach"), reader("tensach"), reader("matheloaisach"), reader("tacgia"), reader("namxuatban"), reader("nhaxuatban"), reader("ngaynhap"), reader("trigia"), reader("tinhtrangsach")))
+						End While
+					End If
+
+				Catch ex As Exception
+					conn.Close()
+					System.Console.WriteLine(ex.StackTrace)
+					Return New Result(False, "Lấy tất cả Sách theo Loại không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+		Return New Result(True) ' thanh cong
+	 End Function
 
 	Public Function Update(sach As SachDTO) As Result
 		Dim query As String = String.Empty

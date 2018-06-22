@@ -78,4 +78,10 @@ Public Class frmMain
 	Private Sub btnQuyDinh_Click(sender As Object, e As EventArgs) Handles btnQuyDinh.Click
 		cmQuyDinh.Show(btnQuyDinh, 0, btnQuyDinh.Height)
 	End Sub
+
+	Private Sub TraCứuSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TraCứuSáchToolStripMenuItem.Click
+		Dim frmTraCuuSach As frmTraCuuSach = new frmTraCuuSach()
+		frmTraCuuSach.MdiParent = Me
+		frmTraCuuSach.Show()
+	End Sub
 End Class

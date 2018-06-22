@@ -34,7 +34,7 @@ Public Class frmQuanLySach
 
 		Dim clMa = New DataGridViewTextBoxColumn()
 		clMa.Name = "MaSach"
-		clMa.HeaderText = "Mã Sách fsdfsd "
+		clMa.HeaderText = "Mã Sách"
 		clMa.DataPropertyName = "MaSach"
 		dgvListSach.Columns.Add(clMa)
 
@@ -104,9 +104,6 @@ Public Class frmQuanLySach
 		cbTheLoaiSachCapNhap.DisplayMember = "TenTheLoaiSach"
 		cbTheLoaiSachCapNhap.ValueMember = "MaTheLoaiSach"
 
-		cbTinhTrangSach.DataSource = New BindingSource(listTheLoaiSach, String.Empty)
-		cbTinhTrangSach.DisplayMember = "T"
-		cbTinhTrangSach.ValueMember = "MaTheLoaiSach"
 
 		For year As Integer = 1950 To DateTime.Today.Year
 			cbNamXuatBan.Items.Add(year)

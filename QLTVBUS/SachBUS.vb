@@ -21,6 +21,16 @@ Public Class SachBUS
 
 	End Function
 
+	Public Shared Function GetMinAndMaxValue(obj As Object) As Object
+		If obj <> Nothing
+			Return obj
+		End If
+
+		Return nothing
+
+	End Function
+
+
 	Public Function Insert(sach As SachDTO) As Result
 		'1. verify data here!!
 
@@ -28,11 +38,25 @@ Public Class SachBUS
 		Return sachDAL.Insert(sach)
 	End Function
 
-	Public Function SelectAllByType(maLoai As Integer,Byref listSach As List(Of SachDTO)) As Result
+	Public Function SelectAllByType(maLoai As Integer, Byref listSach As List(Of SachDTO)) As Result
 		Return sachDAL.SelectAllByType(maLoai, listSach)
 	End Function
 
-	Public Function BuildMaSoSach(ByRef nextMaSoSach As Integer) As Result
+	Public Function SelectAllCondition(maLoai As Integer,
+									   tenSach As String,
+									   tacGia As String,
+									   nhaXuatBan As String,
+									   minTriGia As Integer,
+									   maxTriGia As Integer, 
+	                                   minNamXuatBan as Integer, 
+	                                   maxNamXuatBan as Integer, 
+	                                   minNgayNhap As String, 
+	                                   maxNgayNhap As String,
+									   Byref listSach As List(Of SachDTO)) As Result
+		Return sachDAL.SelectAllCondition(maLoai, tenSach, tacGia, nhaXuatBan, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap, listSach)
+	End Function
+
+	Public Function BuildMaSoSach(ByRef nextMaSoSach As String) As Result
 
 		Return sachDAL.buildMaSoSach(nextMaSoSach)
 
