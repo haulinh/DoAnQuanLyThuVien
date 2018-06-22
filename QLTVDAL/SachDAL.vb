@@ -139,7 +139,8 @@ Public Class SachDAL
 		Return New Result(True) ' thanh cong
 	End Function
 
-	Public Function SelectAllCondition(maLoai As Integer, 
+	Public Function SelectAllCondition(maSach As String,
+	                                   maLoai As Integer, 
 	                                   tenSach As String,
 	                                   tacGia As String, 
 	                                   nhaXuatBan As String, 
@@ -156,13 +157,14 @@ Public Class SachDAL
 		query &= "SELECT [masach], [tensach], [matheloaisach], [tacgia], [namxuatban], [nhaxuatban], [ngaynhap], [trigia], [tinhtrangsach] "
 		query &= "FROM [tblSach] "
 		query &= "WHERE " +
-				 Condition.CheckDTORangeAndGetQuery(minTriGia, maxTriGia, "mintrigia", "maxtrigia", "trigia") + " AND " +
-				 Condition.CheckDTORangeAndGetQuery(minNamXuatBan, maxNamXuatBan, "minnamxuatban", "maxnamxuatban", "namxuatban") + " AND " +
+				 Condition.CheckGUIRangeAndGetQuery(minTriGia, maxTriGia, "mintrigia", "maxtrigia", "trigia") + " AND " +
+				 Condition.CheckGUIRangeAndGetQuery(minNamXuatBan, maxNamXuatBan, "minnamxuatban", "maxnamxuatban", "namxuatban") + " AND " +
 				 "ngaynhap BETWEEN @minngaynhap AND @maxngaynhap AND " +
-				 Condition.CheckDTOEmptyAndGetQuery(maLoai, "matheloaisach") + " AND " +
-				 Condition.CheckDTOEmptyAndGetQuery(tenSach, "tensach") + " AND " +
-				 Condition.CheckDTOEmptyAndGetQuery(tacGia, "tacgia") + " AND " +
-				 Condition.CheckDTOEmptyAndGetQuery(nhaXuatBan, "nhaxuatban")
+				 Condition.CheckGUIEmptyAndGetQuery(maLoai, "matheloaisach") + " AND " +
+				 Condition.CheckGUIEmptyAndGetQuery(tenSach, "tensach") + " AND " +
+				 Condition.CheckGUIEmptyAndGetQuery(tacGia, "tacgia") + " AND " +
+				 Condition.CheckGUIEmptyAndGetQuery(nhaXuatBan, "nhaxuatban")  + " AND " +
+				 Condition.CheckGUIEmptyAndGetQuery(maSach, "masach")
 
 
 		Using conn As New SqlConnection(connectionString)
@@ -181,6 +183,7 @@ Public Class SachDAL
 					.Parameters.AddWithValue("@maxnamxuatban", maxNamXuatBan)
 					.Parameters.AddWithValue("@minngaynhap", minNgayNhap)
 					.Parameters.AddWithValue("@maxngaynhap", maxNgayNhap)
+					.Parameters.AddWithValue("@masach", maSach)
 				End With
 				Try
 					conn.Open()

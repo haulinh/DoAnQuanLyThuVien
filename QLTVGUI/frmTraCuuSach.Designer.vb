@@ -50,6 +50,8 @@ Partial Class frmTraCuuSach
 		Me.Label13 = New System.Windows.Forms.Label()
 		Me.dtpMinNgayNhap = New System.Windows.Forms.DateTimePicker()
 		Me.dtpMaxNgayNhap = New System.Windows.Forms.DateTimePicker()
+		Me.txtMaSach = New MetroFramework.Controls.MetroTextBox()
+		Me.Label14 = New System.Windows.Forms.Label()
 		CType(Me.dgvListSach,System.ComponentModel.ISupportInitialize).BeginInit
 		CType(Me.nudMinTriGia,System.ComponentModel.ISupportInitialize).BeginInit
 		CType(Me.nudMaxTriGia,System.ComponentModel.ISupportInitialize).BeginInit
@@ -375,11 +377,53 @@ Partial Class frmTraCuuSach
 		Me.dtpMaxNgayNhap.Size = New System.Drawing.Size(231, 22)
 		Me.dtpMaxNgayNhap.TabIndex = 7
 		'
+		'txtMaSach
+		'
+		'
+		'
+		'
+		Me.txtMaSach.CustomButton.Image = Nothing
+		Me.txtMaSach.CustomButton.Location = New System.Drawing.Point(151, 2)
+		Me.txtMaSach.CustomButton.Margin = New System.Windows.Forms.Padding(4)
+		Me.txtMaSach.CustomButton.Name = ""
+		Me.txtMaSach.CustomButton.Size = New System.Drawing.Size(23, 23)
+		Me.txtMaSach.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
+		Me.txtMaSach.CustomButton.TabIndex = 1
+		Me.txtMaSach.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
+		Me.txtMaSach.CustomButton.UseSelectable = true
+		Me.txtMaSach.CustomButton.Visible = false
+		Me.txtMaSach.Lines = New String(-1) {}
+		Me.txtMaSach.Location = New System.Drawing.Point(175, 173)
+		Me.txtMaSach.Margin = New System.Windows.Forms.Padding(4)
+		Me.txtMaSach.MaxLength = 32767
+		Me.txtMaSach.Name = "txtMaSach"
+		Me.txtMaSach.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+		Me.txtMaSach.ScrollBars = System.Windows.Forms.ScrollBars.None
+		Me.txtMaSach.SelectedText = ""
+		Me.txtMaSach.SelectionLength = 0
+		Me.txtMaSach.SelectionStart = 0
+		Me.txtMaSach.ShortcutsEnabled = true
+		Me.txtMaSach.Size = New System.Drawing.Size(177, 28)
+		Me.txtMaSach.TabIndex = 4
+		Me.txtMaSach.UseSelectable = true
+		Me.txtMaSach.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer))
+		Me.txtMaSach.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
+		'
+		'Label14
+		'
+		Me.Label14.AutoSize = true
+		Me.Label14.Location = New System.Drawing.Point(79, 173)
+		Me.Label14.Name = "Label14"
+		Me.Label14.Size = New System.Drawing.Size(63, 17)
+		Me.Label14.TabIndex = 8
+		Me.Label14.Text = "Mã Sách"
+		'
 		'frmTraCuuSach
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8!, 16!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(1251, 764)
+		Me.Controls.Add(Me.Label14)
 		Me.Controls.Add(Me.dtpMaxNgayNhap)
 		Me.Controls.Add(Me.dtpMinNgayNhap)
 		Me.Controls.Add(Me.nudMaxNamXuatBan)
@@ -389,6 +433,7 @@ Partial Class frmTraCuuSach
 		Me.Controls.Add(Me.cbTheLoaiSach)
 		Me.Controls.Add(Me.txtTacGia)
 		Me.Controls.Add(Me.txtNhaXuatBan)
+		Me.Controls.Add(Me.txtMaSach)
 		Me.Controls.Add(Me.txtTenSach)
 		Me.Controls.Add(Me.dgvListSach)
 		Me.Controls.Add(Me.Label13)
@@ -441,4 +486,6 @@ End Sub
 	Friend WithEvents Label13 As Label
 	Friend WithEvents dtpMinNgayNhap As DateTimePicker
 	Friend WithEvents dtpMaxNgayNhap As DateTimePicker
+	Friend WithEvents txtMaSach As MetroFramework.Controls.MetroTextBox
+	Friend WithEvents Label14 As Label
 End Class

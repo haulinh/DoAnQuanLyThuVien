@@ -20,7 +20,8 @@ Public Class frmTraCuuSach
 		nudMaxNamXuatBan.Maximum = Decimal.MaxValue
 	End Sub
 
-	Private Sub LoadListSach(maLoai As Integer,
+	Private Sub LoadListSach(maSach As String,
+	                         maLoai As Integer,
 							 tenSach As String,
 							 tacGia As String,
 							 nhaXuatBan As String,
@@ -32,7 +33,7 @@ Public Class frmTraCuuSach
 	                         maxNgayNhap As String)
 		Dim listSach = New List(Of SachDTO)
 		Dim result As Result
-		result = sachBUS.SelectAllCondition(maLoai, tenSach, tacGia, nhaXuatBan, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap, listSach)
+		result = sachBUS.SelectAllCondition(maSach ,maLoai, tenSach, tacGia, nhaXuatBan, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap, listSach)
 		If (result.FlagResult = False) Then
 			MessageBox.Show("Lấy danh sách theo loại không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			System.Console.WriteLine(result.SystemMessage)
@@ -125,6 +126,7 @@ Public Class frmTraCuuSach
 
 	Private Sub btnTimKiem_Click(sender As Object, e As EventArgs) Handles btnTimKiem.Click
 		Try
+			Dim maSach = txtMaSach.Text
 			Dim maLoai = Convert.ToInt32(cbTheLoaiSach.SelectedValue)
 			Dim tenSach = txtTenSach.Text
 			Dim tacGia = txtTacGia.Text
@@ -141,7 +143,7 @@ Public Class frmTraCuuSach
 			minNamXuatBan = SachBUS.GetMinAndMaxValue(nudMinNamXuatBan.Text)
 			maxNamXuatBan = SachBUS.GetMinAndMaxValue(nudMaxNamXuatBan.Text)
 
-			LoadListSach(maLoai, tenSach, tacGia, nhaXuatBan, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap)
+			LoadListSach(maSach, maLoai, tenSach, tacGia, nhaXuatBan, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap)
 		Catch ex As Exception
 		End Try
 	End Sub

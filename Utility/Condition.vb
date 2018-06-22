@@ -1,9 +1,11 @@
-﻿Public Class Condition
-	Public Shared Function CheckDTOEmptyAndGetQuery(parameter As Object, nameControl As String) As String
+﻿Imports System.Xml
+
+Public Class Condition
+	Public Shared Function CheckGUIEmptyAndGetQuery(parameter As Object, nameTable As String) As String
 		Dim conditionString As String
 
 		If parameter <> Nothing then
-			conditionString = "[" + nameControl + "] = " + "@" + nameControl
+			conditionString = "[" + nameTable + "] = " + "@" + nameTable
 		Else 
 			conditionString = "1 = 1"
 		End If
@@ -12,19 +14,19 @@
 
 	End Function
 
-	Public Shared Function CheckDTORangeAndGetQuery(minParameter As Object, 
+	Public Shared Function CheckGUIRangeAndGetQuery(minParameter As Object, 
 	                                                maxParameter As Object, 
 	                                                nameMin As String, 
 	                                                nameMax As String, 
-	                                                nameControl As String) As String
+	                                                nameTable As String) As String
 		Dim conditionString As String
 
 		If minParameter <> Nothing And maxParameter <> Nothing then
-			conditionString = "[" + nameControl + "] BETWEEN " + "@" + nameMin + " AND " + "@" + nameMax
+			conditionString = "[" + nameTable + "] BETWEEN " + "@" + nameMin + " AND " + "@" + nameMax
 		ElseIf minParameter <> Nothing
-				conditionString = "[" + nameControl + "] >= " + "@" + nameMin 
+				conditionString = "[" + nameTable + "] >= " + "@" + nameMin 
 		ElseIf maxParameter <> Nothing
-				conditionString = "[" + nameControl + "] <= " + "@" + nameMax 
+				conditionString = "[" + nameTable + "] <= " + "@" + nameMax 
 			Else 
 				conditionString = "1 = 1"
 		End If

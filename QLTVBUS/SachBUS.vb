@@ -42,7 +42,8 @@ Public Class SachBUS
 		Return sachDAL.SelectAllByType(maLoai, listSach)
 	End Function
 
-	Public Function SelectAllCondition(maLoai As Integer,
+	Public Function SelectAllCondition(maSach As String,
+	                                   maLoai As Integer,
 									   tenSach As String,
 									   tacGia As String,
 									   nhaXuatBan As String,
@@ -53,7 +54,7 @@ Public Class SachBUS
 	                                   minNgayNhap As String, 
 	                                   maxNgayNhap As String,
 									   Byref listSach As List(Of SachDTO)) As Result
-		Return sachDAL.SelectAllCondition(maLoai, tenSach, tacGia, nhaXuatBan, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap, listSach)
+		Return sachDAL.SelectAllCondition(maSach, maLoai, tenSach, tacGia, nhaXuatBan, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap, listSach)
 	End Function
 
 	Public Function BuildMaSoSach(ByRef nextMaSoSach As String) As Result
