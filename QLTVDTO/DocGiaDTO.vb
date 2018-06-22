@@ -6,6 +6,7 @@
 	Private _diaChi As String
 	Private _email As String
 	Private _ngayLapThe As Date
+	Private _ngayHetHan As Date
 
 	Public Sub New()
 	End Sub
@@ -88,6 +89,15 @@
 		End Get
 		Set(value As String)
 			_maDocGia = value
+		End Set
+	End Property
+
+	Public Property NgayHetHan As Date
+		Get
+			Return _ngayHetHan
+		End Get
+		Set(value As Date)
+			_ngayHetHan = value
 		End Set
 	End Property
 End Class

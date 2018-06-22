@@ -3,19 +3,6 @@
 	Private _ngayMuonSach As Date
 	Private _maDocGia As String
 	Private _ngayTraSach As Date
-	Private v1 As Object
-	Private v2 As Object
-	Private v3 As Object
-	Private v4 As Object
-	Private v5 As Object
-
-	Public Sub New(v1 As Object, v2 As Object, v3 As Object, v4 As Object, v5 As Object)
-		Me.v1 = v1
-		Me.v2 = v2
-		Me.v3 = v3
-		Me.v4 = v4
-		Me.v5 = v5
-	End Sub
 
 	Public Sub New()
 	End Sub

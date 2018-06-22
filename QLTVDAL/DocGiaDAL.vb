@@ -75,8 +75,8 @@ Public Class DocGiaDAL
 
 	Public Function Insert(docGia As DocGiaDTO) As Result
 		Dim query As String = String.Empty
-		query &= "INSERT INTO [tblDocGia] ([madocgia], [hoten], [maloaidocgia], [ngaysinh], [diachi], [email], [ngaylapthe])"
-		query &= "VALUES (@madocgia, @hoten, @maloaidocgia, @ngaysinh, @diachi, @email, @ngaylapthe)"
+		query &= "INSERT INTO [tblDocGia] ([madocgia], [hoten], [maloaidocgia], [ngaysinh], [diachi], [email], [ngaylapthe], [ngayhethan])"
+		query &= "VALUES (@madocgia, @hoten, @maloaidocgia, @ngaysinh, @diachi, @email, @ngaylapthe, @ngayhethan)"
 
 		'get madocgia
 		Dim nextmadocgia = "1"
@@ -96,6 +96,7 @@ Public Class DocGiaDAL
 					.Parameters.AddWithValue("@diachi", docGia.DiaChi)
 					.Parameters.AddWithValue("@email", docGia.Email)
 					.Parameters.AddWithValue("@ngaylapthe", docGia.NgayLapThe)
+					.Parameters.AddWithValue("@ngayhethan", docGia.NgayHetHan)
 				End With
 				Try
 					conn.Open()
@@ -166,6 +167,42 @@ Public Class DocGiaDAL
 						listDocGia.Clear()
 						While reader.Read()
 							listDocGia.Add(New DocGiaDTO(reader("madocgia"), reader("hoten"), reader("maloaidocgia"), reader("ngaysinh"), reader("diachi"), reader("email"), reader("ngaylapthe")))
+						End While
+					End If
+
+				Catch ex As Exception
+					conn.Close()
+					System.Console.WriteLine(ex.StackTrace)
+					Return New Result(False, "Lấy tất cả Độc giả theo Loại không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+		Return New Result(True) ' thanh cong
+
+	End Function
+
+	Public Function SelectByType(maDocGia As Integer, ByRef hoTen As String, ByRef ngayHetHan As Date) As Result
+		Dim query As String = String.Empty
+		query &= "SELECT [hoten], [ngayhethan] "
+		query &= "FROM [tblDocGia] "
+		query &= "WHERE [madocgia] = @madocgia"
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+					.Parameters.AddWithValue("@madocgia", maDocGia)
+				End With
+				Try
+					conn.Open()
+					Dim reader As SqlDataReader
+					reader = comm.ExecuteReader()
+					If reader.HasRows = True Then
+						While reader.Read()
+							hoten = reader("hoten")
+							ngayHetHan = reader("ngayhethan")
 						End While
 					End If
 

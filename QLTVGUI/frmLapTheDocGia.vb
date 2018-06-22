@@ -19,6 +19,7 @@ Public Class frmLapTheDocGia
 		docgia.DiaChi = txtDiaChi.Text
 		docgia.Email = txtEmail.Text
 		docgia.NgayLapThe = dtNgayLapThe.Value
+		docgia.NgayHetHan = dtNgayHetHan.Value
 
 		'2. Business .....
 		If (docGiaBUS.IsVaildName(docgia) = False) Then

@@ -22,9 +22,9 @@ Partial Class frmLapPhieuMuonSach
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-		Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-		Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-		Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Me.txtMaPhieuMuonSach = New MetroFramework.Controls.MetroTextBox()
 		Me.txtMaDocGia = New MetroFramework.Controls.MetroTextBox()
 		Me.txtHoTenDocGia = New MetroFramework.Controls.MetroTextBox()
@@ -37,9 +37,9 @@ Partial Class frmLapPhieuMuonSach
 		Me.btnNhap = New MetroFramework.Controls.MetroButton()
 		Me.btnNhapVaDong = New MetroFramework.Controls.MetroButton()
 		Me.MetroDateTime1 = New MetroFramework.Controls.MetroDateTime()
-		Me.MetroDateTime2 = New MetroFramework.Controls.MetroDateTime()
-		CType(Me.dgvLapPhieuMuonSach, System.ComponentModel.ISupportInitialize).BeginInit()
-		Me.SuspendLayout()
+		Me.dtpNgayHetHan = New MetroFramework.Controls.MetroDateTime()
+		CType(Me.dgvLapPhieuMuonSach,System.ComponentModel.ISupportInitialize).BeginInit
+		Me.SuspendLayout
 		'
 		'txtMaPhieuMuonSach
 		'
@@ -47,16 +47,18 @@ Partial Class frmLapPhieuMuonSach
 		'
 		'
 		Me.txtMaPhieuMuonSach.CustomButton.Image = Nothing
-		Me.txtMaPhieuMuonSach.CustomButton.Location = New System.Drawing.Point(53, 1)
+		Me.txtMaPhieuMuonSach.CustomButton.Location = New System.Drawing.Point(99, 2)
+		Me.txtMaPhieuMuonSach.CustomButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.txtMaPhieuMuonSach.CustomButton.Name = ""
-		Me.txtMaPhieuMuonSach.CustomButton.Size = New System.Drawing.Size(21, 21)
+		Me.txtMaPhieuMuonSach.CustomButton.Size = New System.Drawing.Size(31, 28)
 		Me.txtMaPhieuMuonSach.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
 		Me.txtMaPhieuMuonSach.CustomButton.TabIndex = 1
 		Me.txtMaPhieuMuonSach.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-		Me.txtMaPhieuMuonSach.CustomButton.UseSelectable = True
-		Me.txtMaPhieuMuonSach.CustomButton.Visible = False
+		Me.txtMaPhieuMuonSach.CustomButton.UseSelectable = true
+		Me.txtMaPhieuMuonSach.CustomButton.Visible = false
 		Me.txtMaPhieuMuonSach.Lines = New String(-1) {}
-		Me.txtMaPhieuMuonSach.Location = New System.Drawing.Point(410, 56)
+		Me.txtMaPhieuMuonSach.Location = New System.Drawing.Point(547, 69)
+		Me.txtMaPhieuMuonSach.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.txtMaPhieuMuonSach.MaxLength = 32767
 		Me.txtMaPhieuMuonSach.Name = "txtMaPhieuMuonSach"
 		Me.txtMaPhieuMuonSach.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -64,12 +66,12 @@ Partial Class frmLapPhieuMuonSach
 		Me.txtMaPhieuMuonSach.SelectedText = ""
 		Me.txtMaPhieuMuonSach.SelectionLength = 0
 		Me.txtMaPhieuMuonSach.SelectionStart = 0
-		Me.txtMaPhieuMuonSach.ShortcutsEnabled = True
-		Me.txtMaPhieuMuonSach.Size = New System.Drawing.Size(75, 23)
+		Me.txtMaPhieuMuonSach.ShortcutsEnabled = true
+		Me.txtMaPhieuMuonSach.Size = New System.Drawing.Size(100, 28)
 		Me.txtMaPhieuMuonSach.TabIndex = 1
-		Me.txtMaPhieuMuonSach.UseSelectable = True
-		Me.txtMaPhieuMuonSach.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
-		Me.txtMaPhieuMuonSach.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
+		Me.txtMaPhieuMuonSach.UseSelectable = true
+		Me.txtMaPhieuMuonSach.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer))
+		Me.txtMaPhieuMuonSach.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
 		'
 		'txtMaDocGia
 		'
@@ -77,16 +79,18 @@ Partial Class frmLapPhieuMuonSach
 		'
 		'
 		Me.txtMaDocGia.CustomButton.Image = Nothing
-		Me.txtMaDocGia.CustomButton.Location = New System.Drawing.Point(53, 1)
+		Me.txtMaDocGia.CustomButton.Location = New System.Drawing.Point(204, 2)
+		Me.txtMaDocGia.CustomButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.txtMaDocGia.CustomButton.Name = ""
-		Me.txtMaDocGia.CustomButton.Size = New System.Drawing.Size(21, 21)
+		Me.txtMaDocGia.CustomButton.Size = New System.Drawing.Size(31, 28)
 		Me.txtMaDocGia.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
 		Me.txtMaDocGia.CustomButton.TabIndex = 1
 		Me.txtMaDocGia.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-		Me.txtMaDocGia.CustomButton.UseSelectable = True
-		Me.txtMaDocGia.CustomButton.Visible = False
+		Me.txtMaDocGia.CustomButton.UseSelectable = true
+		Me.txtMaDocGia.CustomButton.Visible = false
 		Me.txtMaDocGia.Lines = New String(-1) {}
-		Me.txtMaDocGia.Location = New System.Drawing.Point(253, 102)
+		Me.txtMaDocGia.Location = New System.Drawing.Point(337, 126)
+		Me.txtMaDocGia.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.txtMaDocGia.MaxLength = 32767
 		Me.txtMaDocGia.Name = "txtMaDocGia"
 		Me.txtMaDocGia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -94,12 +98,12 @@ Partial Class frmLapPhieuMuonSach
 		Me.txtMaDocGia.SelectedText = ""
 		Me.txtMaDocGia.SelectionLength = 0
 		Me.txtMaDocGia.SelectionStart = 0
-		Me.txtMaDocGia.ShortcutsEnabled = True
-		Me.txtMaDocGia.Size = New System.Drawing.Size(134, 23)
+		Me.txtMaDocGia.ShortcutsEnabled = true
+		Me.txtMaDocGia.Size = New System.Drawing.Size(179, 28)
 		Me.txtMaDocGia.TabIndex = 1
-		Me.txtMaDocGia.UseSelectable = True
-		Me.txtMaDocGia.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
-		Me.txtMaDocGia.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
+		Me.txtMaDocGia.UseSelectable = true
+		Me.txtMaDocGia.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer))
+		Me.txtMaDocGia.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
 		'
 		'txtHoTenDocGia
 		'
@@ -107,159 +111,171 @@ Partial Class frmLapPhieuMuonSach
 		'
 		'
 		Me.txtHoTenDocGia.CustomButton.Image = Nothing
-		Me.txtHoTenDocGia.CustomButton.Location = New System.Drawing.Point(53, 1)
+		Me.txtHoTenDocGia.CustomButton.Location = New System.Drawing.Point(204, 2)
+		Me.txtHoTenDocGia.CustomButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.txtHoTenDocGia.CustomButton.Name = ""
-		Me.txtHoTenDocGia.CustomButton.Size = New System.Drawing.Size(21, 21)
+		Me.txtHoTenDocGia.CustomButton.Size = New System.Drawing.Size(31, 28)
 		Me.txtHoTenDocGia.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
 		Me.txtHoTenDocGia.CustomButton.TabIndex = 1
 		Me.txtHoTenDocGia.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-		Me.txtHoTenDocGia.CustomButton.UseSelectable = True
-		Me.txtHoTenDocGia.CustomButton.Visible = False
+		Me.txtHoTenDocGia.CustomButton.UseSelectable = true
+		Me.txtHoTenDocGia.CustomButton.Visible = false
 		Me.txtHoTenDocGia.Lines = New String(-1) {}
-		Me.txtHoTenDocGia.Location = New System.Drawing.Point(253, 146)
+		Me.txtHoTenDocGia.Location = New System.Drawing.Point(337, 180)
+		Me.txtHoTenDocGia.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.txtHoTenDocGia.MaxLength = 32767
 		Me.txtHoTenDocGia.Name = "txtHoTenDocGia"
 		Me.txtHoTenDocGia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-		Me.txtHoTenDocGia.ReadOnly = True
+		Me.txtHoTenDocGia.ReadOnly = true
 		Me.txtHoTenDocGia.ScrollBars = System.Windows.Forms.ScrollBars.None
 		Me.txtHoTenDocGia.SelectedText = ""
 		Me.txtHoTenDocGia.SelectionLength = 0
 		Me.txtHoTenDocGia.SelectionStart = 0
-		Me.txtHoTenDocGia.ShortcutsEnabled = True
-		Me.txtHoTenDocGia.Size = New System.Drawing.Size(134, 23)
+		Me.txtHoTenDocGia.ShortcutsEnabled = true
+		Me.txtHoTenDocGia.Size = New System.Drawing.Size(179, 28)
 		Me.txtHoTenDocGia.TabIndex = 1
-		Me.txtHoTenDocGia.UseSelectable = True
-		Me.txtHoTenDocGia.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
-		Me.txtHoTenDocGia.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
+		Me.txtHoTenDocGia.UseSelectable = true
+		Me.txtHoTenDocGia.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer))
+		Me.txtHoTenDocGia.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
 		'
 		'MetroLabel1
 		'
-		Me.MetroLabel1.AutoSize = True
-		Me.MetroLabel1.Location = New System.Drawing.Point(253, 60)
+		Me.MetroLabel1.AutoSize = true
+		Me.MetroLabel1.Location = New System.Drawing.Point(337, 74)
+		Me.MetroLabel1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.MetroLabel1.Name = "MetroLabel1"
-		Me.MetroLabel1.Size = New System.Drawing.Size(134, 19)
+		Me.MetroLabel1.Size = New System.Drawing.Size(140, 20)
 		Me.MetroLabel1.TabIndex = 4
 		Me.MetroLabel1.Text = "Mã Phiếu Mượn Sách"
 		'
 		'MetroLabel2
 		'
-		Me.MetroLabel2.AutoSize = True
-		Me.MetroLabel2.Location = New System.Drawing.Point(134, 102)
+		Me.MetroLabel2.AutoSize = true
+		Me.MetroLabel2.Location = New System.Drawing.Point(179, 126)
+		Me.MetroLabel2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.MetroLabel2.Name = "MetroLabel2"
-		Me.MetroLabel2.Size = New System.Drawing.Size(78, 19)
+		Me.MetroLabel2.Size = New System.Drawing.Size(81, 20)
 		Me.MetroLabel2.TabIndex = 5
 		Me.MetroLabel2.Text = "Mã Độc Giả"
 		'
 		'MetroLabel3
 		'
-		Me.MetroLabel3.AutoSize = True
-		Me.MetroLabel3.Location = New System.Drawing.Point(134, 146)
+		Me.MetroLabel3.AutoSize = true
+		Me.MetroLabel3.Location = New System.Drawing.Point(179, 180)
+		Me.MetroLabel3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.MetroLabel3.Name = "MetroLabel3"
-		Me.MetroLabel3.Size = New System.Drawing.Size(99, 19)
+		Me.MetroLabel3.Size = New System.Drawing.Size(106, 20)
 		Me.MetroLabel3.TabIndex = 5
 		Me.MetroLabel3.Text = "Họ Tên Độc Giả"
 		'
 		'MetroLabel4
 		'
-		Me.MetroLabel4.AutoSize = True
-		Me.MetroLabel4.Location = New System.Drawing.Point(410, 102)
+		Me.MetroLabel4.AutoSize = true
+		Me.MetroLabel4.Location = New System.Drawing.Point(547, 126)
+		Me.MetroLabel4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.MetroLabel4.Name = "MetroLabel4"
-		Me.MetroLabel4.Size = New System.Drawing.Size(110, 19)
+		Me.MetroLabel4.Size = New System.Drawing.Size(115, 20)
 		Me.MetroLabel4.TabIndex = 5
 		Me.MetroLabel4.Text = "Ngày Mượn Sách"
 		'
 		'MetroLabel5
 		'
-		Me.MetroLabel5.AutoSize = True
-		Me.MetroLabel5.Location = New System.Drawing.Point(410, 150)
+		Me.MetroLabel5.AutoSize = true
+		Me.MetroLabel5.Location = New System.Drawing.Point(547, 185)
+		Me.MetroLabel5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.MetroLabel5.Name = "MetroLabel5"
-		Me.MetroLabel5.Size = New System.Drawing.Size(91, 19)
+		Me.MetroLabel5.Size = New System.Drawing.Size(97, 20)
 		Me.MetroLabel5.TabIndex = 5
 		Me.MetroLabel5.Text = "Ngày Hết Hạn"
 		'
 		'dgvLapPhieuMuonSach
 		'
-		Me.dgvLapPhieuMuonSach.AllowUserToResizeRows = False
-		Me.dgvLapPhieuMuonSach.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+		Me.dgvLapPhieuMuonSach.AllowUserToResizeRows = false
+		Me.dgvLapPhieuMuonSach.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer))
 		Me.dgvLapPhieuMuonSach.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.dgvLapPhieuMuonSach.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
 		Me.dgvLapPhieuMuonSach.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-		DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-		DataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(219, Byte), Integer))
-		DataGridViewCellStyle19.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-		DataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-		DataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(247, Byte), Integer))
-		DataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
-		DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-		Me.dgvLapPhieuMuonSach.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle19
+		DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+		DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(174,Byte),Integer), CType(CType(219,Byte),Integer))
+		DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 11!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+		DataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer))
+		DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(198,Byte),Integer), CType(CType(247,Byte),Integer))
+		DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer))
+		DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.dgvLapPhieuMuonSach.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
 		Me.dgvLapPhieuMuonSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-		DataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-		DataGridViewCellStyle20.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-		DataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(136, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(136, Byte), Integer))
-		DataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(247, Byte), Integer))
-		DataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
-		DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-		Me.dgvLapPhieuMuonSach.DefaultCellStyle = DataGridViewCellStyle20
-		Me.dgvLapPhieuMuonSach.EnableHeadersVisualStyles = False
-		Me.dgvLapPhieuMuonSach.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-		Me.dgvLapPhieuMuonSach.GridColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-		Me.dgvLapPhieuMuonSach.Location = New System.Drawing.Point(84, 207)
+		DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+		DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer))
+		DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 11!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+		DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(136,Byte),Integer), CType(CType(136,Byte),Integer), CType(CType(136,Byte),Integer))
+		DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(198,Byte),Integer), CType(CType(247,Byte),Integer))
+		DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer))
+		DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+		Me.dgvLapPhieuMuonSach.DefaultCellStyle = DataGridViewCellStyle2
+		Me.dgvLapPhieuMuonSach.EnableHeadersVisualStyles = false
+		Me.dgvLapPhieuMuonSach.Font = New System.Drawing.Font("Segoe UI", 11!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+		Me.dgvLapPhieuMuonSach.GridColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer))
+		Me.dgvLapPhieuMuonSach.Location = New System.Drawing.Point(159, 251)
+		Me.dgvLapPhieuMuonSach.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.dgvLapPhieuMuonSach.Name = "dgvLapPhieuMuonSach"
 		Me.dgvLapPhieuMuonSach.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-		DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-		DataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(219, Byte), Integer))
-		DataGridViewCellStyle21.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-		DataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-		DataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(247, Byte), Integer))
-		DataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
-		DataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-		Me.dgvLapPhieuMuonSach.RowHeadersDefaultCellStyle = DataGridViewCellStyle21
+		DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+		DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(174,Byte),Integer), CType(CType(219,Byte),Integer))
+		DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 11!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+		DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer))
+		DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(198,Byte),Integer), CType(CType(247,Byte),Integer))
+		DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer))
+		DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.dgvLapPhieuMuonSach.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
 		Me.dgvLapPhieuMuonSach.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
 		Me.dgvLapPhieuMuonSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-		Me.dgvLapPhieuMuonSach.Size = New System.Drawing.Size(632, 150)
+		Me.dgvLapPhieuMuonSach.Size = New System.Drawing.Size(843, 185)
 		Me.dgvLapPhieuMuonSach.TabIndex = 6
 		'
 		'btnNhap
 		'
-		Me.btnNhap.Location = New System.Drawing.Point(223, 396)
+		Me.btnNhap.Location = New System.Drawing.Point(297, 487)
+		Me.btnNhap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.btnNhap.Name = "btnNhap"
-		Me.btnNhap.Size = New System.Drawing.Size(93, 23)
+		Me.btnNhap.Size = New System.Drawing.Size(124, 28)
 		Me.btnNhap.TabIndex = 7
 		Me.btnNhap.Text = "Lập"
-		Me.btnNhap.UseSelectable = True
+		Me.btnNhap.UseSelectable = true
 		'
 		'btnNhapVaDong
 		'
-		Me.btnNhapVaDong.Location = New System.Drawing.Point(502, 396)
+		Me.btnNhapVaDong.Location = New System.Drawing.Point(669, 487)
+		Me.btnNhapVaDong.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.btnNhapVaDong.Name = "btnNhapVaDong"
-		Me.btnNhapVaDong.Size = New System.Drawing.Size(95, 23)
+		Me.btnNhapVaDong.Size = New System.Drawing.Size(127, 28)
 		Me.btnNhapVaDong.TabIndex = 8
 		Me.btnNhapVaDong.Text = "Lập và đóng"
-		Me.btnNhapVaDong.UseSelectable = True
+		Me.btnNhapVaDong.UseSelectable = true
 		'
 		'MetroDateTime1
 		'
-		Me.MetroDateTime1.Location = New System.Drawing.Point(535, 96)
-		Me.MetroDateTime1.MinimumSize = New System.Drawing.Size(0, 29)
+		Me.MetroDateTime1.Location = New System.Drawing.Point(713, 118)
+		Me.MetroDateTime1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.MetroDateTime1.MinimumSize = New System.Drawing.Size(0, 30)
 		Me.MetroDateTime1.Name = "MetroDateTime1"
-		Me.MetroDateTime1.Size = New System.Drawing.Size(200, 29)
+		Me.MetroDateTime1.Size = New System.Drawing.Size(265, 30)
 		Me.MetroDateTime1.TabIndex = 9
 		'
-		'MetroDateTime2
+		'dtpNgayHetHan
 		'
-		Me.MetroDateTime2.Location = New System.Drawing.Point(535, 150)
-		Me.MetroDateTime2.MinimumSize = New System.Drawing.Size(0, 29)
-		Me.MetroDateTime2.Name = "MetroDateTime2"
-		Me.MetroDateTime2.Size = New System.Drawing.Size(200, 29)
-		Me.MetroDateTime2.TabIndex = 10
+		Me.dtpNgayHetHan.Location = New System.Drawing.Point(713, 185)
+		Me.dtpNgayHetHan.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.dtpNgayHetHan.MinimumSize = New System.Drawing.Size(0, 30)
+		Me.dtpNgayHetHan.Name = "dtpNgayHetHan"
+		Me.dtpNgayHetHan.Size = New System.Drawing.Size(265, 30)
+		Me.dtpNgayHetHan.TabIndex = 10
 		'
 		'frmLapPhieuMuonSach
 		'
-		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+		Me.AutoScaleDimensions = New System.Drawing.SizeF(8!, 16!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(822, 453)
-		Me.Controls.Add(Me.MetroDateTime2)
+		Me.ClientSize = New System.Drawing.Size(1096, 558)
+		Me.Controls.Add(Me.dtpNgayHetHan)
 		Me.Controls.Add(Me.MetroDateTime1)
 		Me.Controls.Add(Me.btnNhapVaDong)
 		Me.Controls.Add(Me.btnNhap)
@@ -272,13 +288,15 @@ Partial Class frmLapPhieuMuonSach
 		Me.Controls.Add(Me.txtHoTenDocGia)
 		Me.Controls.Add(Me.txtMaDocGia)
 		Me.Controls.Add(Me.txtMaPhieuMuonSach)
+		Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.Name = "frmLapPhieuMuonSach"
+		Me.Padding = New System.Windows.Forms.Padding(27, 74, 27, 25)
 		Me.Text = "frmLapPhieuMuonSach"
-		CType(Me.dgvLapPhieuMuonSach, System.ComponentModel.ISupportInitialize).EndInit()
-		Me.ResumeLayout(False)
-		Me.PerformLayout()
+		CType(Me.dgvLapPhieuMuonSach,System.ComponentModel.ISupportInitialize).EndInit
+		Me.ResumeLayout(false)
+		Me.PerformLayout
 
-	End Sub
+End Sub
 	Friend WithEvents txtMaPhieuMuonSach As MetroFramework.Controls.MetroTextBox
 	Friend WithEvents txtMaDocGia As MetroFramework.Controls.MetroTextBox
 	Friend WithEvents txtHoTenDocGia As MetroFramework.Controls.MetroTextBox
@@ -291,5 +309,5 @@ Partial Class frmLapPhieuMuonSach
 	Friend WithEvents btnNhap As MetroFramework.Controls.MetroButton
 	Friend WithEvents btnNhapVaDong As MetroFramework.Controls.MetroButton
 	Friend WithEvents MetroDateTime1 As MetroFramework.Controls.MetroDateTime
-	Friend WithEvents MetroDateTime2 As MetroFramework.Controls.MetroDateTime
+	Friend WithEvents dtpNgayHetHan As MetroFramework.Controls.MetroDateTime
 End Class

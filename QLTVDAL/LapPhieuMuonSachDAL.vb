@@ -105,39 +105,39 @@ Public Class LapPhieuMuonSachDAL
 
 	End Function
 
-	Public Function selectALL(ByRef listPhieuMuonSach As List(Of LapPhieuMuonSachDTO)) As Result
+	'Public Function selectALL(ByRef listPhieuMuonSach As List(Of LapPhieuMuonSachDTO)) As Result
 
-		Dim query As String = String.Empty
-		query &= "SELECT [maphieumuonsach], [ngaymuonsach], [madocgia], [ngayhethan]"
-		query &= "FROM [tblPhieuMuonSach]"
+	'	Dim query As String = String.Empty
+	'	query &= "SELECT [maphieumuonsach], [ngaymuonsach], [madocgia], [ngayhethan]"
+	'	query &= "FROM [tblPhieuMuonSach]"
 
 
-		Using conn As New SqlConnection(connectionString)
-			Using comm As New SqlCommand()
-				With comm
-					.Connection = conn
-					.CommandType = CommandType.Text
-					.CommandText = query
-				End With
-				Try
-					conn.Open()
-					Dim reader As SqlDataReader
-					reader = comm.ExecuteReader()
-					If reader.HasRows = True Then
-						listPhieuMuonSach.Clear()
-						While reader.Read()
-							listPhieuMuonSach.Add(New LapPhieuMuonSachDTO(reader("maphieumuonsach"), reader("ngaymuonsach"), reader("hoten"), reader("diachi"), reader("ngaysinh")))
-						End While
-					End If
+	'	Using conn As New SqlConnection(connectionString)
+	'		Using comm As New SqlCommand()
+	'			With comm
+	'				.Connection = conn
+	'				.CommandType = CommandType.Text
+	'				.CommandText = query
+	'			End With
+	'			Try
+	'				conn.Open()
+	'				Dim reader As SqlDataReader
+	'				reader = comm.ExecuteReader()
+	'				If reader.HasRows = True Then
+	'					listPhieuMuonSach.Clear()
+	'					While reader.Read()
+	'						listPhieuMuonSach.Add(New LapPhieuMuonSachDTO(reader("maphieumuonsach"), reader("ngaymuonsach"), reader("hoten"), reader("diachi"), reader("ngaysinh")))
+	'					End While
+	'				End If
 
-				Catch ex As Exception
-					conn.Close()
-					System.Console.WriteLine(ex.StackTrace)
-					Return New Result(False, "Lấy tất cả Phiếu mượn sách không thành công", ex.StackTrace)
-				End Try
-			End Using
-		End Using
-		Return New Result(True) ' thanh cong
-	End Function
+	'			Catch ex As Exception
+	'				conn.Close()
+	'				System.Console.WriteLine(ex.StackTrace)
+	'				Return New Result(False, "Lấy tất cả Phiếu mượn sách không thành công", ex.StackTrace)
+	'			End Try
+	'		End Using
+	'	End Using
+	'	Return New Result(True) ' thanh cong
+	'End Function
 
 End Class

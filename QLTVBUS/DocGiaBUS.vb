@@ -84,4 +84,9 @@ Public Class DocGiaBUS
 
 		Return True
 	End Function
+
+	Public Function SelectByType(maDocGia As String, ByRef hoTen As String, ByRef ngayHetHan As Date) As Result
+		
+		Return docGiaDAL.SelectByType(maDocGia, hoTen, ngayHetHan)
+	End Function
 End Class

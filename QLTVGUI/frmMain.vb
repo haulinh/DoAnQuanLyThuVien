@@ -84,4 +84,10 @@ Public Class frmMain
 		frmTraCuuSach.MdiParent = Me
 		frmTraCuuSach.Show()
 	End Sub
+
+	Private Sub LậpThẻMượnSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LậpThẻMượnSáchToolStripMenuItem.Click
+		Dim frmLapTheMuonSach As frmLapPhieuMuonSach = New frmLapPhieuMuonSach()
+		frmLapTheMuonSach.MdiParent = Me
+		frmLapTheMuonSach.Show()
+	End Sub
 End Class
