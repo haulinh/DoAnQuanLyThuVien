@@ -5,9 +5,10 @@ Imports Utility
 Public Class frmLapPhieuMuonSach
 
 	Private docGiaBUS As DocGiaBUS
+	Private sachBUS As SachBUS
 	Private phieuMuonSachBUS As LapPhieuMuonSachBUS
 
-	Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click
+	Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click  
 		Dim phieuMuonSach As LapPhieuMuonSachDTO
 		phieuMuonSach = New LapPhieuMuonSachDTO()
 
@@ -36,7 +37,7 @@ Public Class frmLapPhieuMuonSach
 		End If
 	End Sub
 
-	Private Sub btnNhapVaDong_Click(sender As Object, e As EventArgs) Handles btnNhapVaDong.Click
+	Private Sub btnNhapVaDong_Click(sender As Object, e As EventArgs) Handles btnNhapVaDong.Click  
 		Dim phieuMuonSach As LapPhieuMuonSachDTO
 		phieuMuonSach = New LapPhieuMuonSachDTO()
 
@@ -56,27 +57,56 @@ Public Class frmLapPhieuMuonSach
 		End If
 	End Sub
 
-	Private Sub frmLapPhieuMuonSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+	Private Sub frmLapPhieuMuonSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load  
 		docGiaBUS = New DocGiaBUS()
-	End Sub
+		sachBUS = New SachBUS()
+		dtpNgayHetHan.Enabled = False
 
-	Private Sub txtMaDocGia_Leave(sender As Object, e As EventArgs) Handles txtMaDocGia.Leave
-		Try
-
-		Dim maDocGia = txtMaDocGia.Text
-		LoadInfoReader(maDocGia)
-
-		Catch ex As Exception
-		End Try
-
+		dtpNgayMuonSach.Enabled = False
+		dtpNgayMuonSach.Value = DateTime.Today
 	End Sub
 
 	Private Sub LoadInfoReader(maDocGia As String)
-		Dim hoTen = New String("")
+		Dim hoTen = New String(Nothing)
 		Dim ngayHetHan = new Date()
 		Dim result As Result
+
 		result = docGiaBUS.SelectByType(maDocGia, hoTen, ngayHetHan)
+
 		txtHoTenDocGia.Text = hoTen
 		dtpNgayHetHan.Value = ngayHetHan
+	End Sub
+
+	Private Sub LoadInfoBook(maSach As String)
+		Dim tenSach = New String(Nothing)
+		Dim tacGia = New String(Nothing)
+		Dim nhaXuatBan = new String(Nothing)
+		Dim result As Result
+
+		result = sachBUS.SelectByType(maSach, tenSach, tacGia, nhaXuatBan)
+
+		txtTenSach.Text = tenSach
+		txtTacGia.Text = tacGia
+		txtNhaXuatBan.Text = nhaXuatBan
+	End Sub
+
+	Private Sub txtMaDocGia_KeyUp(sender As Object, e As KeyEventArgs) Handles txtMaDocGia.KeyUp, txtTenSach.KeyUp, txtTacGia.KeyUp, txtNhaXuatBan.KeyUp 
+		Try
+
+			Dim maDocGia = txtMaDocGia.Text
+			LoadInfoReader(maDocGia)
+
+		Catch ex As Exception
+		End Try
+	End Sub
+
+	Private Sub txtMaSach_KeyUp(sender As Object, e As KeyEventArgs) Handles txtMaSach.KeyUp
+		Try
+
+			Dim maSach = txtMaSach.Text
+			LoadInfoBook(maSach)
+
+		Catch ex As Exception
+		End Try
 	End Sub
 End Class

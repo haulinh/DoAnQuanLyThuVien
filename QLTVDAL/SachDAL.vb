@@ -276,4 +276,40 @@ Public Class SachDAL
 		End Using
 		Return New Result(True)  ' thanh cong
 	End Function
+
+	Public Function SelectByType(maSach As String, ByRef tenSach As String, ByRef tacGia As String, ByRef nhaXuatBan As String) As Result
+		Dim query As String = String.Empty
+		query &= "SELECT [tensach], [tacgia], [nhaxuatban] "
+		query &= "FROM [tblSach] "
+		query &= "WHERE [masach] = @masach"
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+					.Parameters.AddWithValue("@masach", maSach)
+				End With
+				Try
+					conn.Open()
+					Dim reader As SqlDataReader
+					reader = comm.ExecuteReader()
+					If reader.HasRows = True Then
+						While reader.Read()
+							tenSach = reader("tensach")
+							tacGia = reader("tacgia")
+							nhaXuatBan = reader("nhaxuatban")
+						End While
+					End If
+
+				Catch ex As Exception
+					conn.Close()
+					System.Console.WriteLine(ex.StackTrace)
+					Return New Result(False, "Lấy thông tin sách không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+		Return New Result(True) ' thanh cong
+	End Function
 End Class
