@@ -140,6 +140,7 @@ Public Class frmLapPhieuMuonSach
 
 	Private Sub btnThem_Click(sender As Object, e As EventArgs) Handles btnThem.Click
 		Dim rnum As Integer = dgvDanhSachMuon.Rows.Add()
+
 		dgvDanhSachMuon.Rows.Item(rnum).Cells("MaSach").Value = txtMaSach.Text
 		dgvDanhSachMuon.Rows.Item(rnum).Cells("TenSach").Value = txtTenSach.Text
 		dgvDanhSachMuon.Rows.Item(rnum).Cells("TheLoai").Value = txtTheLoai.Text
@@ -147,16 +148,14 @@ Public Class frmLapPhieuMuonSach
 
 		Dim numberOfRows = dgvDanhSachMuon.Rows.Count - 1 'subtract the last row which is an editing row
 		Dim i As Integer = 0
+
 		While i < numberOfRows 
 
 			For j As Integer = (numberOfRows) To (i + 1) Step - 1
 				If dgvDanhSachMuon.Rows(i).Cells("MaSach").Value.ToString() = dgvDanhSachMuon.Rows(j).Cells("MaSach").Value.ToString() Then
-
-					'MsgBox(dgvDanhSachMuon.Rows(i).Cells(0).Value.ToString())
 					dgvDanhSachMuon.Rows.Remove(dgvDanhSachMuon.Rows(j))
 					numberOfRows -= 1
 				End If
-
 			Next
 			i += 1
 		End While
