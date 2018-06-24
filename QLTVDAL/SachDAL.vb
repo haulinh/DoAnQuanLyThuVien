@@ -277,11 +277,11 @@ Public Class SachDAL
 		Return New Result(True)  ' thanh cong
 	End Function
 
-	Public Function SelectByType(maSach As String, ByRef tenSach As String, ByRef tacGia As String, ByRef nhaXuatBan As String) As Result
+	Public Function SelectByType(maSach As String, ByRef tenSach As String, ByRef theLoai As String, ByRef tacGia As String) As Result
 		Dim query As String = String.Empty
-		query &= "SELECT [tensach], [tacgia], [nhaxuatban] "
-		query &= "FROM [tblSach] "
-		query &= "WHERE [masach] = @masach"
+		query &= "SELECT [tensach], [tentheloaisach], [tacgia] "
+		query &= "FROM [tblSach], [tblTheLoaiSach] "
+		query &= "WHERE [masach] = @masach and [tblSach].matheloaisach = [tblTheLoaiSach].matheloaisach"
 
 		Using conn As New SqlConnection(connectionString)
 			Using comm As New SqlCommand()
@@ -298,8 +298,8 @@ Public Class SachDAL
 					If reader.HasRows = True Then
 						While reader.Read()
 							tenSach = reader("tensach")
+							theLoai = reader("tentheloaisach")
 							tacGia = reader("tacgia")
-							nhaXuatBan = reader("nhaxuatban")
 						End While
 					End If
 

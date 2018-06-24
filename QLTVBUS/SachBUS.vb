@@ -71,7 +71,7 @@ Public Class SachBUS
 		Return sachDAL.Delete(maSach)
 	End Function
 
-	Public Function SelectByType(maSach As String, ByRef tenSach As String, ByRef tacGia As String, ByRef nhaXuatBan As String) As Result
-		Return sachDAL.SelectByType(maSach, tenSach, tacGia, nhaXuatBan)
+	Public Function SelectByType(maSach As String, ByRef tenSach As String, ByRef theLoai As String, ByRef tacGia As String) As Result
+		Return sachDAL.SelectByType(maSach, tenSach, theLoai, tacGia)
 	End Function
 End Class

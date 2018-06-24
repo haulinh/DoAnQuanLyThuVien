@@ -8,7 +8,7 @@ Public Class frmLapPhieuMuonSach
 	Private sachBUS As SachBUS
 	Private phieuMuonSachBUS As LapPhieuMuonSachBUS
 
-	Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click  
+	Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnLap.Click  
 		Dim phieuMuonSach As LapPhieuMuonSachDTO
 		phieuMuonSach = New LapPhieuMuonSachDTO()
 
@@ -37,7 +37,7 @@ Public Class frmLapPhieuMuonSach
 		End If
 	End Sub
 
-	Private Sub btnNhapVaDong_Click(sender As Object, e As EventArgs) Handles btnNhapVaDong.Click  
+	Private Sub btnNhapVaDong_Click(sender As Object, e As EventArgs) Handles btnLapVaDong.Click  
 		Dim phieuMuonSach As LapPhieuMuonSachDTO
 		phieuMuonSach = New LapPhieuMuonSachDTO()
 
@@ -60,10 +60,38 @@ Public Class frmLapPhieuMuonSach
 	Private Sub frmLapPhieuMuonSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load  
 		docGiaBUS = New DocGiaBUS()
 		sachBUS = New SachBUS()
+
 		dtpNgayHetHan.Enabled = False
 
 		dtpNgayMuonSach.Enabled = False
 		dtpNgayMuonSach.Value = DateTime.Today
+
+		dgvDanhSachMuon.Columns.Clear()
+		dgvDanhSachMuon.DataSource = Nothing
+
+		dgvDanhSachMuon.AutoGenerateColumns = False
+		dgvDanhSachMuon.AllowUserToAddRows = False
+
+		Dim clMa = New DataGridViewTextBoxColumn()
+		clMa.Name = "MaSach"
+		clMa.HeaderText = "Mã Sách"
+		dgvDanhSachMuon.Columns.Add(clMa)
+
+		Dim clTenSach = New DataGridViewTextBoxColumn()
+		clTenSach.Name = "TenSach"
+		clTenSach.HeaderText = "Tên Sách"
+		dgvDanhSachMuon.Columns.Add(clTenSach)
+
+		Dim clTheLoai = New DataGridViewTextBoxColumn()
+		clTheLoai.Name = "TheLoai"
+		clTheLoai.HeaderText = "Thể Loại"
+		dgvDanhSachMuon.Columns.Add(clTheLoai)
+
+		Dim clTacGia = New DataGridViewTextBoxColumn()
+		clTacGia.Name = "TacGia"
+		clTacGia.HeaderText = "Tác Giả"
+		dgvDanhSachMuon.Columns.Add(clTacGia)
+		
 	End Sub
 
 	Private Sub LoadInfoReader(maDocGia As String)
@@ -80,17 +108,17 @@ Public Class frmLapPhieuMuonSach
 	Private Sub LoadInfoBook(maSach As String)
 		Dim tenSach = New String(Nothing)
 		Dim tacGia = New String(Nothing)
-		Dim nhaXuatBan = new String(Nothing)
+		Dim theLoai = new String(Nothing)
 		Dim result As Result
 
-		result = sachBUS.SelectByType(maSach, tenSach, tacGia, nhaXuatBan)
+		result = sachBUS.SelectByType(maSach, tenSach, theLoai, tacGia)
 
 		txtTenSach.Text = tenSach
 		txtTacGia.Text = tacGia
-		txtNhaXuatBan.Text = nhaXuatBan
+		txtTheLoai.Text = theLoai
 	End Sub
 
-	Private Sub txtMaDocGia_KeyUp(sender As Object, e As KeyEventArgs) Handles txtMaDocGia.KeyUp, txtTenSach.KeyUp, txtTacGia.KeyUp, txtNhaXuatBan.KeyUp 
+	Private Sub txtMaDocGia_KeyUp(sender As Object, e As KeyEventArgs) Handles txtMaDocGia.KeyUp, txtTenSach.KeyUp, txtTacGia.KeyUp, txtTheLoai.KeyUp 
 		Try
 
 			Dim maDocGia = txtMaDocGia.Text
@@ -108,5 +136,34 @@ Public Class frmLapPhieuMuonSach
 
 		Catch ex As Exception
 		End Try
+	End Sub
+
+	Private Sub btnThem_Click(sender As Object, e As EventArgs) Handles btnThem.Click
+		Dim rnum As Integer = dgvDanhSachMuon.Rows.Add()
+		dgvDanhSachMuon.Rows.Item(rnum).Cells("MaSach").Value = txtMaSach.Text
+		dgvDanhSachMuon.Rows.Item(rnum).Cells("TenSach").Value = txtTenSach.Text
+		dgvDanhSachMuon.Rows.Item(rnum).Cells("TheLoai").Value = txtTheLoai.Text
+		dgvDanhSachMuon.Rows.Item(rnum).Cells("TacGia").Value = txtTacGia.Text
+
+		Dim numberOfRows = dgvDanhSachMuon.Rows.Count - 1 'subtract the last row which is an editing row
+		Dim i As Integer = 0
+		While i < numberOfRows 
+
+			For j As Integer = (numberOfRows) To (i + 1) Step - 1
+				If dgvDanhSachMuon.Rows(i).Cells("MaSach").Value.ToString() = dgvDanhSachMuon.Rows(j).Cells("MaSach").Value.ToString() Then
+
+					'MsgBox(dgvDanhSachMuon.Rows(i).Cells(0).Value.ToString())
+					dgvDanhSachMuon.Rows.Remove(dgvDanhSachMuon.Rows(j))
+					numberOfRows -= 1
+				End If
+
+			Next
+			i += 1
+		End While
+
+		If dgvDanhSachMuon.Rows(numberOfRows).Cells("MaSach").Value.ToString() = nothing
+			dgvDanhSachMuon.Rows.Remove(dgvDanhSachMuon.Rows(numberOfRows))
+		End If
+
 	End Sub
 End Class
