@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DocGiaDTO.vb" />
-    <Compile Include="LapPhieuMuonSachDTO.vb" />
+    <Compile Include="PhieuMuonSachDTO.vb" />
     <Compile Include="LoaiDocGiaDTO.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

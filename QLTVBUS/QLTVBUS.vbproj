@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DocGiaBUS.vb" />
-    <Compile Include="LapPhieuMuonSachBUS.vb" />
+    <Compile Include="PhieuMuonSachBUS.vb" />
     <Compile Include="LoaiDocGiaBUS.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

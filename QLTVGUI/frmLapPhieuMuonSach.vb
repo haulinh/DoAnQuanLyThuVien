@@ -6,11 +6,11 @@ Public Class frmLapPhieuMuonSach
 
 	Private docGiaBUS As DocGiaBUS
 	Private sachBUS As SachBUS
-	Private phieuMuonSachBUS As LapPhieuMuonSachBUS
+	Private phieuMuonSachBUS As PhieuMuonSachBUS
 
 	Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnLap.Click  
-		Dim phieuMuonSach As LapPhieuMuonSachDTO
-		phieuMuonSach = New LapPhieuMuonSachDTO()
+		Dim phieuMuonSach As PhieuMuonSachDTO
+		phieuMuonSach = New PhieuMuonSachDTO()
 
 		'1. Mapping data from GUI control
 		phieuMuonSach.MaPhieuMuonSach = txtMaPhieuMuonSach.Text
@@ -38,8 +38,8 @@ Public Class frmLapPhieuMuonSach
 	End Sub
 
 	Private Sub btnNhapVaDong_Click(sender As Object, e As EventArgs) Handles btnLapVaDong.Click  
-		Dim phieuMuonSach As LapPhieuMuonSachDTO
-		phieuMuonSach = New LapPhieuMuonSachDTO()
+		Dim phieuMuonSach As PhieuMuonSachDTO
+		phieuMuonSach = New PhieuMuonSachDTO()
 
 		'1. Mapping data from GUI control
 		phieuMuonSach.MaPhieuMuonSach = txtMaPhieuMuonSach.Text
@@ -60,6 +60,18 @@ Public Class frmLapPhieuMuonSach
 	Private Sub frmLapPhieuMuonSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load  
 		docGiaBUS = New DocGiaBUS()
 		sachBUS = New SachBUS()
+		phieuMuonSachBUS = New PhieuMuonSachBUS()
+
+		Dim result As Result
+		Dim nextMaPhieuMuonSach = "1"
+		result = phieuMuonSachBUS.BuildMaPhieuMuonSach(nextMaPhieuMuonSach)
+		If (result.FlagResult = False) Then
+			MessageBox.Show("Lấy danh tự động mã sách không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			System.Console.WriteLine(result.SystemMessage)
+			Me.Close()
+			Return
+		End If
+		txtMaPhieuMuonSach.Text = nextMaPhieuMuonSach
 
 		dtpNgayHetHan.Enabled = False
 

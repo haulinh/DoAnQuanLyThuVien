@@ -1,4 +1,4 @@
-﻿Public Class LapPhieuMuonSachDTO
+﻿Public Class PhieuMuonSachDTO
 	Private _maPhieuMuonSach As String
 	Private _ngayMuonSach As Date
 	Private _maDocGia As String
