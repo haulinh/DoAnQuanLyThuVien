@@ -7,23 +7,16 @@
 	Private _soNgayMuonToiDa As Integer
 	Private _soSachMuonToiDa As Integer
 	Public Sub New()
-		ID = 0
-		TuoiToiThieu = 0
-		TuoiToiDa = 0
-		ThoiHanSuDung = 0
-		KhoangCachXuatBan = 9
-		SoNgayMuonToiDa = 0
-		SoSachMuonToiDa = 0
 	End Sub
 
 	Public Sub New(id As Integer, iTuoiToiThieu As Integer, iTuoiToiDa As Integer, iThoiHanSuDung As Integer, iKhoangCachXuatBan As Integer, iSoNgayMuonToiDa As Integer, iSoSachMuonToiDa As Integer)
-		Me.ID = id
-		Me.TuoiToiThieu = iTuoiToiThieu
-		Me.TuoiToiDa = iTuoiToiDa
-		Me.ThoiHanSuDung = iThoiHanSuDung
-		Me.KhoangCachXuatBan = iKhoangCachXuatBan
-		Me.SoNgayMuonToiDa = iSoNgayMuonToiDa
-		Me.SoSachMuonToiDa = iSoSachMuonToiDa
+		_ID = id
+		_tuoiToiThieu = iTuoiToiThieu
+		_tuoiToiDa = iTuoiToiDa
+		_thoiHanSuDung = iThoiHanSuDung
+		_khoangCachXuatBan = iKhoangCachXuatBan
+		_soNgayMuonToiDa = iSoNgayMuonToiDa
+		_soSachMuonToiDa = iSoSachMuonToiDa
 	End Sub
 
 	Public Property ID As Integer

@@ -114,7 +114,7 @@ Partial Class frmThemTheLoaiSach
 		Me.btnNhap.Location = New System.Drawing.Point(151, 189)
 		Me.btnNhap.Name = "btnNhap"
 		Me.btnNhap.Size = New System.Drawing.Size(75, 23)
-		Me.btnNhap.TabIndex = 4
+		Me.btnNhap.TabIndex = 2
 		Me.btnNhap.Text = "Nhập"
 		Me.btnNhap.UseSelectable = True
 		'
@@ -123,7 +123,7 @@ Partial Class frmThemTheLoaiSach
 		Me.btnNhapVaDong.Location = New System.Drawing.Point(243, 189)
 		Me.btnNhapVaDong.Name = "btnNhapVaDong"
 		Me.btnNhapVaDong.Size = New System.Drawing.Size(87, 23)
-		Me.btnNhapVaDong.TabIndex = 5
+		Me.btnNhapVaDong.TabIndex = 3
 		Me.btnNhapVaDong.Text = "Nhập và đóng"
 		Me.btnNhapVaDong.UseSelectable = True
 		'

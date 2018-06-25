@@ -5,6 +5,8 @@ Imports Utility
 Public Class frmThemSach
 	Private sachBUS As SachBUS
 	Private theLoaiSachBUS As TheLoaiSachBUS
+	Private quyDinhBUS As QuyDinhBUS
+	Private quyDinh As QuyDinhDTO
 
 	Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click
 		Dim sach As SachDTO
@@ -15,16 +17,21 @@ Public Class frmThemSach
 		sach.TenSach = txtTenSach.Text
 		sach.MaTheLoaiSach = Convert.ToInt32(cbMaTheLoaiSach.SelectedValue)
 		sach.TacGia = txtTacGia.Text
-		sach.NamXuatBan = cbNamXuatBan.SelectedValue
+		sach.NamXuatBan = cbNamXuatBan.SelectedItem
 		sach.NhaXuatBan = txtNhaXuatBan.Text
 		sach.NgayNhap = dtNgayNhap.Value
 		sach.TriGia = txtTriGia.Text
-		sach.TinhTrangSach = Convert.ToInt32(cbTinhTrangSach.SelectedValue)
 
 		'2. Business .....
 		If (sachBUS.IsVaildName(sach) = False) Then
-			MessageBox.Show("tên sách không đúng")
+			MessageBox.Show("tên sách không đúng", "Important Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			txtTenSach.Focus()
+			Return
+		End If
+
+		If (sachBUS.IsIntervaleYear(sach, quyDinh) = False) Then
+			MessageBox.Show($"Chỉ nhận các sách xuất bản trong vòng {quyDinh.KhoangCachXuatBan} năm", "Important Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			cbNamXuatBan.Focus()
 			Return
 		End If
 		'3. Insert to DB
@@ -72,8 +79,14 @@ Public Class frmThemSach
 
 		'2. Business .....
 		If (sachBUS.IsVaildName(sach) = False) Then
-			MessageBox.Show("Tên Sách không đúng")
+			MessageBox.Show("Tên Sách không đúng", "Important Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			txtTenSach.Focus()
+			Return
+		End If
+
+		If (sachBUS.IsIntervaleYear(sach, quyDinh) = False) Then
+			MessageBox.Show($"Chỉ nhận các sách xuất bản trong vòng {quyDinh.KhoangCachXuatBan} năm", "Important Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			cbNamXuatBan.Focus()
 			Return
 		End If
 		'3. Insert to DB
@@ -92,6 +105,19 @@ Public Class frmThemSach
 	Private Sub frmThemSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		sachBUS = New SachBUS()
 		theLoaiSachBUS = New TheLoaiSachBUS()
+		quyDinhBUS = New QuyDinhBUS()
+
+		' Load QuyDinhDTO 
+		quyDinh = New QuyDinhDTO
+		Dim results As Result
+		results = quyDinhBUS.selectALL(quyDinh)
+
+		If (results.FlagResult = False) Then
+			MessageBox.Show("Lấy danh sách quy định không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			System.Console.WriteLine(results.SystemMessage)
+			Me.Close()
+			Return
+		End If
 
 		Dim listTheLoaiSach = New List(Of TheLoaiSachDTO)
 		Dim result As Result
@@ -121,5 +147,6 @@ Public Class frmThemSach
 		For year As Integer = 1950 To DateTime.Today.Year
 			cbNamXuatBan.Items.Add(year)
 		Next
+
 	End Sub
 End Class

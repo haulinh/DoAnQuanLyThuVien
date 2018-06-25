@@ -116,7 +116,7 @@ Partial Class frmQuyDinh
 		Me.txtTuoiToiThieu.SelectionStart = 0
 		Me.txtTuoiToiThieu.ShortcutsEnabled = True
 		Me.txtTuoiToiThieu.Size = New System.Drawing.Size(133, 23)
-		Me.txtTuoiToiThieu.TabIndex = 1
+		Me.txtTuoiToiThieu.TabIndex = 0
 		Me.txtTuoiToiThieu.UseSelectable = True
 		Me.txtTuoiToiThieu.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
 		Me.txtTuoiToiThieu.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
@@ -275,7 +275,7 @@ Partial Class frmQuyDinh
 		Me.txtHanSuDung.SelectionStart = 0
 		Me.txtHanSuDung.ShortcutsEnabled = True
 		Me.txtHanSuDung.Size = New System.Drawing.Size(133, 23)
-		Me.txtHanSuDung.TabIndex = 1
+		Me.txtHanSuDung.TabIndex = 2
 		Me.txtHanSuDung.UseSelectable = True
 		Me.txtHanSuDung.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
 		Me.txtHanSuDung.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)

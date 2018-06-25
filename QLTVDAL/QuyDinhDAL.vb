@@ -54,7 +54,7 @@ Public Class QuyDinhDAL
 		End Using
 		Return New Result(True) ' thanh cong
 	End Function
-	Public Function selectALL(ByRef quyDinh As List(Of QuyDinhDTO)) As Result
+	Public Function selectALL(ByRef quyDinh As QuyDinhDTO) As Result
 		Dim query As String = String.Empty
 		query &= "SELECT [id], [tuoitoithieu], [tuoitoida], [thoihansudung], [khoangcachxuatban], [songaymuontoida], [sosachmuontoida] "
 		query &= "FROM [tblQuyDinh]"
@@ -71,9 +71,8 @@ Public Class QuyDinhDAL
 					Dim reader As SqlDataReader
 					reader = comm.ExecuteReader()
 					If reader.HasRows = True Then
-						quyDinh.Clear()
 						While reader.Read()
-							quyDinh.Add(New QuyDinhDTO(reader("id"), reader("tuoitoithieu"), reader("tuoitoida"), reader("thoihansudung"), reader("khoangcachxuatban"), reader("songaymuontoida"), reader("sosachmuontoida")))
+							quyDinh = New QuyDinhDTO(reader("id"), reader("tuoitoithieu"), reader("tuoitoida"), reader("thoihansudung"), reader("khoangcachxuatban"), reader("songaymuontoida"), reader("sosachmuontoida"))
 						End While
 					End If
 				Catch ex As Exception

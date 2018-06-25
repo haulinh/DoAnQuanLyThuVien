@@ -14,7 +14,7 @@ Public Class QuyDinhBUS
 		Return quyDinhDAL.update(quyDinh)
 	End Function
 
-	Public Function selectALL(ByRef quyDinh As List(Of QuyDinhDTO)) As Result
+	Public Function selectALL(ByRef quyDinh As QuyDinhDTO) As Result
 		Return quyDinhDAL.selectALL(quyDinh)
 	End Function
 End Class

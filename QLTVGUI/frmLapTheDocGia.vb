@@ -4,8 +4,10 @@ Imports QLTVDTO
 Imports Utility
 
 Public Class frmLapTheDocGia
-	Private docGiaBUS As docGiaBUS
-	Private loaiDocGiaBUS As LoaidocGiaBUS
+	Private docGiaBUS As DocGiaBUS
+	Private loaiDocGiaBUS As LoaiDocGiaBUS
+	Private quyDinhBUS As QuyDinhBUS
+	Private quyDinh As QuyDinhDTO
 
 	Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click
 		Dim docgia As DocGiaDTO
@@ -23,13 +25,13 @@ Public Class frmLapTheDocGia
 
 		'2. Business .....
 		If (docGiaBUS.IsVaildName(docgia) = False) Then
-			MessageBox.Show("Họ tên độc giả không đúng")
+			MessageBox.Show("Họ tên độc giả không đúng", "Important Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			txtHoTen.Focus()
 			Return
 		End If
 
-		If (docGiaBUS.IsVaildAge(docgia) = False) Then
-			MessageBox.Show("Tuổi độc giả không đúng")
+		If (docGiaBUS.IsVaildAge(docgia, quyDinh) = False) Then
+			MessageBox.Show($"Tuổi độc giả phải từ {quyDinh.TuoiToiThieu} đến {quyDinh.TuoiToiDa}", "Important Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			dtNgaySinh.Focus()
 			Return
 		End If
@@ -76,13 +78,13 @@ Public Class frmLapTheDocGia
 
 		'2. Business .....
 		If (docGiaBUS.IsVaildName(docgia) = False) Then
-			MessageBox.Show("Họ tên độc giả không đúng")
+			MessageBox.Show("Họ tên độc giả không đúng", "Important Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			txtHoTen.Focus()
 			Return
 		End If
 
-		If (docGiaBUS.IsVaildAge(docgia) = False) Then
-			MessageBox.Show("Tuổi độc giả không đúng")
+		If (docGiaBUS.IsVaildAge(docgia, quyDinh) = False) Then
+			MessageBox.Show($"Tuổi độc giả phải từ {quyDinh.TuoiToiThieu} đến {quyDinh.TuoiToiDa}", "Important Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			dtNgaySinh.Focus()
 			Return
 		End If
@@ -101,7 +103,20 @@ Public Class frmLapTheDocGia
 
 	Private Sub frmLapTheDocGia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		docGiaBUS = New docGiaBUS()
-		loaiDocGiaBUS = New LoaidocGiaBUS()
+		loaiDocGiaBUS = New LoaiDocGiaBUS()
+		quyDinhBUS = New QuyDinhBUS()
+
+		' Load QuyDinhDTO 
+		quyDinh = New QuyDinhDTO
+		Dim results As Result
+		results = quyDinhBUS.selectALL(quyDinh)
+
+		If (results.FlagResult = False) Then
+			MessageBox.Show("Lấy danh sách quy định không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			System.Console.WriteLine(results.SystemMessage)
+			Me.Close()
+			Return
+		End If
 
 		'Load LoaiDocGiaDTO list
 		Dim LoaiDocGiaDTo = New List(Of LoaiDocGiaDTo)
@@ -131,7 +146,7 @@ Public Class frmLapTheDocGia
 		txtMaDocGia.Text = nextMaSoDocGia
 
 		dtNgayLapThe.Value = DateTime.Today
-		dtNgayHetHan.Value = docGiaBUS.LayNgayHetHan(dtNgayLapThe.Value)
+		dtNgayHetHan.Value = dtNgayLapThe.Value.AddMonths(quyDinh.ThoiHanSuDung)
 
 
 	End Sub

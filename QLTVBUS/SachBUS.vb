@@ -74,4 +74,25 @@ Public Class SachBUS
 	Public Function SelectByType(maSach As String, ByRef tenSach As String, ByRef theLoai As String, ByRef tacGia As String) As Result
 		Return sachDAL.SelectByType(maSach, tenSach, theLoai, tacGia)
 	End Function
+	Public Function IsIntervaleYear(sachDTO As SachDTO, quyDinh As QuyDinhDTO) As Boolean
+		Dim x = DateTime.Today.Year - sachDTO.NamXuatBan
+
+		If (x > quyDinh.KhoangCachXuatBan) Then
+			Return False
+		End If
+
+		Return True
+	End Function
+	'Public Function IsBookMax(sachDTO As SachDTO, quyDinh As QuyDinhDTO) As Boolean
+	'	Dim count As Integer
+	'	For book As Integer = 0 To sachDTO.MaSach
+
+	'	Next
+	'	If (count > quyDinh.SoSachMuonToiDa) Then
+	'		Return False
+	'	End If
+
+	'	Return True
+	'End Function
+
 End Class
