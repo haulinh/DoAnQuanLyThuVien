@@ -6,14 +6,12 @@ Public Class frmQuyDinh
 	Dim quyDinh As QuyDinhDTO
 	Private Sub frmQuyDinh_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		quyDinhBus = New QuyDinhBUS()
-		Dim listQuyDinh = New List(Of QuyDinhDTO)
-		Dim result = quyDinhBus.selectALL(listQuyDinh)
+		Dim result = quyDinhBus.selectALL(quyDinh)
 		If (result.FlagResult = False) Then
 			MessageBox.Show("Lấy thông tin Quy Định không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			System.Console.WriteLine(result.SystemMessage)
 			Me.Close()
 		End If
-		quyDinh = listQuyDinh(0)
 		txtTuoiToiThieu.Text = quyDinh.TuoiToiThieu
 		txtTuoiToiDa.Text = quyDinh.TuoiToiDa
 		txtHanSuDung.Text = quyDinh.ThoiHanSuDung

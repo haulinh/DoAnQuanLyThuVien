@@ -45,9 +45,9 @@ Partial Class frmThemLoaiDocGia
 		'
 		'
 		Me.txtMaLoaiDocGia.CustomButton.Image = Nothing
-		Me.txtMaLoaiDocGia.CustomButton.Location = New System.Drawing.Point(131, 1)
+		Me.txtMaLoaiDocGia.CustomButton.Location = New System.Drawing.Point(175, 1)
 		Me.txtMaLoaiDocGia.CustomButton.Name = ""
-		Me.txtMaLoaiDocGia.CustomButton.Size = New System.Drawing.Size(16, 17)
+		Me.txtMaLoaiDocGia.CustomButton.Size = New System.Drawing.Size(21, 21)
 		Me.txtMaLoaiDocGia.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
 		Me.txtMaLoaiDocGia.CustomButton.TabIndex = 1
 		Me.txtMaLoaiDocGia.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
@@ -65,7 +65,7 @@ Partial Class frmThemLoaiDocGia
 		Me.txtMaLoaiDocGia.SelectionStart = 0
 		Me.txtMaLoaiDocGia.ShortcutsEnabled = True
 		Me.txtMaLoaiDocGia.Size = New System.Drawing.Size(197, 23)
-		Me.txtMaLoaiDocGia.TabIndex = 1
+		Me.txtMaLoaiDocGia.TabIndex = 0
 		Me.txtMaLoaiDocGia.UseSelectable = True
 		Me.txtMaLoaiDocGia.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
 		Me.txtMaLoaiDocGia.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
@@ -85,9 +85,9 @@ Partial Class frmThemLoaiDocGia
 		'
 		'
 		Me.txtTenLoaiDocGiaDocGia.CustomButton.Image = Nothing
-		Me.txtTenLoaiDocGiaDocGia.CustomButton.Location = New System.Drawing.Point(131, 1)
+		Me.txtTenLoaiDocGiaDocGia.CustomButton.Location = New System.Drawing.Point(175, 1)
 		Me.txtTenLoaiDocGiaDocGia.CustomButton.Name = ""
-		Me.txtTenLoaiDocGiaDocGia.CustomButton.Size = New System.Drawing.Size(16, 17)
+		Me.txtTenLoaiDocGiaDocGia.CustomButton.Size = New System.Drawing.Size(21, 21)
 		Me.txtTenLoaiDocGiaDocGia.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
 		Me.txtTenLoaiDocGiaDocGia.CustomButton.TabIndex = 1
 		Me.txtTenLoaiDocGiaDocGia.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
@@ -123,7 +123,7 @@ Partial Class frmThemLoaiDocGia
 		Me.btnNhapVaDong.Location = New System.Drawing.Point(259, 175)
 		Me.btnNhapVaDong.Name = "btnNhapVaDong"
 		Me.btnNhapVaDong.Size = New System.Drawing.Size(95, 23)
-		Me.btnNhapVaDong.TabIndex = 2
+		Me.btnNhapVaDong.TabIndex = 3
 		Me.btnNhapVaDong.Text = "Nhập và Đóng"
 		Me.btnNhapVaDong.UseSelectable = True
 		'
