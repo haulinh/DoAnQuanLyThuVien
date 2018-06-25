@@ -22,8 +22,6 @@ Public Class DocGiaBUS
 
 	End Function
 
-
-
 	Public Function Insert(docgia As DocGiaDTO) As Result
 		'1. verify data here!!
 

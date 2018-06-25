@@ -11,14 +11,11 @@ Public Class PhieuMuonSachBUS
 	Public Sub New(connectionString As String)
 		phieuMuonSachDAL = New PhieuMuonSachDAL(connectionString)
 	End Sub
-	Public Function insert(phieuMuonSachDTO As PhieuMuonSachDTO) As Result
+	Public Function InsertPhieuMuonSach(phieuMuonSach As PhieuMuonSachDTO) As Result
 		'1. verify data here!!
 
 		'2. insert to DB
-		'Return phieuMuonSachDAL.Insert(phieuMuonSachDTO)
-	End Function
-	Public Function buildMaSoPhieuMuon(ByRef nextMaSoPhieuMuon As Integer) As Result
-		'Return phieuMuonSachDAL.buildMaPhieuMuonSach(nextMaSoPhieuMuon)
+		Return phieuMuonSachDAL.InsertPhieuMuonSach(phieuMuonSach)
 	End Function
 
 	Public Function BuildMaPhieuMuonSach(ByRef nextMaPhieuMuonSach As String) As Result

@@ -3,7 +3,7 @@ Imports System.Data.SqlClient
 Imports QLTVDTO
 Imports Utility
 
-Public Class PhieuMuonSachDAL
+Public Class ChiTietPhieuMuonSachDAL
 	Private connectionString As String
 
 	Public Sub New()
@@ -15,14 +15,14 @@ Public Class PhieuMuonSachDAL
 		Me.connectionString = ConnectionString
 	End Sub
 
-	Public Function BuildMaPhieuMuonSach(ByRef nextMaPhieuMuonSach As String) As Result
-		nextMaPhieuMuonSach = String.Empty
-		nextMaPhieuMuonSach = "SNS00"
+	Public Function BuildMaChiTietPhieuMuonSach(ByRef nextMaChiTietPhieuMuonSach As String) As Result
+		nextMaChiTietPhieuMuonSach = String.Empty
+		nextMaChiTietPhieuMuonSach = "XNX000"
 
 		Dim query As String = String.Empty
-		query &= "SELECT TOP 1 [maphieumuonsach] "
-		query &= "FROM [tblPhieuMuonSach] "
-		query &= "ORDER BY [maphieumuonsach] DESC "
+		query &= "SELECT TOP 1 [machitietphieumuonsach] "
+		query &= "FROM [tblChiTietPhieuMuonSach] "
+		query &= "ORDER BY [machitietphieumuonsach] DESC "
 
 		Using conn As New SqlConnection(connectionString)
 			Using comm As New SqlCommand()
@@ -39,34 +39,34 @@ Public Class PhieuMuonSachDAL
 					msOnDB = Nothing
 					If reader.HasRows = True Then
 						While reader.Read()
-							msOnDB = reader("maphieumuonsach")
+							msOnDB = reader("machitietphieumuonsach")
 						End While
 					End If
 					If (msOnDB <> Nothing And msOnDB.Length >= 4) Then
-						nextMaPhieuMuonSach = "SNS000"
+						nextMaChiTietPhieuMuonSach = "XNX00"
 						Dim v = msOnDB.Substring(3)
 						Dim convertDecimal = Convert.ToDecimal(v)
 						convertDecimal = convertDecimal + 1
 						Dim tmp = convertDecimal.ToString()
 						'tmp = tmp.PadLeft(msOnDB.Length - 2, "0")
-						nextMaPhieuMuonSach = nextMaPhieuMuonSach + tmp
-						System.Console.WriteLine(nextMaPhieuMuonSach)
+						nextMaChiTietPhieuMuonSach = nextMaChiTietPhieuMuonSach + tmp
+						System.Console.WriteLine(nextMaChiTietPhieuMuonSach)
 					End If
 
 				Catch ex As Exception
 					conn.Close() ' that bai!!!
 					System.Console.WriteLine(ex.StackTrace)
-					Return New Result(False, "Lấy tự động Mã phiếu mượn sách kế tiếp không thành công", ex.StackTrace)
+					Return New Result(False, "Lấy tự động Mã chi tiết phiếu mượn sách kế tiếp không thành công", ex.StackTrace)
 				End Try
 			End Using
 		End Using
 		Return New Result(True) ' thanh cong
 	End Function
 
-	Public Function InsertPhieuMuonSach(phieuMuonSach As PhieuMuonSachDTO) As Result
+	Public Function InsertChiTietPhieuMuonSach(chiTietPhieuMuonSach As ChiTietPhieuMuonSachDTO) As Result
 		Dim query As String = String.Empty
-		query &= "INSERT INTO [tblPhieuMuonSach] ([maphieumuonsach], [ngaymuonsach], [madocgia], [ngaytrasach])"
-		query &= "VALUES (@maphieumuonsach, @ngaymuonsach, @madocgia, @ngaytrasach)"
+		query &= "INSERT INTO [tblChiTietPhieuMuonSach] ([machitietphieumuonsach], [masach], [maphieumuonsach])"
+		query &= "VALUES (@machitietphieumuonsach, @masach, @maphieumuonsach)"
 
 		Using conn As New SqlConnection(connectionString)
 			Using comm As New SqlCommand()
@@ -74,10 +74,9 @@ Public Class PhieuMuonSachDAL
 					.Connection = conn
 					.CommandType = CommandType.Text
 					.CommandText = query
-					.Parameters.AddWithValue("@maphieumuonsach", phieuMuonSach.MaPhieuMuonSach)
-					.Parameters.AddWithValue("@ngaymuonsach", phieuMuonSach.NgayMuonSach)
-					.Parameters.AddWithValue("@madocgia", phieuMuonSach.MaDocGia)
-					.Parameters.AddWithValue("@ngaytrasach", phieuMuonSach.NgayTraSach)
+					.Parameters.AddWithValue("@machitietphieumuonsach", chiTietPhieuMuonSach.MaChiTietPhieuMuonSach)
+					.Parameters.AddWithValue("@masach", chiTietPhieuMuonSach.MaSach)
+					.Parameters.AddWithValue("@maphieumuonsach", chiTietPhieuMuonSach.MaPhieuMuonSach)
 				End With
 				Try
 					conn.Open()
@@ -85,7 +84,7 @@ Public Class PhieuMuonSachDAL
 				Catch ex As Exception
 					conn.Close()
 					System.Console.WriteLine(ex.StackTrace)
-					Return New Result(False, "Thêm phiếu mượn sách không thành công", ex.StackTrace)
+					Return New Result(False, "Thêm chi tiét phiếu mượn sách không thành công", ex.StackTrace)
 				End Try
 			End Using
 		End Using

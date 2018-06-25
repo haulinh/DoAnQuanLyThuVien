@@ -7,37 +7,55 @@ Public Class frmLapPhieuMuonSach
 	Private docGiaBUS As DocGiaBUS
 	Private sachBUS As SachBUS
 	Private phieuMuonSachBUS As PhieuMuonSachBUS
+	Private chiTietPhieuMuonSachBUS AS ChiTietPhieuMuonSachBUS
 
-	Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnLap.Click  
-		Dim phieuMuonSach As PhieuMuonSachDTO
-		phieuMuonSach = New PhieuMuonSachDTO()
+	Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click  
+		Dim phieuMuonSach = New PhieuMuonSachDTO()
+		Dim chiTietPhieuMuonSach = new ChiTietPhieuMuonSachDTO()
 
 		'1. Mapping data from GUI control
 		phieuMuonSach.MaPhieuMuonSach = txtMaPhieuMuonSach.Text
+		phieuMuonSach.NgayMuonSach = dtpNgayMuonSach.Value
 		phieuMuonSach.MaDocGia = txtMaDocGia.Text
+		phieuMuonSach.NgayTraSach = dtpNgayTraSach.Value
+
+		chiTietPhieuMuonSach.MaPhieuMuonSach = txtMaPhieuMuonSach.Text
+
 		'3. Insert to DB
 		Dim result As Result
-		result = phieuMuonSachBUS.insert(phieuMuonSach)
+		result = phieuMuonSachBUS.InsertPhieuMuonSach(phieuMuonSach)
 		If (result.FlagResult = True) Then
 			MessageBox.Show("Lập phiếu mua sách thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
 			'set MSSH auto
-			Dim nextMaSoPhieuMuon = "1"
-			result = phieuMuonSachBUS.buildMaSoPhieuMuon(nextMaSoPhieuMuon)
+			Dim nextMaPhieuMuonSach = "1"
+			result = phieuMuonSachBUS.BuildMaPhieuMuonSach(nextMaPhieuMuonSach)
 			If (result.FlagResult = False) Then
-				MessageBox.Show("Lấy danh tự động mã Phiếu mua sách không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+				MessageBox.Show("Lấy danh tự động mã sách không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+				System.Console.WriteLine(result.SystemMessage)
 				Me.Close()
 				Return
 			End If
-			txtMaPhieuMuonSach.Text = nextMaSoPhieuMuon
-			txtMaDocGia.Text = String.Empty
+			txtMaPhieuMuonSach.Text = nextMaPhieuMuonSach
 
 		Else
 			MessageBox.Show("Lập phiếu mượn sách không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			System.Console.WriteLine(result.SystemMessage)
 		End If
+
+		Dim nextMaChiTietPhieuMuonSach = "1"
+		Dim numberOfRows = dgvDanhSachMuon.Rows.Count - 1
+		For i As Integer = 0 To numberOfRows
+			chiTietPhieuMuonSach.MaSach = dgvDanhSachMuon.Rows(i).Cells("MaSach").Value.ToString()
+
+			chiTietPhieuMuonSachBUS.BuildMaChiTietPhieuMuonSach(nextMaChiTietPhieuMuonSach)
+			chiTietPhieuMuonSach.MaChiTietPhieuMuonSach = nextMaChiTietPhieuMuonSach
+
+			chiTietPhieuMuonSachBUS.InsertChiTietPhieuMuonSach(chiTietPhieuMuonSach)
+		Next
+
 	End Sub
 
-	Private Sub btnNhapVaDong_Click(sender As Object, e As EventArgs) Handles btnLapVaDong.Click  
+	Private Sub btnNhapVaDong_Click(sender As Object, e As EventArgs) Handles btnNhapVaDong.Click  
 		Dim phieuMuonSach As PhieuMuonSachDTO
 		phieuMuonSach = New PhieuMuonSachDTO()
 
@@ -47,7 +65,6 @@ Public Class frmLapPhieuMuonSach
 
 		'2. Insert to DB
 		Dim result As Result
-		result = phieuMuonSachBUS.insert(phieuMuonSach)
 		If (result.FlagResult = True) Then
 			MessageBox.Show("Lập phiếu mượn sách thành công", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
 			Me.Close()
@@ -61,6 +78,7 @@ Public Class frmLapPhieuMuonSach
 		docGiaBUS = New DocGiaBUS()
 		sachBUS = New SachBUS()
 		phieuMuonSachBUS = New PhieuMuonSachBUS()
+		chiTietPhieuMuonSachBUS = New ChiTietPhieuMuonSachBUS()
 
 		Dim result As Result
 		Dim nextMaPhieuMuonSach = "1"
@@ -77,6 +95,9 @@ Public Class frmLapPhieuMuonSach
 
 		dtpNgayMuonSach.Enabled = False
 		dtpNgayMuonSach.Value = DateTime.Today
+
+		dtpNgayTraSach.Enabled = False
+		dtpNgayTraSach.Value = DateTime.Today
 
 		dgvDanhSachMuon.Columns.Clear()
 		dgvDanhSachMuon.DataSource = Nothing
@@ -173,6 +194,10 @@ Public Class frmLapPhieuMuonSach
 		End While
 
 		If dgvDanhSachMuon.Rows(numberOfRows).Cells("MaSach").Value.ToString() = nothing
+			dgvDanhSachMuon.Rows.Remove(dgvDanhSachMuon.Rows(numberOfRows))
+		End If
+
+		If numberOfRows >= 4
 			dgvDanhSachMuon.Rows.Remove(dgvDanhSachMuon.Rows(numberOfRows))
 		End If
 
