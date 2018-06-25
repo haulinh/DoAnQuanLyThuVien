@@ -17,4 +17,5 @@ Public Class QuyDinhBUS
 	Public Function selectALL(ByRef quyDinh As QuyDinhDTO) As Result
 		Return quyDinhDAL.selectALL(quyDinh)
 	End Function
+
 End Class

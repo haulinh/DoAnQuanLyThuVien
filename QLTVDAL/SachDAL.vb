@@ -18,7 +18,7 @@ Public Class SachDAL
 	Public Function buildMaSoSach(ByRef nextMaSoSach As String) As Result 'ex: 18222229
 
 		nextMaSoSach = String.Empty
-		nextMaSoSach = "MGX000"
+		'nextMaSoSach = "1000"
 
 		Dim query As String = String.Empty
 		query &= "SELECT TOP 1 [masach] "
@@ -44,13 +44,10 @@ Public Class SachDAL
 						End While
 					End If
 					If (msOnDB <> Nothing And msOnDB.Length >= 4) Then
-						nextMaSoSach = "MGX00"
-						Dim v = msOnDB.Substring(3)
-						Dim convertDecimal = Convert.ToDecimal(v)
+						Dim convertDecimal = Convert.ToDecimal(msOnDB)
 						convertDecimal = convertDecimal + 1
 						Dim tmp = convertDecimal.ToString()
-						'tmp = tmp.PadLeft(msOnDB.Length - 2, "0")
-						nextMaSoSach = nextMaSoSach + tmp
+						nextMaSoSach = tmp
 						System.Console.WriteLine(nextMaSoSach)
 					End If
 
@@ -277,9 +274,9 @@ Public Class SachDAL
 		Return New Result(True)  ' thanh cong
 	End Function
 
-	Public Function SelectByType(maSach As String, ByRef tenSach As String, ByRef theLoai As String, ByRef tacGia As String) As Result
+	Public Function SelectByType(maSach As String, ByRef tenSach As String, ByRef theLoai As String, ByRef tacGia As String, ByRef tinhTrangSach As String) As Result
 		Dim query As String = String.Empty
-		query &= "SELECT [tensach], [tentheloaisach], [tacgia] "
+		query &= "SELECT [tensach], [tentheloaisach], [tacgia], [tinhtrangsach] "
 		query &= "FROM [tblSach], [tblTheLoaiSach] "
 		query &= "WHERE [masach] = @masach and [tblSach].matheloaisach = [tblTheLoaiSach].matheloaisach"
 
@@ -300,6 +297,7 @@ Public Class SachDAL
 							tenSach = reader("tensach")
 							theLoai = reader("tentheloaisach")
 							tacGia = reader("tacgia")
+							tinhTrangSach = reader("tinhtrangsach")
 						End While
 					End If
 

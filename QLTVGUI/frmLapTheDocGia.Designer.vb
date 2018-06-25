@@ -44,64 +44,71 @@ Partial Class frmLapTheDocGia
 		'
 		'btnNhap
 		'
-		Me.btnNhap.Location = New System.Drawing.Point(68, 340)
+		Me.btnNhap.Location = New System.Drawing.Point(91, 418)
+		Me.btnNhap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.btnNhap.Name = "btnNhap"
-		Me.btnNhap.Size = New System.Drawing.Size(75, 23)
+		Me.btnNhap.Size = New System.Drawing.Size(100, 28)
 		Me.btnNhap.TabIndex = 7
 		Me.btnNhap.Text = "Nhập"
-		Me.btnNhap.UseSelectable = True
+		Me.btnNhap.UseSelectable = true
 		'
 		'btnNhapDong
 		'
-		Me.btnNhapDong.Location = New System.Drawing.Point(192, 340)
+		Me.btnNhapDong.Location = New System.Drawing.Point(256, 418)
+		Me.btnNhapDong.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.btnNhapDong.Name = "btnNhapDong"
-		Me.btnNhapDong.Size = New System.Drawing.Size(94, 23)
+		Me.btnNhapDong.Size = New System.Drawing.Size(125, 28)
 		Me.btnNhapDong.TabIndex = 8
 		Me.btnNhapDong.Text = "Nhập và đóng"
-		Me.btnNhapDong.UseSelectable = True
+		Me.btnNhapDong.UseSelectable = true
 		'
 		'MetroLabel1
 		'
-		Me.MetroLabel1.AutoSize = True
-		Me.MetroLabel1.Location = New System.Drawing.Point(38, 66)
+		Me.MetroLabel1.AutoSize = true
+		Me.MetroLabel1.Location = New System.Drawing.Point(51, 81)
+		Me.MetroLabel1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.MetroLabel1.Name = "MetroLabel1"
-		Me.MetroLabel1.Size = New System.Drawing.Size(76, 19)
+		Me.MetroLabel1.Size = New System.Drawing.Size(77, 20)
 		Me.MetroLabel1.TabIndex = 6
 		Me.MetroLabel1.Text = "Mã độc giả"
 		'
 		'MetroLabel2
 		'
-		Me.MetroLabel2.AutoSize = True
-		Me.MetroLabel2.Location = New System.Drawing.Point(38, 99)
+		Me.MetroLabel2.AutoSize = true
+		Me.MetroLabel2.Location = New System.Drawing.Point(51, 122)
+		Me.MetroLabel2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.MetroLabel2.Name = "MetroLabel2"
-		Me.MetroLabel2.Size = New System.Drawing.Size(65, 19)
+		Me.MetroLabel2.Size = New System.Drawing.Size(69, 20)
 		Me.MetroLabel2.TabIndex = 7
 		Me.MetroLabel2.Text = "Họ và tên"
 		'
 		'MetroLabel4
 		'
-		Me.MetroLabel4.AutoSize = True
-		Me.MetroLabel4.Location = New System.Drawing.Point(38, 132)
+		Me.MetroLabel4.AutoSize = true
+		Me.MetroLabel4.Location = New System.Drawing.Point(51, 162)
+		Me.MetroLabel4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.MetroLabel4.Name = "MetroLabel4"
-		Me.MetroLabel4.Size = New System.Drawing.Size(66, 19)
+		Me.MetroLabel4.Size = New System.Drawing.Size(71, 20)
 		Me.MetroLabel4.TabIndex = 9
 		Me.MetroLabel4.Text = "Ngày sinh"
 		'
 		'MetroLabel5
 		'
-		Me.MetroLabel5.AutoSize = True
-		Me.MetroLabel5.Location = New System.Drawing.Point(38, 199)
+		Me.MetroLabel5.AutoSize = true
+		Me.MetroLabel5.Location = New System.Drawing.Point(51, 245)
+		Me.MetroLabel5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.MetroLabel5.Name = "MetroLabel5"
-		Me.MetroLabel5.Size = New System.Drawing.Size(48, 19)
+		Me.MetroLabel5.Size = New System.Drawing.Size(51, 20)
 		Me.MetroLabel5.TabIndex = 10
 		Me.MetroLabel5.Text = "Địa chỉ"
 		'
 		'MetroLabel7
 		'
-		Me.MetroLabel7.AutoSize = True
-		Me.MetroLabel7.Location = New System.Drawing.Point(38, 266)
+		Me.MetroLabel7.AutoSize = true
+		Me.MetroLabel7.Location = New System.Drawing.Point(51, 327)
+		Me.MetroLabel7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.MetroLabel7.Name = "MetroLabel7"
-		Me.MetroLabel7.Size = New System.Drawing.Size(84, 19)
+		Me.MetroLabel7.Size = New System.Drawing.Size(88, 20)
 		Me.MetroLabel7.TabIndex = 12
 		Me.MetroLabel7.Text = "Ngày lập thẻ"
 		'
@@ -112,31 +119,33 @@ Partial Class frmLapTheDocGia
 		'
 		'
 		Me.txtMaDocGia.CustomButton.Image = Nothing
-		Me.txtMaDocGia.CustomButton.Location = New System.Drawing.Point(130, 1)
+		Me.txtMaDocGia.CustomButton.Location = New System.Drawing.Point(313, 2)
+		Me.txtMaDocGia.CustomButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.txtMaDocGia.CustomButton.Name = ""
-		Me.txtMaDocGia.CustomButton.Size = New System.Drawing.Size(16, 17)
+		Me.txtMaDocGia.CustomButton.Size = New System.Drawing.Size(31, 28)
 		Me.txtMaDocGia.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
 		Me.txtMaDocGia.CustomButton.TabIndex = 1
 		Me.txtMaDocGia.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-		Me.txtMaDocGia.CustomButton.UseSelectable = True
-		Me.txtMaDocGia.CustomButton.Visible = False
+		Me.txtMaDocGia.CustomButton.UseSelectable = true
+		Me.txtMaDocGia.CustomButton.Visible = false
 		Me.txtMaDocGia.ForeColor = System.Drawing.Color.Gray
 		Me.txtMaDocGia.Lines = New String(-1) {}
-		Me.txtMaDocGia.Location = New System.Drawing.Point(125, 63)
+		Me.txtMaDocGia.Location = New System.Drawing.Point(167, 78)
+		Me.txtMaDocGia.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.txtMaDocGia.MaxLength = 32767
 		Me.txtMaDocGia.Name = "txtMaDocGia"
 		Me.txtMaDocGia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-		Me.txtMaDocGia.ReadOnly = True
+		Me.txtMaDocGia.ReadOnly = true
 		Me.txtMaDocGia.ScrollBars = System.Windows.Forms.ScrollBars.None
 		Me.txtMaDocGia.SelectedText = ""
 		Me.txtMaDocGia.SelectionLength = 0
 		Me.txtMaDocGia.SelectionStart = 0
-		Me.txtMaDocGia.ShortcutsEnabled = True
-		Me.txtMaDocGia.Size = New System.Drawing.Size(196, 23)
+		Me.txtMaDocGia.ShortcutsEnabled = true
+		Me.txtMaDocGia.Size = New System.Drawing.Size(261, 28)
 		Me.txtMaDocGia.TabIndex = 13
-		Me.txtMaDocGia.UseSelectable = True
-		Me.txtMaDocGia.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
-		Me.txtMaDocGia.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
+		Me.txtMaDocGia.UseSelectable = true
+		Me.txtMaDocGia.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer))
+		Me.txtMaDocGia.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
 		'
 		'txtHoTen
 		'
@@ -144,16 +153,18 @@ Partial Class frmLapTheDocGia
 		'
 		'
 		Me.txtHoTen.CustomButton.Image = Nothing
-		Me.txtHoTen.CustomButton.Location = New System.Drawing.Point(130, 1)
+		Me.txtHoTen.CustomButton.Location = New System.Drawing.Point(313, 2)
+		Me.txtHoTen.CustomButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.txtHoTen.CustomButton.Name = ""
-		Me.txtHoTen.CustomButton.Size = New System.Drawing.Size(16, 17)
+		Me.txtHoTen.CustomButton.Size = New System.Drawing.Size(31, 28)
 		Me.txtHoTen.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
 		Me.txtHoTen.CustomButton.TabIndex = 1
 		Me.txtHoTen.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-		Me.txtHoTen.CustomButton.UseSelectable = True
-		Me.txtHoTen.CustomButton.Visible = False
+		Me.txtHoTen.CustomButton.UseSelectable = true
+		Me.txtHoTen.CustomButton.Visible = false
 		Me.txtHoTen.Lines = New String() {"Lê Khắc Hậu Linh"}
-		Me.txtHoTen.Location = New System.Drawing.Point(125, 95)
+		Me.txtHoTen.Location = New System.Drawing.Point(167, 117)
+		Me.txtHoTen.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.txtHoTen.MaxLength = 32767
 		Me.txtHoTen.Name = "txtHoTen"
 		Me.txtHoTen.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -161,20 +172,21 @@ Partial Class frmLapTheDocGia
 		Me.txtHoTen.SelectedText = ""
 		Me.txtHoTen.SelectionLength = 0
 		Me.txtHoTen.SelectionStart = 0
-		Me.txtHoTen.ShortcutsEnabled = True
-		Me.txtHoTen.Size = New System.Drawing.Size(196, 23)
+		Me.txtHoTen.ShortcutsEnabled = true
+		Me.txtHoTen.Size = New System.Drawing.Size(261, 28)
 		Me.txtHoTen.TabIndex = 0
 		Me.txtHoTen.Text = "Lê Khắc Hậu Linh"
-		Me.txtHoTen.UseSelectable = True
-		Me.txtHoTen.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
-		Me.txtHoTen.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
+		Me.txtHoTen.UseSelectable = true
+		Me.txtHoTen.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer))
+		Me.txtHoTen.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
 		'
 		'dtNgaySinh
 		'
-		Me.dtNgaySinh.Location = New System.Drawing.Point(125, 128)
-		Me.dtNgaySinh.MinimumSize = New System.Drawing.Size(0, 29)
+		Me.dtNgaySinh.Location = New System.Drawing.Point(167, 158)
+		Me.dtNgaySinh.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.dtNgaySinh.MinimumSize = New System.Drawing.Size(0, 30)
 		Me.dtNgaySinh.Name = "dtNgaySinh"
-		Me.dtNgaySinh.Size = New System.Drawing.Size(196, 30)
+		Me.dtNgaySinh.Size = New System.Drawing.Size(260, 30)
 		Me.dtNgaySinh.TabIndex = 1
 		'
 		'txtEmail
@@ -183,16 +195,18 @@ Partial Class frmLapTheDocGia
 		'
 		'
 		Me.txtEmail.CustomButton.Image = Nothing
-		Me.txtEmail.CustomButton.Location = New System.Drawing.Point(130, 1)
+		Me.txtEmail.CustomButton.Location = New System.Drawing.Point(313, 2)
+		Me.txtEmail.CustomButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.txtEmail.CustomButton.Name = ""
-		Me.txtEmail.CustomButton.Size = New System.Drawing.Size(16, 17)
+		Me.txtEmail.CustomButton.Size = New System.Drawing.Size(31, 28)
 		Me.txtEmail.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
 		Me.txtEmail.CustomButton.TabIndex = 1
 		Me.txtEmail.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-		Me.txtEmail.CustomButton.UseSelectable = True
-		Me.txtEmail.CustomButton.Visible = False
+		Me.txtEmail.CustomButton.UseSelectable = true
+		Me.txtEmail.CustomButton.Visible = false
 		Me.txtEmail.Lines = New String() {"haulinhlk@gmail.com"}
-		Me.txtEmail.Location = New System.Drawing.Point(125, 227)
+		Me.txtEmail.Location = New System.Drawing.Point(167, 279)
+		Me.txtEmail.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.txtEmail.MaxLength = 32767
 		Me.txtEmail.Name = "txtEmail"
 		Me.txtEmail.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -200,20 +214,21 @@ Partial Class frmLapTheDocGia
 		Me.txtEmail.SelectedText = ""
 		Me.txtEmail.SelectionLength = 0
 		Me.txtEmail.SelectionStart = 0
-		Me.txtEmail.ShortcutsEnabled = True
-		Me.txtEmail.Size = New System.Drawing.Size(196, 23)
+		Me.txtEmail.ShortcutsEnabled = true
+		Me.txtEmail.Size = New System.Drawing.Size(261, 28)
 		Me.txtEmail.TabIndex = 4
 		Me.txtEmail.Text = "haulinhlk@gmail.com"
-		Me.txtEmail.UseSelectable = True
-		Me.txtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
-		Me.txtEmail.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
+		Me.txtEmail.UseSelectable = true
+		Me.txtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer))
+		Me.txtEmail.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
 		'
 		'MetroLabel8
 		'
-		Me.MetroLabel8.AutoSize = True
-		Me.MetroLabel8.Location = New System.Drawing.Point(38, 232)
+		Me.MetroLabel8.AutoSize = true
+		Me.MetroLabel8.Location = New System.Drawing.Point(51, 286)
+		Me.MetroLabel8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.MetroLabel8.Name = "MetroLabel8"
-		Me.MetroLabel8.Size = New System.Drawing.Size(41, 19)
+		Me.MetroLabel8.Size = New System.Drawing.Size(42, 20)
 		Me.MetroLabel8.TabIndex = 11
 		Me.MetroLabel8.Text = "Email"
 		'
@@ -223,16 +238,18 @@ Partial Class frmLapTheDocGia
 		'
 		'
 		Me.txtDiaChi.CustomButton.Image = Nothing
-		Me.txtDiaChi.CustomButton.Location = New System.Drawing.Point(130, 1)
+		Me.txtDiaChi.CustomButton.Location = New System.Drawing.Point(313, 2)
+		Me.txtDiaChi.CustomButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.txtDiaChi.CustomButton.Name = ""
-		Me.txtDiaChi.CustomButton.Size = New System.Drawing.Size(16, 17)
+		Me.txtDiaChi.CustomButton.Size = New System.Drawing.Size(31, 28)
 		Me.txtDiaChi.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
 		Me.txtDiaChi.CustomButton.TabIndex = 1
 		Me.txtDiaChi.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-		Me.txtDiaChi.CustomButton.UseSelectable = True
-		Me.txtDiaChi.CustomButton.Visible = False
+		Me.txtDiaChi.CustomButton.UseSelectable = true
+		Me.txtDiaChi.CustomButton.Visible = false
 		Me.txtDiaChi.Lines = New String() {"B11/17"}
-		Me.txtDiaChi.Location = New System.Drawing.Point(125, 194)
+		Me.txtDiaChi.Location = New System.Drawing.Point(167, 239)
+		Me.txtDiaChi.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.txtDiaChi.MaxLength = 32767
 		Me.txtDiaChi.Name = "txtDiaChi"
 		Me.txtDiaChi.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -240,63 +257,65 @@ Partial Class frmLapTheDocGia
 		Me.txtDiaChi.SelectedText = ""
 		Me.txtDiaChi.SelectionLength = 0
 		Me.txtDiaChi.SelectionStart = 0
-		Me.txtDiaChi.ShortcutsEnabled = True
-		Me.txtDiaChi.Size = New System.Drawing.Size(196, 23)
+		Me.txtDiaChi.ShortcutsEnabled = true
+		Me.txtDiaChi.Size = New System.Drawing.Size(261, 28)
 		Me.txtDiaChi.TabIndex = 3
 		Me.txtDiaChi.Text = "B11/17"
-		Me.txtDiaChi.UseSelectable = True
-		Me.txtDiaChi.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
-		Me.txtDiaChi.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
+		Me.txtDiaChi.UseSelectable = true
+		Me.txtDiaChi.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer))
+		Me.txtDiaChi.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
 		'
 		'dtNgayLapThe
 		'
-		Me.dtNgayLapThe.Location = New System.Drawing.Point(125, 259)
-		Me.dtNgayLapThe.MinimumSize = New System.Drawing.Size(0, 29)
+		Me.dtNgayLapThe.Location = New System.Drawing.Point(167, 319)
+		Me.dtNgayLapThe.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.dtNgayLapThe.MinimumSize = New System.Drawing.Size(0, 30)
 		Me.dtNgayLapThe.Name = "dtNgayLapThe"
-		Me.dtNgayLapThe.Size = New System.Drawing.Size(196, 30)
+		Me.dtNgayLapThe.Size = New System.Drawing.Size(260, 30)
 		Me.dtNgayLapThe.TabIndex = 5
 		'
 		'MetroLabel3
 		'
-		Me.MetroLabel3.AutoSize = True
-		Me.MetroLabel3.Location = New System.Drawing.Point(38, 166)
+		Me.MetroLabel3.AutoSize = true
+		Me.MetroLabel3.Location = New System.Drawing.Point(51, 204)
+		Me.MetroLabel3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.MetroLabel3.Name = "MetroLabel3"
-		Me.MetroLabel3.Size = New System.Drawing.Size(81, 19)
+		Me.MetroLabel3.Size = New System.Drawing.Size(83, 20)
 		Me.MetroLabel3.TabIndex = 9
 		Me.MetroLabel3.Text = "Loại đọc giả"
 		'
 		'cbLoaiDocGia
 		'
-		Me.cbLoaiDocGia.FormattingEnabled = True
-		Me.cbLoaiDocGia.Location = New System.Drawing.Point(125, 166)
-		Me.cbLoaiDocGia.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+		Me.cbLoaiDocGia.FormattingEnabled = true
+		Me.cbLoaiDocGia.Location = New System.Drawing.Point(167, 204)
+		Me.cbLoaiDocGia.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.cbLoaiDocGia.Name = "cbLoaiDocGia"
-		Me.cbLoaiDocGia.Size = New System.Drawing.Size(196, 21)
+		Me.cbLoaiDocGia.Size = New System.Drawing.Size(260, 24)
 		Me.cbLoaiDocGia.TabIndex = 2
 		'
 		'MetroLabel6
 		'
-		Me.MetroLabel6.AutoSize = True
-		Me.MetroLabel6.Location = New System.Drawing.Point(38, 297)
-		Me.MetroLabel6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+		Me.MetroLabel6.AutoSize = true
+		Me.MetroLabel6.Location = New System.Drawing.Point(51, 366)
 		Me.MetroLabel6.Name = "MetroLabel6"
-		Me.MetroLabel6.Size = New System.Drawing.Size(87, 19)
+		Me.MetroLabel6.Size = New System.Drawing.Size(93, 20)
 		Me.MetroLabel6.TabIndex = 18
 		Me.MetroLabel6.Text = "Ngày hết hạn"
 		'
 		'dtNgayHetHan
 		'
-		Me.dtNgayHetHan.Location = New System.Drawing.Point(125, 297)
-		Me.dtNgayHetHan.MinimumSize = New System.Drawing.Size(0, 29)
+		Me.dtNgayHetHan.Location = New System.Drawing.Point(167, 366)
+		Me.dtNgayHetHan.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.dtNgayHetHan.MinimumSize = New System.Drawing.Size(0, 30)
 		Me.dtNgayHetHan.Name = "dtNgayHetHan"
-		Me.dtNgayHetHan.Size = New System.Drawing.Size(196, 30)
+		Me.dtNgayHetHan.Size = New System.Drawing.Size(260, 30)
 		Me.dtNgayHetHan.TabIndex = 6
 		'
 		'frmLapTheDocGia
 		'
-		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+		Me.AutoScaleDimensions = New System.Drawing.SizeF(8!, 16!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(361, 386)
+		Me.ClientSize = New System.Drawing.Size(481, 475)
 		Me.Controls.Add(Me.MetroLabel6)
 		Me.Controls.Add(Me.cbLoaiDocGia)
 		Me.Controls.Add(Me.txtDiaChi)
@@ -315,9 +334,11 @@ Partial Class frmLapTheDocGia
 		Me.Controls.Add(Me.MetroLabel1)
 		Me.Controls.Add(Me.btnNhapDong)
 		Me.Controls.Add(Me.btnNhap)
-		Me.MaximizeBox = False
-		Me.MinimizeBox = False
+		Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.MaximizeBox = false
+		Me.MinimizeBox = false
 		Me.Name = "frmLapTheDocGia"
+		Me.Padding = New System.Windows.Forms.Padding(27, 74, 27, 25)
 		Me.Text = "Lập thẻ độc giả"
 		Me.ResumeLayout(false)
 		Me.PerformLayout

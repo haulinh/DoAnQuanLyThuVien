@@ -17,7 +17,9 @@ Public Class ChiTietPhieuMuonSachDAL
 
 	Public Function BuildMaChiTietPhieuMuonSach(ByRef nextMaChiTietPhieuMuonSach As String) As Result
 		nextMaChiTietPhieuMuonSach = String.Empty
-		nextMaChiTietPhieuMuonSach = "XNX000"
+		Dim y = DateTime.Now.Year
+		Dim x = y.ToString().Substring(2)
+		nextMaChiTietPhieuMuonSach = x + "0000"
 
 		Dim query As String = String.Empty
 		query &= "SELECT TOP 1 [machitietphieumuonsach] "
@@ -42,17 +44,24 @@ Public Class ChiTietPhieuMuonSachDAL
 							msOnDB = reader("machitietphieumuonsach")
 						End While
 					End If
-					If (msOnDB <> Nothing And msOnDB.Length >= 4) Then
-						nextMaChiTietPhieuMuonSach = "XNX00"
-						Dim v = msOnDB.Substring(3)
+					If (msOnDB <> Nothing And msOnDB.Length >= 6) Then
+						Dim currentYear = DateTime.Now.Year.ToString().Substring(2)
+						Dim iCurrentYear = Integer.Parse(currentYear)
+						Dim currentYearOnDB = msOnDB.Substring(0, 2)
+						Dim icurrentYearOnDB = Integer.Parse(currentYearOnDB)
+						Dim year = iCurrentYear
+						If (year < icurrentYearOnDB) Then
+							year = icurrentYearOnDB
+						End If
+						nextMaChiTietPhieuMuonSach = year.ToString()
+						Dim v = msOnDB.Substring(2)
 						Dim convertDecimal = Convert.ToDecimal(v)
 						convertDecimal = convertDecimal + 1
 						Dim tmp = convertDecimal.ToString()
-						'tmp = tmp.PadLeft(msOnDB.Length - 2, "0")
+						tmp = tmp.PadLeft(msOnDB.Length - 2, "0")
 						nextMaChiTietPhieuMuonSach = nextMaChiTietPhieuMuonSach + tmp
 						System.Console.WriteLine(nextMaChiTietPhieuMuonSach)
 					End If
-
 				Catch ex As Exception
 					conn.Close() ' that bai!!!
 					System.Console.WriteLine(ex.StackTrace)

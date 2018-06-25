@@ -23,4 +23,22 @@ Public Class PhieuMuonSachBUS
 		Return phieuMuonSachDAL.BuildMaPhieuMuonSach(nextMaPhieuMuonSach)
 
 	End Function
+
+	Public Function IsVailNumberOfBooks(numberOfRows As Integer, quyDinh As QuyDinhDTO) As Boolean
+		If numberOfRows >= quyDinh.SoSachMuonToiDa
+			Return False
+		End If
+
+		Return True
+
+	End Function
+
+	Public Function IsVailAvailable(tinhTrangSach As String) As Boolean
+		If	String.Compare(tinhTrangSach, "Đã cho mượn") = 0
+			Return False
+		End If
+
+		Return True
+
+	End Function
 End Class

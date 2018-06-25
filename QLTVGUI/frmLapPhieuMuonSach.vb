@@ -8,6 +8,8 @@ Public Class frmLapPhieuMuonSach
 	Private sachBUS As SachBUS
 	Private phieuMuonSachBUS As PhieuMuonSachBUS
 	Private chiTietPhieuMuonSachBUS AS ChiTietPhieuMuonSachBUS
+	Private quyDinh As QuyDinhDTO
+	Private quyDinhBUS As QuyDinhBUS
 
 	Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click  
 		Dim phieuMuonSach = New PhieuMuonSachDTO()
@@ -55,30 +57,12 @@ Public Class frmLapPhieuMuonSach
 
 	End Sub
 
-	Private Sub btnNhapVaDong_Click(sender As Object, e As EventArgs) Handles btnNhapVaDong.Click  
-		Dim phieuMuonSach As PhieuMuonSachDTO
-		phieuMuonSach = New PhieuMuonSachDTO()
-
-		'1. Mapping data from GUI control
-		phieuMuonSach.MaPhieuMuonSach = txtMaPhieuMuonSach.Text
-		phieuMuonSach.MaDocGia = txtMaDocGia.Text
-
-		'2. Insert to DB
-		Dim result As Result
-		If (result.FlagResult = True) Then
-			MessageBox.Show("Lập phiếu mượn sách thành công", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-			Me.Close()
-		Else
-			MessageBox.Show("Lập phiếu mượn sách không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-			System.Console.WriteLine(result.SystemMessage)
-		End If
-	End Sub
-
 	Private Sub frmLapPhieuMuonSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load  
 		docGiaBUS = New DocGiaBUS()
 		sachBUS = New SachBUS()
 		phieuMuonSachBUS = New PhieuMuonSachBUS()
 		chiTietPhieuMuonSachBUS = New ChiTietPhieuMuonSachBUS()
+		quyDinhBUS = New QuyDinhBUS()
 
 		Dim result As Result
 		Dim nextMaPhieuMuonSach = "1"
@@ -89,6 +73,10 @@ Public Class frmLapPhieuMuonSach
 			Me.Close()
 			Return
 		End If
+
+		quyDinh = New QuyDinhDTO
+		result = quyDinhBUS.selectALL(quyDinh)
+
 		txtMaPhieuMuonSach.Text = nextMaPhieuMuonSach
 
 		dtpNgayHetHan.Enabled = False
@@ -97,7 +85,7 @@ Public Class frmLapPhieuMuonSach
 		dtpNgayMuonSach.Value = DateTime.Today
 
 		dtpNgayTraSach.Enabled = False
-		dtpNgayTraSach.Value = DateTime.Today
+		dtpNgayTraSach.Value = dtpNgayMuonSach.Value.AddDays(quyDinh.SoNgayMuonToiDa)
 
 		dgvDanhSachMuon.Columns.Clear()
 		dgvDanhSachMuon.DataSource = Nothing
@@ -124,6 +112,8 @@ Public Class frmLapPhieuMuonSach
 		clTacGia.Name = "TacGia"
 		clTacGia.HeaderText = "Tác Giả"
 		dgvDanhSachMuon.Columns.Add(clTacGia)
+
+		dgvDanhSachMuon.Columns(3).Width = 170
 		
 	End Sub
 
@@ -142,16 +132,19 @@ Public Class frmLapPhieuMuonSach
 		Dim tenSach = New String(Nothing)
 		Dim tacGia = New String(Nothing)
 		Dim theLoai = new String(Nothing)
+		Dim tinhTrangSach = new String(Nothing)
 		Dim result As Result
 
-		result = sachBUS.SelectByType(maSach, tenSach, theLoai, tacGia)
+		result = sachBUS.SelectByType(maSach, tenSach, theLoai, tacGia, tinhTrangSach)
 
 		txtTenSach.Text = tenSach
 		txtTacGia.Text = tacGia
 		txtTheLoai.Text = theLoai
+		txtTinhTrangSach.Text = tinhTrangSach
+
 	End Sub
 
-	Private Sub txtMaDocGia_KeyUp(sender As Object, e As KeyEventArgs) Handles txtMaDocGia.KeyUp, txtTenSach.KeyUp, txtTacGia.KeyUp, txtTheLoai.KeyUp 
+	Private Sub txtMaDocGia_KeyUp(sender As Object, e As KeyEventArgs) Handles txtMaDocGia.KeyUp, txtTenSach.KeyUp, txtTacGia.KeyUp, txtTheLoai.KeyUp, txtTinhTrangSach.KeyUp 
 		Try
 
 			Dim maDocGia = txtMaDocGia.Text
@@ -197,9 +190,21 @@ Public Class frmLapPhieuMuonSach
 			dgvDanhSachMuon.Rows.Remove(dgvDanhSachMuon.Rows(numberOfRows))
 		End If
 
-		If numberOfRows >= 4
+		If (phieuMuonSachBUS.IsVailNumberOfBooks(numberOfRows, quyDinh) = False)
 			dgvDanhSachMuon.Rows.Remove(dgvDanhSachMuon.Rows(numberOfRows))
+			MessageBox.Show("Quá số lượng sách cho mượn", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 		End If
 
+		If (phieuMuonSachBUS.IsVailAvailable(txtTinhTrangSach.Text) = False)
+			dgvDanhSachMuon.Rows.Remove(dgvDanhSachMuon.Rows(numberOfRows))
+			MessageBox.Show("Sách đã cho mượn", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+		End If
+
+	End Sub
+
+	Private Sub btnXoa_Click(sender As Object, e As EventArgs) Handles btnXoa.Click
+		For Each row As DataGridViewRow In dgvDanhSachMuon.SelectedRows
+			dgvDanhSachMuon.Rows.RemoveAt(row.Index)
+		Next
 	End Sub
 End Class

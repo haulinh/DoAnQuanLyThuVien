@@ -21,6 +21,7 @@ Public Class frmThemSach
 		sach.NhaXuatBan = txtNhaXuatBan.Text
 		sach.NgayNhap = dtNgayNhap.Value
 		sach.TriGia = txtTriGia.Text
+		sach.TinhTrangSach = txtTinhTrangSach.Text
 
 		'2. Business .....
 		If (sachBUS.IsVaildName(sach) = False) Then
@@ -144,7 +145,7 @@ Public Class frmThemSach
 		End If
 		txtMaSach.Text = nextMaSoSach
 
-		For year As Integer = 1950 To DateTime.Today.Year
+		For year As Integer = 1990 To DateTime.Today.Year
 			cbNamXuatBan.Items.Add(year)
 		Next
 

@@ -71,8 +71,8 @@ Public Class SachBUS
 		Return sachDAL.Delete(maSach)
 	End Function
 
-	Public Function SelectByType(maSach As String, ByRef tenSach As String, ByRef theLoai As String, ByRef tacGia As String) As Result
-		Return sachDAL.SelectByType(maSach, tenSach, theLoai, tacGia)
+	Public Function SelectByType(maSach As String, ByRef tenSach As String, ByRef theLoai As String, ByRef tacGia As String, ByRef tinhTrangSach As String) As Result
+		Return sachDAL.SelectByType(maSach, tenSach, theLoai, tacGia, tinhTrangSach)
 	End Function
 	Public Function IsIntervaleYear(sachDTO As SachDTO, quyDinh As QuyDinhDTO) As Boolean
 		Dim x = DateTime.Today.Year - sachDTO.NamXuatBan
