@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="QuyDinhBUS.vb" />
     <Compile Include="SachBUS.vb" />
+    <Compile Include="TacGiaBUS.vb" />
     <Compile Include="TheLoaiSachBUS.vb" />
   </ItemGroup>
   <ItemGroup>
