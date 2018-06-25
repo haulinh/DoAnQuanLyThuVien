@@ -41,4 +41,13 @@ Public Class PhieuMuonSachBUS
 		Return True
 
 	End Function
+
+	Public Function IsVailDexpirationDate(ngayHetHan As Date) As Boolean
+		If DateTime.Today > ngayHetHan
+			Return False
+		End If
+
+		Return True
+
+	End Function
 End Class

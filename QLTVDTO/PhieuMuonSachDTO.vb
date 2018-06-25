@@ -42,4 +42,5 @@
 			_ngayTraSach = value
 		End Set
 	End Property
+
 End Class

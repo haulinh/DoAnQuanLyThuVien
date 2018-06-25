@@ -23,16 +23,22 @@ Public Class frmLapPhieuMuonSach
 
 		chiTietPhieuMuonSach.MaPhieuMuonSach = txtMaPhieuMuonSach.Text
 
+		' Kiểm tra ngày hét hạn
+		If (phieuMuonSachBUS.IsVailDexpirationDate(dtpNgayHetHan.Value) = False) Then
+			MessageBox.Show("Thẻ đã hết hạn", "Important Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			Return
+		End If
+
 		'3. Insert to DB
 		Dim result As Result
 		result = phieuMuonSachBUS.InsertPhieuMuonSach(phieuMuonSach)
 		If (result.FlagResult = True) Then
-			MessageBox.Show("Lập phiếu mua sách thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+			MessageBox.Show("Lập phiếu mượn sách thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
 			'set MSSH auto
 			Dim nextMaPhieuMuonSach = "1"
 			result = phieuMuonSachBUS.BuildMaPhieuMuonSach(nextMaPhieuMuonSach)
 			If (result.FlagResult = False) Then
-				MessageBox.Show("Lấy danh tự động mã sách không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+				MessageBox.Show("Lấy danh tự động mã phiếu mượn sách không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 				System.Console.WriteLine(result.SystemMessage)
 				Me.Close()
 				Return
