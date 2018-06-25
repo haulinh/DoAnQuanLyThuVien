@@ -22,9 +22,9 @@ Partial Class frmLapPhieuMuonSach
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-		Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-		Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-		Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Me.txtMaPhieuMuonSach = New MetroFramework.Controls.MetroTextBox()
 		Me.txtMaDocGia = New MetroFramework.Controls.MetroTextBox()
 		Me.txtHoTenDocGia = New MetroFramework.Controls.MetroTextBox()
@@ -45,15 +45,15 @@ Partial Class frmLapPhieuMuonSach
 		Me.MetroLabel9 = New MetroFramework.Controls.MetroLabel()
 		Me.MetroLabel7 = New MetroFramework.Controls.MetroLabel()
 		Me.MetroLabel11 = New MetroFramework.Controls.MetroLabel()
+		Me.MetroLabel10 = New MetroFramework.Controls.MetroLabel()
 		Me.MetroLabel8 = New MetroFramework.Controls.MetroLabel()
 		Me.txtTenSach = New MetroFramework.Controls.MetroTextBox()
 		Me.txtTheLoai = New MetroFramework.Controls.MetroTextBox()
+		Me.txtTinhTrangSach = New MetroFramework.Controls.MetroTextBox()
 		Me.txtTacGia = New MetroFramework.Controls.MetroTextBox()
 		Me.txtMaSach = New MetroFramework.Controls.MetroTextBox()
 		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
 		Me.dgvDanhSachMuon = New MetroFramework.Controls.MetroGrid()
-		Me.MetroLabel10 = New MetroFramework.Controls.MetroLabel()
-		Me.txtTinhTrangSach = New MetroFramework.Controls.MetroTextBox()
 		Me.GroupBox1.SuspendLayout
 		Me.GroupBox2.SuspendLayout
 		Me.GroupBox3.SuspendLayout
@@ -210,7 +210,7 @@ Partial Class frmLapPhieuMuonSach
 		'
 		'btnNhap
 		'
-		Me.btnNhap.Location = New System.Drawing.Point(529, 617)
+		Me.btnNhap.Location = New System.Drawing.Point(625, 621)
 		Me.btnNhap.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNhap.Name = "btnNhap"
 		Me.btnNhap.Size = New System.Drawing.Size(124, 52)
@@ -344,6 +344,16 @@ Partial Class frmLapPhieuMuonSach
 		Me.MetroLabel11.TabIndex = 5
 		Me.MetroLabel11.Text = "Thể Loại"
 		'
+		'MetroLabel10
+		'
+		Me.MetroLabel10.AutoSize = true
+		Me.MetroLabel10.Location = New System.Drawing.Point(20, 137)
+		Me.MetroLabel10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.MetroLabel10.Name = "MetroLabel10"
+		Me.MetroLabel10.Size = New System.Drawing.Size(107, 20)
+		Me.MetroLabel10.TabIndex = 5
+		Me.MetroLabel10.Text = "Tình Trạng Sách"
+		'
 		'MetroLabel8
 		'
 		Me.MetroLabel8.AutoSize = true
@@ -419,6 +429,39 @@ Partial Class frmLapPhieuMuonSach
 		Me.txtTheLoai.UseSelectable = true
 		Me.txtTheLoai.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer))
 		Me.txtTheLoai.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
+		'
+		'txtTinhTrangSach
+		'
+		'
+		'
+		'
+		Me.txtTinhTrangSach.CustomButton.Image = Nothing
+		Me.txtTinhTrangSach.CustomButton.Location = New System.Drawing.Point(118, 2)
+		Me.txtTinhTrangSach.CustomButton.Margin = New System.Windows.Forms.Padding(4)
+		Me.txtTinhTrangSach.CustomButton.Name = ""
+		Me.txtTinhTrangSach.CustomButton.Size = New System.Drawing.Size(23, 23)
+		Me.txtTinhTrangSach.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
+		Me.txtTinhTrangSach.CustomButton.TabIndex = 1
+		Me.txtTinhTrangSach.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
+		Me.txtTinhTrangSach.CustomButton.UseSelectable = true
+		Me.txtTinhTrangSach.CustomButton.Visible = false
+		Me.txtTinhTrangSach.Lines = New String(-1) {}
+		Me.txtTinhTrangSach.Location = New System.Drawing.Point(162, 137)
+		Me.txtTinhTrangSach.Margin = New System.Windows.Forms.Padding(4)
+		Me.txtTinhTrangSach.MaxLength = 32767
+		Me.txtTinhTrangSach.Name = "txtTinhTrangSach"
+		Me.txtTinhTrangSach.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+		Me.txtTinhTrangSach.ReadOnly = true
+		Me.txtTinhTrangSach.ScrollBars = System.Windows.Forms.ScrollBars.None
+		Me.txtTinhTrangSach.SelectedText = ""
+		Me.txtTinhTrangSach.SelectionLength = 0
+		Me.txtTinhTrangSach.SelectionStart = 0
+		Me.txtTinhTrangSach.ShortcutsEnabled = true
+		Me.txtTinhTrangSach.Size = New System.Drawing.Size(144, 28)
+		Me.txtTinhTrangSach.TabIndex = 0
+		Me.txtTinhTrangSach.UseSelectable = true
+		Me.txtTinhTrangSach.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer))
+		Me.txtTinhTrangSach.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
 		'
 		'txtTacGia
 		'
@@ -505,23 +548,23 @@ Partial Class frmLapPhieuMuonSach
 		Me.dgvDanhSachMuon.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.dgvDanhSachMuon.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
 		Me.dgvDanhSachMuon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-		DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-		DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(174,Byte),Integer), CType(CType(219,Byte),Integer))
-		DataGridViewCellStyle10.Font = New System.Drawing.Font("Segoe UI", 11!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-		DataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer))
-		DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(198,Byte),Integer), CType(CType(247,Byte),Integer))
-		DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer))
-		DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-		Me.dgvDanhSachMuon.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+		DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+		DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(174,Byte),Integer), CType(CType(219,Byte),Integer))
+		DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 11!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+		DataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer))
+		DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(198,Byte),Integer), CType(CType(247,Byte),Integer))
+		DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer))
+		DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.dgvDanhSachMuon.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
 		Me.dgvDanhSachMuon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-		DataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer))
-		DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 11!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-		DataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(136,Byte),Integer), CType(CType(136,Byte),Integer), CType(CType(136,Byte),Integer))
-		DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(198,Byte),Integer), CType(CType(247,Byte),Integer))
-		DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer))
-		DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-		Me.dgvDanhSachMuon.DefaultCellStyle = DataGridViewCellStyle11
+		DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+		DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer))
+		DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 11!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+		DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(136,Byte),Integer), CType(CType(136,Byte),Integer), CType(CType(136,Byte),Integer))
+		DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(198,Byte),Integer), CType(CType(247,Byte),Integer))
+		DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer))
+		DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+		Me.dgvDanhSachMuon.DefaultCellStyle = DataGridViewCellStyle2
 		Me.dgvDanhSachMuon.EnableHeadersVisualStyles = false
 		Me.dgvDanhSachMuon.Font = New System.Drawing.Font("Segoe UI", 11!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
 		Me.dgvDanhSachMuon.GridColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer))
@@ -529,62 +572,19 @@ Partial Class frmLapPhieuMuonSach
 		Me.dgvDanhSachMuon.Name = "dgvDanhSachMuon"
 		Me.dgvDanhSachMuon.ReadOnly = true
 		Me.dgvDanhSachMuon.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-		DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-		DataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(174,Byte),Integer), CType(CType(219,Byte),Integer))
-		DataGridViewCellStyle12.Font = New System.Drawing.Font("Segoe UI", 11!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-		DataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer))
-		DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(198,Byte),Integer), CType(CType(247,Byte),Integer))
-		DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer))
-		DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-		Me.dgvDanhSachMuon.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
+		DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+		DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(174,Byte),Integer), CType(CType(219,Byte),Integer))
+		DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 11!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+		DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer))
+		DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(198,Byte),Integer), CType(CType(247,Byte),Integer))
+		DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer), CType(CType(17,Byte),Integer))
+		DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.dgvDanhSachMuon.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
 		Me.dgvDanhSachMuon.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
 		Me.dgvDanhSachMuon.RowTemplate.Height = 24
 		Me.dgvDanhSachMuon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
 		Me.dgvDanhSachMuon.Size = New System.Drawing.Size(694, 209)
 		Me.dgvDanhSachMuon.TabIndex = 0
-		'
-		'MetroLabel10
-		'
-		Me.MetroLabel10.AutoSize = true
-		Me.MetroLabel10.Location = New System.Drawing.Point(20, 137)
-		Me.MetroLabel10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.MetroLabel10.Name = "MetroLabel10"
-		Me.MetroLabel10.Size = New System.Drawing.Size(107, 20)
-		Me.MetroLabel10.TabIndex = 5
-		Me.MetroLabel10.Text = "Tình Trạng Sách"
-		'
-		'txtTinhTrangSach
-		'
-		'
-		'
-		'
-		Me.txtTinhTrangSach.CustomButton.Image = Nothing
-		Me.txtTinhTrangSach.CustomButton.Location = New System.Drawing.Point(118, 2)
-		Me.txtTinhTrangSach.CustomButton.Margin = New System.Windows.Forms.Padding(4)
-		Me.txtTinhTrangSach.CustomButton.Name = ""
-		Me.txtTinhTrangSach.CustomButton.Size = New System.Drawing.Size(23, 23)
-		Me.txtTinhTrangSach.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
-		Me.txtTinhTrangSach.CustomButton.TabIndex = 1
-		Me.txtTinhTrangSach.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-		Me.txtTinhTrangSach.CustomButton.UseSelectable = true
-		Me.txtTinhTrangSach.CustomButton.Visible = false
-		Me.txtTinhTrangSach.Lines = New String(-1) {}
-		Me.txtTinhTrangSach.Location = New System.Drawing.Point(162, 137)
-		Me.txtTinhTrangSach.Margin = New System.Windows.Forms.Padding(4)
-		Me.txtTinhTrangSach.MaxLength = 32767
-		Me.txtTinhTrangSach.Name = "txtTinhTrangSach"
-		Me.txtTinhTrangSach.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-		Me.txtTinhTrangSach.ReadOnly = true
-		Me.txtTinhTrangSach.ScrollBars = System.Windows.Forms.ScrollBars.None
-		Me.txtTinhTrangSach.SelectedText = ""
-		Me.txtTinhTrangSach.SelectionLength = 0
-		Me.txtTinhTrangSach.SelectionStart = 0
-		Me.txtTinhTrangSach.ShortcutsEnabled = true
-		Me.txtTinhTrangSach.Size = New System.Drawing.Size(144, 28)
-		Me.txtTinhTrangSach.TabIndex = 0
-		Me.txtTinhTrangSach.UseSelectable = true
-		Me.txtTinhTrangSach.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer), CType(CType(109,Byte),Integer))
-		Me.txtTinhTrangSach.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
 		'
 		'frmLapPhieuMuonSach
 		'

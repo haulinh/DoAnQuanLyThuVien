@@ -11,22 +11,23 @@
 	Public Sub New()
 	End Sub
 
-	Public Sub New(_maDocgia As String, 
-	               _hoTen As String, 
-	               _maLoaiDocGia As Integer, 
-	               _ngaySinh As Date, 
-	               _diaChi As String,
-	               _email As String, 
-	               _ngayLapThe As Date)
+	Public Sub New(maDocgia As String, 
+	               hoTen As String, 
+	               maLoaiDocGia As Integer, 
+	               ngaySinh As Date, 
+	               diaChi As String,
+	               email As String, 
+	               ngayLapThe As Date, 
+	               ngayHetHan As Date)
 
-		Me.MaDocGia = _maDocgia
-		Me.HoTen = _hoTen
-		Me.MaLoaiDocGia = _maLoaiDocGia
-		Me.NgaySinh = _ngaySinh
-		Me.DiaChi = _diaChi
-		Me.DiaChi = _diaChi
-		Me.Email = _email
-		Me.NgayLapThe = _ngayLapThe
+		_maDocGia = maDocgia
+		_hoTen = hoTen
+		_maLoaiDocGia = maLoaiDocGia
+		_ngaySinh = ngaySinh
+		_diaChi = diaChi
+		_email = email
+		_ngayLapThe = ngayLapThe
+		_ngayHetHan = ngayHetHan
 	End Sub
 
 	Public Property HoTen As String

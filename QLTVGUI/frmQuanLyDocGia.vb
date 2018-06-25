@@ -5,6 +5,8 @@ Imports Utility
 Public Class frmQuanLyDocGia
 	Private docGiaBUS As docGiaBUS
 	Private loaiDocGiaBUS As LoaidocGiaBUS
+	Private quyDinh As QuyDinhDTO
+	Private quyDinhBUS As QuyDinhBUS
 
 	Private Sub btnCapNhat_Click(sender As Object, e As EventArgs) Handles btnCapNhat.Click
 		' Get the current cell location.
@@ -23,6 +25,7 @@ Public Class frmQuanLyDocGia
 				docGia.Email = txtEmail.Text
 				docGia.DiaChi = txtDiaChi.Text
 				docGia.NgayLapThe = dtNgayLapThe.Value
+				docGia.NgayHetHan = dtpNgayHetHan.Value
 				docGia.MaLoaiDocGia = Convert.ToInt32(cbLoaiDocGiaCapNhat.SelectedValue)
 
 				'2. Business .....
@@ -97,6 +100,7 @@ Public Class frmQuanLyDocGia
 	Private Sub frmQuanLyDocGia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		docGiaBUS = New docGiaBUS()
 		loaiDocGiaBUS = New LoaidocGiaBUS()
+		quyDinhBUS = New QuyDinhBUS()
 
 		'Load LoaiDocGia list
 		Dim listLoaiDocGia = New List(Of LoaiDocGiaDTO)
@@ -120,6 +124,8 @@ Public Class frmQuanLyDocGia
 		cbLoaiDocGia.DisplayMember = "TenLoaiDocGia"
 		cbLoaiDocGia.ValueMember = "MaLoaiDocGia"
 
+		dtpNgayHetHan.Enabled = False
+
 	End Sub
 
 	Private Sub LoadListDocGia(maLoai As String)
@@ -138,6 +144,7 @@ Public Class frmQuanLyDocGia
 
 		dgvListDocGia.AutoGenerateColumns = False
 		dgvListDocGia.AllowUserToAddRows = False
+		dgvListDocGia.AutoResizeColumns()          
 		dgvListDocGia.DataSource = listDocGia
 
 		Dim clMa = New DataGridViewTextBoxColumn()
@@ -166,22 +173,28 @@ Public Class frmQuanLyDocGia
 		dgvListDocGia.Columns.Add(clDiaChi)
 
 		Dim clEmail = New DataGridViewTextBoxColumn()
-		clDiaChi.Name = "Email"
-		clDiaChi.HeaderText = "Email"
-		clDiaChi.DataPropertyName = "Email"
+		clEmail.Name = "Email"
+		clEmail.HeaderText = "Email"
+		clEmail.DataPropertyName = "Email"
 		dgvListDocGia.Columns.Add(clEmail)
 
 		Dim clNgayLapThe = New DataGridViewTextBoxColumn()
-		clDiaChi.Name = "NgayLapThe"
-		clDiaChi.HeaderText = "Ngày Lập Thẻ"
-		clDiaChi.DataPropertyName = "NgayLapThe"
+		clNgayLapThe.Name = "NgayLapThe"
+		clNgayLapThe.HeaderText = "Ngày Lập Thẻ"
+		clNgayLapThe.DataPropertyName = "NgayLapThe"
 		dgvListDocGia.Columns.Add(clNgayLapThe)
+
+		Dim clNgayHetHan = New DataGridViewTextBoxColumn()
+		clNgayHetHan.Name = "NgayHetHan"
+		clNgayHetHan.HeaderText = "Ngày Hết Hạn"
+		clNgayHetHan.DataPropertyName = "NgayHetHan"
+		dgvListDocGia.Columns.Add(clNgayHetHan)
 
 	End Sub
 
 	Private Sub cbLoaiDocGia_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbLoaiDocGia.SelectedIndexChanged
 		Try
-			Dim maLoai = Convert.ToInt32(cbLoaiDocGia.SELECTedValue)
+			Dim maLoai = Convert.ToInt32(cbLoaiDocGia.SelectedValue)
 			LoadListDocGia(maLoai)
 		Catch ex As Exception
 		End Try
@@ -206,6 +219,7 @@ Public Class frmQuanLyDocGia
 				txtDiaChi.Text = docGia.DiaChi
 				txtEmail.Text = docGia.Email
 				dtNgayLapThe.Value = docGia.NgayLapThe
+				dtpNgayHetHan.Value = docGia.NgayHetHan
 				cbLoaiDocGiaCapNhat.SelectedIndex = cbLoaiDocGia.SelectedIndex
 			Catch ex As Exception
 				Console.WriteLine(ex.StackTrace)
@@ -214,4 +228,9 @@ Public Class frmQuanLyDocGia
 
 	End Sub
 
+	Private Sub dtNgayLapThe_ValueChanged(sender As Object, e As EventArgs) Handles dtNgayLapThe.ValueChanged
+		quyDinh = New QuyDinhDTO
+		quyDinhBUS.selectALL(quyDinh)
+		dtpNgayHetHan.Value = dtNgayLapThe.Value.AddMonths(quyDinh.ThoiHanSuDung)
+	End Sub
 End Class

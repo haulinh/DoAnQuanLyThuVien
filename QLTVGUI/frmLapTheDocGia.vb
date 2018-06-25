@@ -146,8 +146,9 @@ Public Class frmLapTheDocGia
 		txtMaDocGia.Text = nextMaSoDocGia
 
 		dtNgayLapThe.Value = DateTime.Today
+		dtNgayLapThe.Enabled = False
 		dtNgayHetHan.Value = dtNgayLapThe.Value.AddMonths(quyDinh.ThoiHanSuDung)
-
+		dtNgayHetHan.Enabled = False
 
 	End Sub
 	' xóa khoảng trắng 

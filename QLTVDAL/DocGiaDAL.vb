@@ -114,7 +114,7 @@ Public Class DocGiaDAL
 
 	Public Function SelectAll(ByRef listDocGia As List(Of DocGiaDTO)) As Result
 		Dim query As String = String.Empty
-		query &= "SELECT [madocgia], [hoten], [maloaidocgia], [ngaysinh], [diachi], [email], [ngaylapthe]"
+		query &= "SELECT [madocgia], [hoten], [maloaidocgia], [ngaysinh], [diachi], [email], [ngaylapthe], [ngayhethan]"
 		query &= "FROM [tblDocGia]"
 
 		Using conn As New SqlConnection(connectionString)
@@ -131,7 +131,7 @@ Public Class DocGiaDAL
 					If reader.HasRows = True Then
 						listDocGia.Clear()
 						While reader.Read()
-							listDocGia.Add(New DocGiaDTO(reader("madocgia"), reader("hoten"), reader("maloaidocgia"), reader("ngaysinh"), reader("diachi"), reader("email"), reader("ngaylapthe")))
+							listDocGia.Add(New DocGiaDTO(reader("madocgia"), reader("hoten"), reader("maloaidocgia"), reader("ngaysinh"), reader("diachi"), reader("email"), reader("ngaylapthe"), reader("ngayhethan")))
 						End While
 					End If
 				Catch ex As Exception
@@ -147,7 +147,7 @@ Public Class DocGiaDAL
 
 	Public Function SelectAllByType(maLoai As Integer, ByRef listDocGia As List(Of DocGiaDTO)) As Result
 		Dim query As String = String.Empty
-		query &= "SELECT [madocgia], [hoten], [maloaidocgia],  [ngaysinh], [diachi], [email], [ngaylapthe] "
+		query &= "SELECT [madocgia], [hoten], [maloaidocgia], [ngaysinh], [diachi], [email], [ngaylapthe], [ngayhethan] "
 		query &= "FROM [tblDocGia] "
 		query &= "WHERE [maloaidocgia] = @maloaidocgia"
 
@@ -166,7 +166,7 @@ Public Class DocGiaDAL
 					If reader.HasRows = True Then
 						listDocGia.Clear()
 						While reader.Read()
-							listDocGia.Add(New DocGiaDTO(reader("madocgia"), reader("hoten"), reader("maloaidocgia"), reader("ngaysinh"), reader("diachi"), reader("email"), reader("ngaylapthe")))
+							listDocGia.Add(New DocGiaDTO(reader("madocgia"), reader("hoten"), reader("maloaidocgia"), reader("ngaysinh"), reader("diachi"), reader("email"), reader("ngaylapthe"), reader("ngayhethan")))
 						End While
 					End If
 
@@ -226,6 +226,7 @@ Public Class DocGiaDAL
 		query &= " ,[diachi] = @diachi "
 		query &= " ,[email] = @email "
 		query &= " ,[ngaylapthe] = @ngaylapthe "
+		query &= " ,[ngayhethan] = @ngayhethan "
 		query &= " WHERE "
 		query &= " [madocgia] = @madocgia "
 
@@ -241,6 +242,7 @@ Public Class DocGiaDAL
 					.Parameters.AddWithValue("@diachi", docGia.DiaChi)
 					.Parameters.AddWithValue("@email", docGia.Email)
 					.Parameters.AddWithValue("@ngaylapthe", docGia.NgayLapThe)
+					.Parameters.AddWithValue("@ngayhethan", docGia.NgayHetHan)
 					.Parameters.AddWithValue("@madocgia", docGia.MaDocGia)
 				End With
 				Try
