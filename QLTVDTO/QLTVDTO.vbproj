@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="QuyDinhDTO.vb" />
     <Compile Include="SachDTO.vb" />
+    <Compile Include="TacGiaDTO.vb" />
     <Compile Include="ThamSoDTO.vb" />
     <Compile Include="TheLoaiSachDTO.vb" />
   </ItemGroup>

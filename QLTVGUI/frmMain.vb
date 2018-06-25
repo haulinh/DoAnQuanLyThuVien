@@ -90,4 +90,10 @@ Public Class frmMain
 		frmLapTheMuonSach.MdiParent = Me
 		frmLapTheMuonSach.Show()
 	End Sub
+
+	Private Sub ThêmTácGiảToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ThêmTácGiảToolStripMenuItem.Click
+		Dim frmTacGia As frmThemTacGia = New frmThemTacGia()
+		frmThemTacGia.MdiParent = Me
+		frmTacGia.Show()
+	End Sub
 End Class

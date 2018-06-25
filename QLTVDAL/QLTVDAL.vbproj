@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="QuyDinhDAL.vb" />
     <Compile Include="SachDAL.vb" />
+    <Compile Include="TacGiaDAL.vb" />
     <Compile Include="TheLoaiSachDAL.vb" />
   </ItemGroup>
   <ItemGroup>
