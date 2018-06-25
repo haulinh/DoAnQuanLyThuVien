@@ -7,6 +7,7 @@ Public Class frmThemSach
 	Private theLoaiSachBUS As TheLoaiSachBUS
 	Private quyDinhBUS As QuyDinhBUS
 	Private quyDinh As QuyDinhDTO
+	Private tacGiaBUS As TacGiaBUS
 
 	Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click
 		Dim sach As SachDTO
@@ -16,7 +17,7 @@ Public Class frmThemSach
 		sach.MaSach = txtMaSach.Text
 		sach.TenSach = txtTenSach.Text
 		sach.MaTheLoaiSach = Convert.ToInt32(cbMaTheLoaiSach.SelectedValue)
-		sach.TacGia = txtTacGia.Text
+		sach.TacGia = Convert.ToInt32(cbTacGia.SelectedValue)
 		sach.NamXuatBan = cbNamXuatBan.SelectedItem
 		sach.NhaXuatBan = txtNhaXuatBan.Text
 		sach.NgayNhap = dtNgayNhap.Value
@@ -54,7 +55,6 @@ Public Class frmThemSach
 			txtMaSach.Text = nextMaSoSach
 			txtTenSach.Text = String.Empty
 			txtNhaXuatBan.Text = String.Empty
-			txtTacGia.Text = String.Empty
 			txtTriGia.Text = String.Empty
 		Else
 			MessageBox.Show("Thêm sách không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -73,7 +73,6 @@ Public Class frmThemSach
 		sach.MaSach = txtMaSach.Text
 		sach.TenSach = txtTenSach.Text
 		' sach.MaLoaisach = Convert.ToInt32(cbLoaisach.SelectedValue)
-		sach.TacGia = txtTacGia.Text
 		sach.NhaXuatBan = txtNhaXuatBan.Text
 		sach.TriGia = txtTriGia.Text
 		sach.NgayNhap = dtNgayNhap.Value
@@ -106,6 +105,7 @@ Public Class frmThemSach
 	Private Sub frmThemSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		sachBUS = New SachBUS()
 		theLoaiSachBUS = New TheLoaiSachBUS()
+		tacGiaBUS = New TacGiaBUS()
 		quyDinhBUS = New QuyDinhBUS()
 
 		' Load QuyDinhDTO 
@@ -133,6 +133,20 @@ Public Class frmThemSach
 		cbMaTheLoaiSach.DataSource = New BindingSource(listTheLoaiSach, String.Empty)
 		cbMaTheLoaiSach.DisplayMember = "TenTheLoaiSach"
 		cbMaTheLoaiSach.ValueMember = "MaTheLoaiSach"
+
+		Dim listTacGia = New List(Of TacGiaDTO)
+		Dim resultTacGia As Result
+
+		resultTacGia = tacGiaBUS.SelectAll(listTacGia)
+		If (resultTacGia.FlagResult = False) Then
+			MessageBox.Show("Lấy danh sách Tác giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			System.Console.WriteLine(result.SystemMessage)
+			Me.Close()
+			Return
+		End If
+		cbTacGia.DataSource = New BindingSource(listTacGia, String.Empty)
+		cbTacGia.DisplayMember = "TenTacGia"
+		cbTacGia.ValueMember = "MaTacGia"
 
 		'set MSSH auto
 		Dim nextMaSoSach = "1"
