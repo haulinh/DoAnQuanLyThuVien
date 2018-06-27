@@ -21,6 +21,13 @@
 		_tinhTrangSach = tinhTrangSach
 	End Sub
 
+	Public Sub New(maSach As String, tenSach As String, maTheLoaiSach As String, tacGia As String)
+		_maSach = maSach
+		_tenSach = tenSach
+		_maTheLoaiSach = maTheLoaiSach
+		_tacGia = tacGia
+	End Sub
+
 	Public Sub New ()
 	End Sub
 	Public Property MaSach As String

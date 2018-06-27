@@ -5,6 +5,13 @@
 	Private _ngayTraSach As Date
 
 	Public Sub New()
+
+	End Sub
+	Public Sub New(maPhieuMuonSach As String, ngayMuonSach As Date, maDocGia As String, ngayTraSach As Date)
+		_maPhieuMuonSach = maPhieuMuonSach
+		_ngayMuonSach = ngayMuonSach
+		_maDocGia = maDocGia
+		_ngayTraSach = ngayTraSach
 	End Sub
 
 	Public Property MaPhieuMuonSach As String

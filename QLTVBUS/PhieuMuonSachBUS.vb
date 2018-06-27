@@ -13,7 +13,7 @@ Public Class PhieuMuonSachBUS
 	End Sub
 	Public Function InsertPhieuMuonSach(phieuMuonSach As PhieuMuonSachDTO) As Result
 		'1. verify data here!!
-
+			
 		'2. insert to DB
 		Return phieuMuonSachDAL.InsertPhieuMuonSach(phieuMuonSach)
 	End Function
@@ -43,11 +43,17 @@ Public Class PhieuMuonSachBUS
 	End Function
 
 	Public Function IsVailDexpirationDate(ngayHetHan As Date) As Boolean
-		If DateTime.Today > ngayHetHan
+		If DateTime.Today > ngayHetHan Then
 			Return False
 		End If
 
 		Return True
 
+	End Function
+	Public Function SelectByType(maPhieuMuonSach As Integer, ByRef listSach As List(Of SachDTO))
+		Return phieuMuonSachDAL.SelectByType(maPhieuMuonSach, listSach)
+	End Function
+	Public Function SelectAll(ByRef listPhieuMuonSach As List(Of PhieuMuonSachDTO))
+		Return phieuMuonSachDAL.SelectALL(listPhieuMuonSach)
 	End Function
 End Class
