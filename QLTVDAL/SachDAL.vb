@@ -214,6 +214,7 @@ Public Class SachDAL
 		query &= " ,[nhaxuatban] = @nhaxuatban "
 		query &= " ,[ngaynhap] = @ngaynhap "
 		query &= " ,[trigia] = @trigia "
+		query &= " ,[tinhtrangsach] = @tinhtrangsach "
 		query &= " WHERE "
 		query &= " [masach] = @masach "
 
@@ -231,6 +232,38 @@ Public Class SachDAL
 					.Parameters.AddWithValue("@nhaxuatban", sach.NhaXuatBan)
 					.Parameters.AddWithValue("@ngaynhap", sach.NgayNhap)
 					.Parameters.AddWithValue("@trigia", sach.TriGia)
+					.Parameters.AddWithValue("@tinhtrangsach", sach.TinhTrangSach)
+				End With
+				Try
+					conn.Open()
+					comm.ExecuteNonQuery()
+				Catch ex As Exception
+					conn.Close()
+					System.Console.WriteLine(ex.StackTrace)
+					Return New Result(False, "Cập nhập sách  không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+		Return New Result(True) ' thanh cong
+
+	End Function
+
+	Public Function UpdateStatusBook(sach As SachDTO) As Result
+		Dim query As String = String.Empty
+
+		query &= " UPDATE [tblSach] SET"
+		query &= " [tinhtrangsach] = @tinhtrangsach "
+		query &= " WHERE "
+		query &= " [masach] = @masach "
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+					.Parameters.AddWithValue("@masach", sach.MaSach)
+					.Parameters.AddWithValue("@tinhtrangsach", sach.TinhTrangSach)
 				End With
 				Try
 					conn.Open()

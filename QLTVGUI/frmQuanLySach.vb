@@ -5,6 +5,7 @@ Imports Utility
 Public Class frmQuanLySach
 	Private sachBUS As SachBUS
 	Private theLoaiSachBUS As TheLoaiSachBUS
+	Private tacGiaBUS As TacGiaBUS
 
 	Private Sub cbTheLoaiSach_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbTheLoaiSach.SelectedIndexChanged
 		Try
@@ -85,6 +86,7 @@ Public Class frmQuanLySach
 	Private Sub frmQuanLySach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		sachBUS = New SachBUS()
 		theLoaiSachBUS = New TheLoaiSachBUS()
+		tacGiaBUS = New TacGiaBUS()
 
 		'Load LoaiDocGia list
 		Dim listTheLoaiSach = New List(Of TheLoaiSachDTO)
@@ -104,8 +106,22 @@ Public Class frmQuanLySach
 		cbTheLoaiSachCapNhap.DisplayMember = "TenTheLoaiSach"
 		cbTheLoaiSachCapNhap.ValueMember = "MaTheLoaiSach"
 
+		tacGiaBUS = New TacGiaBUS()
 
-		For year As Integer = 1950 To DateTime.Today.Year
+		'Load TacGia list
+		Dim listTacGia = New List(Of TacGiaDTO)
+		result = tacGiaBUS.SelectAll(listTacGia)
+		If (result.FlagResult = False) Then
+			MessageBox.Show("Lấy danh sách tác giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			System.Console.WriteLine(result.SystemMessage)
+			Return
+		End If
+
+		cbTacGia.DataSource = New BindingSource(listTacGia, String.Empty)
+		cbTacGia.DisplayMember = "TenTacGia"
+		cbTacGia.ValueMember = "MaTacGia"
+
+		For year As Integer = 1990 To DateTime.Today.Year
 			cbNamXuatBan.Items.Add(year)
 		Next
 
@@ -126,7 +142,7 @@ Public Class frmQuanLySach
 				txtMaSach.Text = sach.MaSach
 				txtTenSach.Text = sach.TenSach
 				cbTheLoaiSachCapNhap.SelectedIndex = cbTheLoaiSach.SelectedIndex
-				txtTacGia.Text = sach.TacGia
+				cbTacGia.SelectedItem = sach.TacGia
 				cbNamXuatBan.SelectedItem = sach.NamXuatBan
 				dtNgayNhap.Value = sach.NgayNhap
 				txtTriGia.Text = sach.TriGia
@@ -152,7 +168,7 @@ Public Class frmQuanLySach
 				sach.MaSach = txtMaSach.Text
 				sach.TenSach = txtTenSach.Text
 				sach.MaTheLoaiSach = Convert.ToInt32(cbTheLoaiSachCapNhap.SelectedValue)
-				sach.TacGia = txtTacGia.Text
+				sach.TacGia = cbTacGia.SelectedIndex
 				sach.NamXuatBan = cbNamXuatBan.SelectedValue
 				sach.NhaXuatBan = txtNhaXuatBan.Text
 				sach.NgayNhap = dtNgayNhap.Value

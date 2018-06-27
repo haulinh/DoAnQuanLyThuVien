@@ -210,7 +210,7 @@ Partial Class frmLapPhieuMuonSach
 		'
 		'btnNhap
 		'
-		Me.btnNhap.Location = New System.Drawing.Point(625, 621)
+		Me.btnNhap.Location = New System.Drawing.Point(536, 619)
 		Me.btnNhap.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNhap.Name = "btnNhap"
 		Me.btnNhap.Size = New System.Drawing.Size(124, 52)

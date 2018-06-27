@@ -29,6 +29,10 @@ Public Class frmLapPhieuMuonSach
 			Return
 		End If
 
+		If txtMaDocGia.Text = Nothing
+			Return
+		End If
+
 		'3. Insert to DB
 		Dim result As Result
 		result = phieuMuonSachBUS.InsertPhieuMuonSach(phieuMuonSach)
@@ -50,16 +54,28 @@ Public Class frmLapPhieuMuonSach
 			System.Console.WriteLine(result.SystemMessage)
 		End If
 
+		If txtMaDocGia.Text = Nothing
+			Return
+		End If
+
+		Dim sach = new SachDTO
 		Dim nextMaChiTietPhieuMuonSach = "1"
 		Dim numberOfRows = dgvDanhSachMuon.Rows.Count - 1
 		For i As Integer = 0 To numberOfRows
 			chiTietPhieuMuonSach.MaSach = dgvDanhSachMuon.Rows(i).Cells("MaSach").Value.ToString()
+
+			sach.MaSach = chiTietPhieuMuonSach.MaSach
+			sach.TinhTrangSach = "Đã cho mượn"
+			sachBUS.UpdateStatusBook(sach)
 
 			chiTietPhieuMuonSachBUS.BuildMaChiTietPhieuMuonSach(nextMaChiTietPhieuMuonSach)
 			chiTietPhieuMuonSach.MaChiTietPhieuMuonSach = nextMaChiTietPhieuMuonSach
 
 			chiTietPhieuMuonSachBUS.InsertChiTietPhieuMuonSach(chiTietPhieuMuonSach)
 		Next
+
+		dgvDanhSachMuon.Rows.Clear()
+		dgvDanhSachMuon.Refresh()
 
 	End Sub
 

@@ -67,6 +67,10 @@ Public Class SachBUS
 		Return sachDAL.Update(sach)
 	End Function
 
+	Public Function UpdateStatusBook(sach As SachDTO) As Result
+		Return sachDAL.UpdateStatusBook(sach)
+	End Function
+
 	Public Function Delete(maSach As String) As Result
 		Return sachDAL.Delete(maSach)
 	End Function
