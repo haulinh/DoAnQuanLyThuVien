@@ -96,4 +96,10 @@ Public Class frmMain
 		frmThemTacGia.MdiParent = Me
 		frmTacGia.Show()
 	End Sub
+
+	Private Sub QuảnLíThẻMượnSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuảnLíThẻMượnSáchToolStripMenuItem.Click
+		Dim frmQuanLiPhieuMuonSach As frmQuanLyPhieuMuonSach = New frmQuanLyPhieuMuonSach()
+		frmQuanLyPhieuMuonSach.MdiParent = Me
+		frmQuanLyPhieuMuonSach.Show()
+	End Sub
 End Class

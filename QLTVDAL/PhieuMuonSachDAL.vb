@@ -100,5 +100,72 @@ Public Class PhieuMuonSachDAL
 		End Using
 		Return New Result(True) ' thanh cong
 	End Function
+	Public Function SelectByType(maPhieuMuonSach As Integer, ByRef listSach As List(Of SachDTO)) As Result
+		Dim query As String = String.Empty
+		query &= "SELECT [tblChiTietPhieuMuonSach].[masach], [tblSach].[tensach], [tblSach].[matheloaisach], [tblSach].[tacgia]	 "
+		query &= "FROM [tblChiTietPhieuMuonSach], [tblSach], [tblTheLoaiSach]"
+		query &= "WHERE  [maphieumuonsach] = @maphieumuonsach and [tblChiTietPhieuMuonSach].[masach] = [tblSach].[masach] and [tblSach].[matheloaisach] = [tblTheLoaiSach].[matheloaisach]"
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+					.Parameters.AddWithValue("@maphieumuonsach", maPhieuMuonSach)
+				End With
+				Try
+					conn.Open()
+					Dim reader As SqlDataReader
+					reader = comm.ExecuteReader()
+					If reader.HasRows = True Then
+						listSach.Clear()
+						While reader.Read()
+							listSach.Add(New SachDTO(reader("masach"), reader("tensach"), reader("matheloaisach"), reader("tacgia")))
+						End While
+					End If
+
+				Catch ex As Exception
+					conn.Close()
+					System.Console.WriteLine(ex.StackTrace)
+					Return New Result(False, "Lấy tất cả Phiếu mượn không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+		Return New Result(True) ' thanh cong
+	End Function
+	Public Function SelectALL(ByRef listPhieuMuonSach As List(Of PhieuMuonSachDTO)) As Result
+		Dim query As String = String.Empty
+		query &= " SELECT [maphieumuonsach], [ngaymuonsach], [madocgia], [ngaytrasach] "
+		query &= " FROM [tblPhieuMuonSach]"
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+				End With
+				Try
+					conn.Open()
+					Dim reader As SqlDataReader
+					reader = comm.ExecuteReader()
+					If reader.HasRows = True Then
+						listPhieuMuonSach.Clear()
+						While reader.Read()
+							listPhieuMuonSach.Add(New PhieuMuonSachDTO(reader("maphieumuonsach"), reader("ngaymuonsach"), reader("madocgia"), reader("ngaytrasach")))
+						End While
+					End If
+				Catch ex As Exception
+					Console.WriteLine(ex.StackTrace)
+					conn.Close()
+					' them that bai!!!
+					Return New Result(False, "Lấy tất cả Mã phiếu mượn sách không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+		Return New Result(True) ' thanh cong
+	End Function
+
 
 End Class
