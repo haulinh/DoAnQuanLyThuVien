@@ -46,9 +46,9 @@ Public Class frmQuanLySach
 		dgvListSach.Columns.Add(clTenSach)
 
 		Dim clTacGia = New DataGridViewTextBoxColumn()
-		clTacGia.Name = "TacGia"
-		clTacGia.HeaderText = "Tác Giả"
-		clTacGia.DataPropertyName = "TacGia"
+		clTacGia.Name = "MaTacGia"
+		clTacGia.HeaderText = "Mã Tác Giả"
+		clTacGia.DataPropertyName = "MaTacGia"
 		dgvListSach.Columns.Add(clTacGia)
 
 		Dim clNamXuatBan = New DataGridViewTextBoxColumn()
@@ -142,7 +142,7 @@ Public Class frmQuanLySach
 				txtMaSach.Text = sach.MaSach
 				txtTenSach.Text = sach.TenSach
 				cbTheLoaiSachCapNhap.SelectedIndex = cbTheLoaiSach.SelectedIndex
-				cbTacGia.SelectedItem = sach.TacGia
+				cbTacGia.SelectedItem = sach.MaTacGia
 				cbNamXuatBan.SelectedItem = sach.NamXuatBan
 				dtNgayNhap.Value = sach.NgayNhap
 				txtTriGia.Text = sach.TriGia
@@ -168,7 +168,7 @@ Public Class frmQuanLySach
 				sach.MaSach = txtMaSach.Text
 				sach.TenSach = txtTenSach.Text
 				sach.MaTheLoaiSach = Convert.ToInt32(cbTheLoaiSachCapNhap.SelectedValue)
-				sach.TacGia = cbTacGia.SelectedIndex
+				sach.MaTacGia = cbTacGia.SelectedIndex
 				sach.NamXuatBan = cbNamXuatBan.SelectedValue
 				sach.NhaXuatBan = txtNhaXuatBan.Text
 				sach.NgayNhap = dtNgayNhap.Value

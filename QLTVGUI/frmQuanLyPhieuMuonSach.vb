@@ -107,7 +107,7 @@ Public Class frmQuanLyPhieuMuonSach
 				sach.MaSach = Convert.ToInt32(txtMaSach.Text)
 				sach.TenSach = txtTenSach.Text
 				sach.MaTheLoaiSach = txtTheLoaiSach.Text
-				sach.TacGia = txtTacGia.Text
+				sach.MaTacGia = txtTacGia.Text
 			Catch ex As Exception
 
 			End Try

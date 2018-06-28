@@ -17,7 +17,7 @@ Public Class frmThemSach
 		sach.MaSach = txtMaSach.Text
 		sach.TenSach = txtTenSach.Text
 		sach.MaTheLoaiSach = Convert.ToInt32(cbMaTheLoaiSach.SelectedValue)
-		sach.TacGia = Convert.ToInt32(cbTacGia.SelectedValue)
+		sach.MaTacGia = Convert.ToInt32(cbTacGia.SelectedValue)
 		sach.NamXuatBan = cbNamXuatBan.SelectedItem
 		sach.NhaXuatBan = txtNhaXuatBan.Text
 		sach.NgayNhap = dtNgayNhap.Value

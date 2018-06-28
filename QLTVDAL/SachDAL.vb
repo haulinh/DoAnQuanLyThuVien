@@ -63,7 +63,7 @@ Public Class SachDAL
 
 	Public Function Insert(sach As SachDTO) As Result
 		Dim query As String = String.Empty
-		query &= "INSERT INTO [tblSach] ([masach], [tensach], [matheloaisach], [tacgia], [namxuatban], [nhaxuatban], [ngaynhap], [trigia], [tinhtrangsach])"
+		query &= "INSERT INTO [tblSach] ([masach], [tensach], [matheloaisach], [matacgia], [namxuatban], [nhaxuatban], [ngaynhap], [trigia], [tinhtrangsach])"
 		query &= "VALUES (@masach, @tensach, @matheloaisach, @tacgia, @namxuatban, @nhaxuatban, @ngaynhap, @trigia, @tinhtrangsach)"
 
 		'get masach
@@ -80,7 +80,7 @@ Public Class SachDAL
 					.Parameters.AddWithValue("@masach", sach.MaSach)
 					.Parameters.AddWithValue("@tensach", sach.TenSach)
 					.Parameters.AddWithValue("@matheloaisach", sach.MaTheLoaiSach)
-					.Parameters.AddWithValue("@tacgia", sach.TacGia)
+					.Parameters.AddWithValue("@tacgia", sach.MaTacGia)
 					.Parameters.AddWithValue("@namxuatban", sach.NamXuatBan)
 					.Parameters.AddWithValue("@nhaxuatban", sach.NhaXuatBan)
 					.Parameters.AddWithValue("@ngaynhap", sach.NgayNhap)
@@ -103,7 +103,7 @@ Public Class SachDAL
 
 	Public Function SelectAllByType(maLoai As Integer, listSach As List(Of SachDTO)) As Result
 		Dim query As String = String.Empty
-		query &= "SELECT [masach], [tensach], [matheloaisach], [tacgia], [namxuatban], [nhaxuatban], [ngaynhap], [trigia], [tinhtrangsach] "
+		query &= "SELECT [masach], [tensach], [matheloaisach], [matacgia], [namxuatban], [nhaxuatban], [ngaynhap], [trigia], [tinhtrangsach] "
 		query &= "FROM [tblSach] "
 		query &= "WHERE [matheloaisach] = @matheloaisach"
 
@@ -122,7 +122,7 @@ Public Class SachDAL
 					If reader.HasRows = True Then
 						listSach.Clear()
 						While reader.Read()
-							listSach.Add(New SachDTO(reader("masach"), reader("tensach"), reader("matheloaisach"), reader("tacgia"), reader("namxuatban"), reader("nhaxuatban"), reader("ngaynhap"), reader("trigia"), reader("tinhtrangsach")))
+							listSach.Add(New SachDTO(reader("masach"), reader("tensach"), reader("matheloaisach"), reader("matacgia"), reader("namxuatban"), reader("nhaxuatban"), reader("ngaynhap"), reader("trigia"), reader("tinhtrangsach")))
 						End While
 					End If
 
@@ -209,7 +209,7 @@ Public Class SachDAL
 		query &= " UPDATE [tblSach] SET"
 		query &= " [tensach] = @tensach "
 		query &= " ,[matheloaisach] = @matheloaisach "
-		query &= " ,[tacgia] = @tacgia "
+		query &= " ,[matacgia] = @matacgia "
 		query &= " ,[namxuatban] = @namxuatban "
 		query &= " ,[nhaxuatban] = @nhaxuatban "
 		query &= " ,[ngaynhap] = @ngaynhap "
@@ -227,7 +227,7 @@ Public Class SachDAL
 					.Parameters.AddWithValue("@masach", sach.MaSach)
 					.Parameters.AddWithValue("@tensach", sach.TenSach)
 					.Parameters.AddWithValue("@matheloaisach", sach.MaTheLoaiSach)
-					.Parameters.AddWithValue("@tacgia", sach.TacGia)
+					.Parameters.AddWithValue("@matacgia", sach.MaTacGia)
 					.Parameters.AddWithValue("@namxuatban", sach.NamXuatBan)
 					.Parameters.AddWithValue("@nhaxuatban", sach.NhaXuatBan)
 					.Parameters.AddWithValue("@ngaynhap", sach.NgayNhap)
@@ -309,7 +309,7 @@ Public Class SachDAL
 
 	Public Function SelectByType(maSach As String, ByRef tenSach As String, ByRef theLoai As String, ByRef tacGia As String, ByRef tinhTrangSach As String) As Result
 		Dim query As String = String.Empty
-		query &= "SELECT [tensach], [tentheloaisach], [tacgia], [tinhtrangsach] "
+		query &= "SELECT [tensach], [tentheloaisach], [matacgia], [tinhtrangsach] "
 		query &= "FROM [tblSach], [tblTheLoaiSach] "
 		query &= "WHERE [masach] = @masach and [tblSach].matheloaisach = [tblTheLoaiSach].matheloaisach"
 
@@ -329,7 +329,7 @@ Public Class SachDAL
 						While reader.Read()
 							tenSach = reader("tensach")
 							theLoai = reader("tentheloaisach")
-							tacGia = reader("tacgia")
+							tacGia = reader("matacgia")
 							tinhTrangSach = reader("tinhtrangsach")
 						End While
 					End If
