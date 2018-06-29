@@ -50,7 +50,7 @@ Public Class PhieuMuonSachBUS
 		Return True
 
 	End Function
-	Public Function SelectByType(maPhieuMuonSach As Integer, ByRef listSach As List(Of SachDTO))
+	Public Function SelectByType(maPhieuMuonSach As Integer, ByRef listSach As List(Of SachReceive))
 		Return phieuMuonSachDAL.SelectByType(maPhieuMuonSach, listSach)
 	End Function
 	Public Function SelectAll(ByRef listPhieuMuonSach As List(Of PhieuMuonSachDTO))

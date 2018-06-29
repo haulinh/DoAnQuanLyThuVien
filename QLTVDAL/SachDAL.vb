@@ -103,9 +103,9 @@ Public Class SachDAL
 
 	Public Function SelectAllByType(maLoai As Integer, listSach As List(Of SachReceive)) As Result
 		Dim query As String = String.Empty
-		query &= "SELECT [masach], [tensach], [tentheloai], [tentacgia], [namxuatban], [nhaxuatban], [ngaynhap], [trigia], [tinhtrangsach] "
+		query &= "SELECT [masach], [tensach], [tentheloaisach], [tentacgia], [namxuatban], [nhaxuatban], [ngaynhap], [trigia], [tinhtrangsach] "
 		query &= "FROM [tblSach], [tblTacGia], [tblTheLoaiSach] "
-		query &= "WHERE [matheloaisach] = @matheloaisach and [tblSach].matacgia = [tblTacGia].matacgia and [tblSach].matheloai = [tblTheLoaiSach].matheloai"
+		query &= "WHERE [tblSach].matheloaisach = @matheloaisach and [tblSach].matacgia = [tblTacGia].matacgia and [tblSach].matheloaisach = [tblTheLoaiSach].matheloaisach"
 
 		Using conn As New SqlConnection(connectionString)
 			Using comm As New SqlCommand()
@@ -122,7 +122,7 @@ Public Class SachDAL
 					If reader.HasRows = True Then
 						listSach.Clear()
 						While reader.Read()
-							listSach.Add(New SachReceive(reader("masach"), reader("tensach"), reader("tentheloai"), reader("tentacgia"), reader("namxuatban"), reader("nhaxuatban"), reader("ngaynhap"), reader("trigia"), reader("tinhtrangsach")))
+							listSach.Add(New SachReceive(reader("masach"), reader("tensach"), reader("tentheloaisach"), reader("tentacgia"), reader("namxuatban"), reader("nhaxuatban"), reader("ngaynhap"), reader("trigia"), reader("tinhtrangsach")))
 						End While
 					End If
 

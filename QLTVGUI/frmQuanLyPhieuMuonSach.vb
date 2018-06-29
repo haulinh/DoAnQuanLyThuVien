@@ -33,7 +33,7 @@ Public Class frmQuanLyPhieuMuonSach
 
 	End Sub
 	Private Sub LoadPhieuMuonSach(maSach As Integer)
-		Dim listSach = New List(Of SachDTO)
+		Dim listSach = New List(Of SachReceive)
 		Dim result As Result
 
 		result = phieuMuonSachBUS.SelectByType(maSach, listSach)
@@ -64,15 +64,15 @@ Public Class frmQuanLyPhieuMuonSach
 		dgvPhieuMuonSach.Columns.Add(clTenSach)
 
 		Dim clTenTheLoaiSach = New DataGridViewTextBoxColumn()
-		clTenTheLoaiSach.Name = "MaTheLoaiSach"
-		clTenTheLoaiSach.HeaderText = "Mã Thể Loại Sách"
-		clTenTheLoaiSach.DataPropertyName = "MaTheLoaiSach"
+		clTenTheLoaiSach.Name = "TenTheLoai"
+		clTenTheLoaiSach.HeaderText = "Thể Loại"
+		clTenTheLoaiSach.DataPropertyName = "TenTheLoai"
 		dgvPhieuMuonSach.Columns.Add(clTenTheLoaiSach)
 
 		Dim clTacGia = New DataGridViewTextBoxColumn()
-		clTacGia.Name = "TacGia"
+		clTacGia.Name = "TenTacGia"
 		clTacGia.HeaderText = "Tác Giả"
-		clTacGia.DataPropertyName = "TacGia"
+		clTacGia.DataPropertyName = "TenTacGia"
 		dgvPhieuMuonSach.Columns.Add(clTacGia)
 
 		''dgvPhieuMuonSach.Columns(0).Width = 70

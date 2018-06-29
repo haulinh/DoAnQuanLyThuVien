@@ -100,11 +100,11 @@ Public Class PhieuMuonSachDAL
 		End Using
 		Return New Result(True) ' thanh cong
 	End Function
-	Public Function SelectByType(maPhieuMuonSach As Integer, ByRef listSach As List(Of SachDTO)) As Result
+	Public Function SelectByType(maPhieuMuonSach As Integer, ByRef listSach As List(Of SachReceive)) As Result
 		Dim query As String = String.Empty
-		query &= "SELECT [tblChiTietPhieuMuonSach].[masach], [tblSach].[tensach], [tblSach].[matheloaisach], [tblSach].[tacgia]	 "
-		query &= "FROM [tblChiTietPhieuMuonSach], [tblSach], [tblTheLoaiSach]"
-		query &= "WHERE  [maphieumuonsach] = @maphieumuonsach and [tblChiTietPhieuMuonSach].[masach] = [tblSach].[masach] and [tblSach].[matheloaisach] = [tblTheLoaiSach].[matheloaisach]"
+		query &= "SELECT [tblChiTietPhieuMuonSach].[masach], [tblSach].[tensach], [tblTheLoaiSach].[tentheloaisach], [tblTacGia].[tentacgia] "
+		query &= "FROM [tblChiTietPhieuMuonSach], [tblSach], [tblTheLoaiSach], [tblTacGia] "
+		query &= "WHERE [maphieumuonsach] = @maphieumuonsach and [tblChiTietPhieuMuonSach].[masach] = [tblSach].[masach] and [tblSach].[matheloaisach] = [tblTheLoaiSach].[matheloaisach] and [tblSach].[matacgia] = [tblTacGia].[matacgia]"
 
 		Using conn As New SqlConnection(connectionString)
 			Using comm As New SqlCommand()
@@ -121,7 +121,7 @@ Public Class PhieuMuonSachDAL
 					If reader.HasRows = True Then
 						listSach.Clear()
 						While reader.Read()
-							listSach.Add(New SachDTO(reader("masach"), reader("tensach"), reader("matheloaisach"), reader("tacgia")))
+							listSach.Add(New SachReceive(reader("masach"), reader("tensach"), reader("tentheloaisach"), reader("tentacgia")))
 						End While
 					End If
 

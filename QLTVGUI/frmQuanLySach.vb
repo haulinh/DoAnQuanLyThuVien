@@ -170,7 +170,7 @@ Public Class frmQuanLySach
 				sach.MaSach = txtMaSach.Text
 				sach.TenSach = txtTenSach.Text
 				sach.MaTheLoaiSach = Convert.ToInt32(cbTheLoaiSachCapNhap.SelectedValue)
-				sach.MaTacGia = cbTacGia.SelectedIndex + 1
+				sach.MaTacGia = cbTacGia.SelectedIndex
 				sach.NamXuatBan = cbNamXuatBan.SelectedItem
 				sach.NhaXuatBan = txtNhaXuatBan.Text
 				sach.TinhTrangSach = txtTinhTrangSach.Text

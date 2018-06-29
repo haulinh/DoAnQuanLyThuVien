@@ -21,11 +21,11 @@
 		_tinhTrangSach = tinhTrangSach
 	End Sub
 
-	Public Sub New(maSach As String, tenSach As String, tenTheLoai As String, maTacGia As Integer)
+	Public Sub New(maSach As String, tenSach As String, tenTheLoai As String, tenTacGia As String)
 		_maSach = maSach
 		_tenSach = tenSach
-		Me.TenTheLoai = tenTheLoai
-		_tenTacGia = maTacGia
+		_tenTheLoai = tenTheLoai
+		_tenTacGia = tenTacGia
 	End Sub
 
 	Public Sub New ()
