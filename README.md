@@ -8,6 +8,3 @@
 ### Notes:
 * sửa thuộc tính ThoiGianMuonToiDa thành thuộc thuộc tính SoNgayMuonToiDa vào bảng tham số 
 * bảng tham số từ biểu mẫu 2 thiếu thuộc tính HanSuDung
-
-### not done:
-* hiển thị tên tác giả trong chức năng quản lí sách thay vì hiển thị mã tác giả.
