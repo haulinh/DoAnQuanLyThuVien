@@ -16,11 +16,11 @@ Public Class frmQuanLySach
 	End Sub
 
 	Private Sub LoadListSach(maLoai As Integer)
-		Dim listSach = New List(Of SachDTO)
+		Dim listSach = New List(Of SachReceive)
 		Dim result As Result
 		result = sachBUS.SelectAllByType(maLoai, listSach)
 		If (result.FlagResult = False) Then
-			MessageBox.Show("Lấy danh sách Độc Giả theo loại không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			MessageBox.Show("Lấy danh sách sách theo loại không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			System.Console.WriteLine(result.SystemMessage)
 			Return
 		End If
@@ -46,9 +46,9 @@ Public Class frmQuanLySach
 		dgvListSach.Columns.Add(clTenSach)
 
 		Dim clTacGia = New DataGridViewTextBoxColumn()
-		clTacGia.Name = "MaTacGia"
-		clTacGia.HeaderText = "Mã Tác Giả"
-		clTacGia.DataPropertyName = "MaTacGia"
+		clTacGia.Name = "TenTacGia"
+		clTacGia.HeaderText = "Tên Tác Giả"
+		clTacGia.DataPropertyName = "TenTacGia"
 		dgvListSach.Columns.Add(clTacGia)
 
 		Dim clNamXuatBan = New DataGridViewTextBoxColumn()
@@ -138,12 +138,14 @@ Public Class frmQuanLySach
 		'Verify that indexing OK
 		If (-1 < currentRowIndex And currentRowIndex < dgvListSach.RowCount) Then
 			Try
-				Dim sach = CType(dgvListSach.Rows(currentRowIndex).DataBoundItem, SachDTO)
+				Dim sach = CType(dgvListSach.Rows(currentRowIndex).DataBoundItem, SachReceive)
 				txtMaSach.Text = sach.MaSach
 				txtTenSach.Text = sach.TenSach
 				cbTheLoaiSachCapNhap.SelectedIndex = cbTheLoaiSach.SelectedIndex
-				cbTacGia.SelectedItem = sach.MaTacGia
+				cbTacGia.Text = sach.TenTacGia
 				cbNamXuatBan.SelectedItem = sach.NamXuatBan
+				txtTinhTrangSach.Text = sach.TinhTrangSach
+				txtNhaXuatBan.Text = sach.NhaXuatBan
 				dtNgayNhap.Value = sach.NgayNhap
 				txtTriGia.Text = sach.TriGia
 				
@@ -168,9 +170,10 @@ Public Class frmQuanLySach
 				sach.MaSach = txtMaSach.Text
 				sach.TenSach = txtTenSach.Text
 				sach.MaTheLoaiSach = Convert.ToInt32(cbTheLoaiSachCapNhap.SelectedValue)
-				sach.MaTacGia = cbTacGia.SelectedIndex
-				sach.NamXuatBan = cbNamXuatBan.SelectedValue
+				sach.MaTacGia = cbTacGia.SelectedIndex + 1
+				sach.NamXuatBan = cbNamXuatBan.SelectedItem
 				sach.NhaXuatBan = txtNhaXuatBan.Text
+				sach.TinhTrangSach = txtTinhTrangSach.Text
 				sach.NgayNhap = dtNgayNhap.Value
 				sach.TriGia = txtTriGia.Text
 

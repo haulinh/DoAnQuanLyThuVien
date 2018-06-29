@@ -29,10 +29,18 @@ Public Class frmLapPhieuMuonSach
 			Return
 		End If
 
+		'Kiểm tra mã độc giả đã được nhập chưa
 		If txtMaDocGia.Text = Nothing
+			MessageBox.Show("Chưa nhập mã thẻ đọc giả", "Important Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			Return
 		End If
 
+		'Kiểm tra sach đã được thêm chưa
+		If (dgvDanhSachMuon.Rows.Count - 1) < 0
+			MessageBox.Show("Chưa thêm sách", "Important Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			Return
+		End If
+		
 		'3. Insert to DB
 		Dim result As Result
 		result = phieuMuonSachBUS.InsertPhieuMuonSach(phieuMuonSach)
@@ -54,10 +62,8 @@ Public Class frmLapPhieuMuonSach
 			System.Console.WriteLine(result.SystemMessage)
 		End If
 
-		If txtMaDocGia.Text = Nothing
-			Return
-		End If
 
+		'Insert chi tiết phiếu mượn sách
 		Dim sach = new SachDTO
 		Dim nextMaChiTietPhieuMuonSach = "1"
 		Dim numberOfRows = dgvDanhSachMuon.Rows.Count - 1
@@ -151,7 +157,7 @@ Public Class frmLapPhieuMuonSach
 	End Sub
 
 	Private Sub LoadInfoBook(maSach As String)
-		Dim tenSach = New String(Nothing)
+		Dim tenSach = New String(Nothing) 
 		Dim tacGia = New String(Nothing)
 		Dim theLoai = new String(Nothing)
 		Dim tinhTrangSach = new String(Nothing)
@@ -202,6 +208,7 @@ Public Class frmLapPhieuMuonSach
 			For j As Integer = (numberOfRows) To (i + 1) Step - 1
 				If dgvDanhSachMuon.Rows(i).Cells("MaSach").Value.ToString() = dgvDanhSachMuon.Rows(j).Cells("MaSach").Value.ToString() Then
 					dgvDanhSachMuon.Rows.Remove(dgvDanhSachMuon.Rows(j))
+					MessageBox.Show("Sách đã được thêm", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 					numberOfRows -= 1
 				End If
 			Next

@@ -101,11 +101,11 @@ Public Class SachDAL
 
 	End Function
 
-	Public Function SelectAllByType(maLoai As Integer, listSach As List(Of SachDTO)) As Result
+	Public Function SelectAllByType(maLoai As Integer, listSach As List(Of SachReceive)) As Result
 		Dim query As String = String.Empty
-		query &= "SELECT [masach], [tensach], [matheloaisach], [matacgia], [namxuatban], [nhaxuatban], [ngaynhap], [trigia], [tinhtrangsach] "
-		query &= "FROM [tblSach] "
-		query &= "WHERE [matheloaisach] = @matheloaisach"
+		query &= "SELECT [masach], [tensach], [tentheloai], [tentacgia], [namxuatban], [nhaxuatban], [ngaynhap], [trigia], [tinhtrangsach] "
+		query &= "FROM [tblSach], [tblTacGia], [tblTheLoaiSach] "
+		query &= "WHERE [matheloaisach] = @matheloaisach and [tblSach].matacgia = [tblTacGia].matacgia and [tblSach].matheloai = [tblTheLoaiSach].matheloai"
 
 		Using conn As New SqlConnection(connectionString)
 			Using comm As New SqlCommand()
@@ -122,7 +122,7 @@ Public Class SachDAL
 					If reader.HasRows = True Then
 						listSach.Clear()
 						While reader.Read()
-							listSach.Add(New SachDTO(reader("masach"), reader("tensach"), reader("matheloaisach"), reader("matacgia"), reader("namxuatban"), reader("nhaxuatban"), reader("ngaynhap"), reader("trigia"), reader("tinhtrangsach")))
+							listSach.Add(New SachReceive(reader("masach"), reader("tensach"), reader("tentheloai"), reader("tentacgia"), reader("namxuatban"), reader("nhaxuatban"), reader("ngaynhap"), reader("trigia"), reader("tinhtrangsach")))
 						End While
 					End If
 
@@ -139,7 +139,7 @@ Public Class SachDAL
 	Public Function SelectAllCondition(maSach As String,
 	                                   maLoai As Integer, 
 	                                   tenSach As String,
-	                                   tacGia As String, 
+	                                   maTacGia As Integer, 
 	                                   nhaXuatBan As String, 
 	                                   minTriGia As Integer,
 									   maxTriGia As Integer, 
@@ -147,19 +147,19 @@ Public Class SachDAL
 	                                   maxNamXuatBan as Integer,
 	                                   minNgayNhap As String,
 	                                   maxNgayNhap As String,
-	                                   listSach As List(Of SachDTO)) As Result
+	                                   listSach As List(Of SachReceive)) As Result
 
 		Dim query As String = String.Empty
 
-		query &= "SELECT [masach], [tensach], [matheloaisach], [tacgia], [namxuatban], [nhaxuatban], [ngaynhap], [trigia], [tinhtrangsach] "
-		query &= "FROM [tblSach] "
-		query &= "WHERE " +
+		query &= "SELECT [masach], [tensach], [tentheloaisach], [tentacgia], [namxuatban], [nhaxuatban], [ngaynhap], [trigia], [tinhtrangsach] "
+		query &= "FROM [tblSach], [tblTheLoaiSach], [tblTacGia] "
+		query &= "WHERE [tblSach].matheloaisach = [tblTheLoaiSach].matheloaisach AND [tblSach].matacgia = [tblTacGia].matacgia AND " +
 				 Condition.CheckGUIRangeAndGetQuery(minTriGia, maxTriGia, "mintrigia", "maxtrigia", "trigia") + " AND " +
 				 Condition.CheckGUIRangeAndGetQuery(minNamXuatBan, maxNamXuatBan, "minnamxuatban", "maxnamxuatban", "namxuatban") + " AND " +
 				 "ngaynhap BETWEEN @minngaynhap AND @maxngaynhap AND " +
 				 Condition.CheckGUIEmptyAndGetQuery(maLoai, "matheloaisach") + " AND " +
 				 Condition.CheckGUIEmptyAndGetQuery(tenSach, "tensach") + " AND " +
-				 Condition.CheckGUIEmptyAndGetQuery(tacGia, "tacgia") + " AND " +
+				 Condition.CheckGUIEmptyAndGetQuery(maTacGia, "matacgia") + " AND " +
 				 Condition.CheckGUIEmptyAndGetQuery(nhaXuatBan, "nhaxuatban")  + " AND " +
 				 Condition.CheckGUIEmptyAndGetQuery(maSach, "masach")
 
@@ -172,7 +172,7 @@ Public Class SachDAL
 					.CommandText = query
 					.Parameters.AddWithValue("@matheloaisach", maLoai)
 					.Parameters.AddWithValue("@tensach", tenSach)
-					.Parameters.AddWithValue("@tacgia", tacGia)
+					.Parameters.AddWithValue("@matacgia", maTacGia)
 					.Parameters.AddWithValue("@nhaxuatban", nhaXuatBan)
 					.Parameters.AddWithValue("@mintrigia", minTriGia)
 					.Parameters.AddWithValue("@maxtrigia", maxTriGia)
@@ -189,7 +189,7 @@ Public Class SachDAL
 					If reader.HasRows = True Then
 						listSach.Clear()
 						While reader.Read()
-							listSach.Add(New SachDTO(reader("masach"), reader("tensach"), reader("matheloaisach"), reader("tacgia"), reader("namxuatban"), reader("nhaxuatban"), reader("ngaynhap"), reader("trigia"), reader("tinhtrangsach")))
+							listSach.Add(New SachReceive(reader("masach"), reader("tensach"), reader("tentheloaisach"), reader("tentacgia"), reader("namxuatban"), reader("nhaxuatban"), reader("ngaynhap"), reader("trigia"), reader("tinhtrangsach")))
 						End While
 					End If
 
@@ -309,9 +309,9 @@ Public Class SachDAL
 
 	Public Function SelectByType(maSach As String, ByRef tenSach As String, ByRef theLoai As String, ByRef tacGia As String, ByRef tinhTrangSach As String) As Result
 		Dim query As String = String.Empty
-		query &= "SELECT [tensach], [tentheloaisach], [matacgia], [tinhtrangsach] "
-		query &= "FROM [tblSach], [tblTheLoaiSach] "
-		query &= "WHERE [masach] = @masach and [tblSach].matheloaisach = [tblTheLoaiSach].matheloaisach"
+		query &= "SELECT [tensach], [tentheloaisach], [tentacgia], [tinhtrangsach] "
+		query &= "FROM [tblSach], [tblTheLoaiSach], [tblTacGia] "
+		query &= "WHERE [masach] = @masach and [tblSach].matheloaisach = [tblTheLoaiSach].matheloaisach and [tblSach].matacgia = [tblTacGia].matacgia"
 
 		Using conn As New SqlConnection(connectionString)
 			Using comm As New SqlCommand()
@@ -329,7 +329,7 @@ Public Class SachDAL
 						While reader.Read()
 							tenSach = reader("tensach")
 							theLoai = reader("tentheloaisach")
-							tacGia = reader("matacgia")
+							tacGia = reader("tentacgia")
 							tinhTrangSach = reader("tinhtrangsach")
 						End While
 					End If

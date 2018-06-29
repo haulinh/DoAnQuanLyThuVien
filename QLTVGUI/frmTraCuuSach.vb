@@ -5,6 +5,7 @@ Imports Utility
 Public Class frmTraCuuSach
 	Private sachBUS As SachBUS
 	Private theLoaiSachBUS As TheLoaiSachBUS
+	Private tacGiaBUS As TacGiaBUS
 
 	Private Sub LoadMaxinumAndMininum()
 		nudMinTriGia.Minimum = 0
@@ -23,7 +24,7 @@ Public Class frmTraCuuSach
 	Private Sub LoadListSach(maSach As String,
 	                         maLoai As Integer,
 							 tenSach As String,
-							 tacGia As String,
+							 maTacGia As Integer,
 							 nhaXuatBan As String,
 							 minTriGia As Integer,
 							 maxTriGia As Integer,
@@ -31,11 +32,11 @@ Public Class frmTraCuuSach
 	                         maxNamXuatBan As Integer, 
 	                         minNgayNhap As String,
 	                         maxNgayNhap As String)
-		Dim listSach = New List(Of SachDTO)
+		Dim listSach = New List(Of SachReceive)
 		Dim result As Result
-		result = sachBUS.SelectAllCondition(maSach ,maLoai, tenSach, tacGia, nhaXuatBan, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap, listSach)
+		result = sachBUS.SelectAllCondition(maSach ,maLoai, tenSach, maTacGia, nhaXuatBan, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap, listSach)
 		If (result.FlagResult = False) Then
-			MessageBox.Show("Lấy danh sách theo loại không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			MessageBox.Show("Lấy danh sách không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			System.Console.WriteLine(result.SystemMessage)
 			Return
 		End If
@@ -59,6 +60,12 @@ Public Class frmTraCuuSach
 		clTenSach.HeaderText = "Tên Sách"
 		clTenSach.DataPropertyName = "TenSach"
 		dgvListSach.Columns.Add(clTenSach)
+
+		Dim clTheLoai = New DataGridViewTextBoxColumn()
+		clTheLoai.Name = "TheLoai"
+		clTheLoai.HeaderText = "Thể Loại"
+		clTheLoai.DataPropertyName = "TheLoai"
+		dgvListSach.Columns.Add(clTheLoai)
 
 		Dim clTacGia = New DataGridViewTextBoxColumn()
 		clTacGia.Name = "TacGia"
@@ -101,6 +108,7 @@ Public Class frmTraCuuSach
 	Private Sub frmTraCuuSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		sachBUS = New SachBUS()
 		theLoaiSachBUS = New TheLoaiSachBUS()
+		tacGiaBUS = New TacGiaBUS()
 
 		'Load LoaiDocGia list
 		Dim listTheLoaiSach = New List(Of TheLoaiSachDTO)
@@ -117,6 +125,19 @@ Public Class frmTraCuuSach
 		cbTheLoaiSach.DisplayMember = "TenTheLoaiSach"
 		cbTheLoaiSach.ValueMember = "MaTheLoaiSach"
 
+		'Load TacGia list
+		Dim listTacGia = New List(Of TacGiaDTO)
+		result = tacGiaBUS.SelectAll(listTacGia)
+		If (result.FlagResult = False) Then
+			MessageBox.Show("Lấy danh sách tác giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			System.Console.WriteLine(result.SystemMessage)
+			Return
+		End If
+
+		cbTacGia.DataSource = New BindingSource(listTacGia, String.Empty)
+		cbTacGia.DisplayMember = "TenTacGia"
+		cbTacGia.ValueMember = "MaTacGia"
+
 		dtpMinNgayNhap.Value = DateTimePicker.MinimumDateTime
 		dtpMaxNgayNhap.Value = Date.Today
 
@@ -129,7 +150,7 @@ Public Class frmTraCuuSach
 			Dim maSach = txtMaSach.Text
 			Dim maLoai = Convert.ToInt32(cbTheLoaiSach.SelectedValue)
 			Dim tenSach = txtTenSach.Text
-			Dim tacGia = txtTacGia.Text
+			Dim maTacGia = Convert.ToInt32(cbTacGia.SelectedValue)
 			Dim nhaXuatBan = txtNhaXuatBan.Text
 			Dim minNgayNhap = dtpMinNgayNhap.Value
 			Dim maxNgayNhap = dtpMaxNgayNhap.Value
@@ -143,7 +164,7 @@ Public Class frmTraCuuSach
 			minNamXuatBan = SachBUS.GetMinAndMaxValue(nudMinNamXuatBan.Text)
 			maxNamXuatBan = SachBUS.GetMinAndMaxValue(nudMaxNamXuatBan.Text)
 
-			LoadListSach(maSach, maLoai, tenSach, tacGia, nhaXuatBan, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap)
+			LoadListSach(maSach, maLoai, tenSach, maTacGia, nhaXuatBan, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap)
 		Catch ex As Exception
 		End Try
 	End Sub

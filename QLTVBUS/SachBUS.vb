@@ -38,14 +38,14 @@ Public Class SachBUS
 		Return sachDAL.Insert(sach)
 	End Function
 
-	Public Function SelectAllByType(maLoai As Integer, Byref listSach As List(Of SachDTO)) As Result
+	Public Function SelectAllByType(maLoai As Integer, Byref listSach As List(Of SachReceive)) As Result
 		Return sachDAL.SelectAllByType(maLoai, listSach)
 	End Function
 
 	Public Function SelectAllCondition(maSach As String,
 	                                   maLoai As Integer,
 									   tenSach As String,
-									   tacGia As String,
+									   maTacGia As Integer,
 									   nhaXuatBan As String,
 									   minTriGia As Integer,
 									   maxTriGia As Integer, 
@@ -53,8 +53,8 @@ Public Class SachBUS
 	                                   maxNamXuatBan as Integer, 
 	                                   minNgayNhap As String, 
 	                                   maxNgayNhap As String,
-									   Byref listSach As List(Of SachDTO)) As Result
-		Return sachDAL.SelectAllCondition(maSach, maLoai, tenSach, tacGia, nhaXuatBan, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap, listSach)
+									   Byref listSach As List(Of SachReceive)) As Result
+		Return sachDAL.SelectAllCondition(maSach, maLoai, tenSach, maTacGia, nhaXuatBan, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap, listSach)
 	End Function
 
 	Public Function BuildMaSoSach(ByRef nextMaSoSach As String) As Result
@@ -75,8 +75,8 @@ Public Class SachBUS
 		Return sachDAL.Delete(maSach)
 	End Function
 
-	Public Function SelectByType(maSach As String, ByRef tenSach As String, ByRef theLoai As String, ByRef maTacGia As Integer, ByRef tinhTrangSach As String) As Result
-		Return sachDAL.SelectByType(maSach, tenSach, theLoai, maTacGia, tinhTrangSach)
+	Public Function SelectByType(maSach As String, ByRef tenSach As String, ByRef theLoai As String, ByRef tacGia As String, ByRef tinhTrangSach As String) As Result
+		Return sachDAL.SelectByType(maSach, tenSach, theLoai, tacGia, tinhTrangSach)
 	End Function
 	Public Function IsIntervaleYear(sachDTO As SachDTO, quyDinh As QuyDinhDTO) As Boolean
 		Dim x = DateTime.Today.Year - sachDTO.NamXuatBan
