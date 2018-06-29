@@ -14,6 +14,19 @@ Public Class Condition
 
 	End Function
 
+	Public Shared Function CheckGUIEmptyAndGetQueryAmbiguous(parameter As Object, nameTable As String) As String
+		Dim conditionString As String
+
+		If parameter <> Nothing then
+			conditionString = "[tblSach]." + nameTable + " = " + "@" + nameTable
+		Else 
+			conditionString = "1 = 1"
+		End If
+
+		Return conditionString 
+
+	End Function
+
 	Public Shared Function CheckGUIRangeAndGetQuery(minParameter As Object, 
 	                                                maxParameter As Object, 
 	                                                nameMin As String, 

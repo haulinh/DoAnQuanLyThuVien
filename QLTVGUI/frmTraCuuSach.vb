@@ -26,6 +26,7 @@ Public Class frmTraCuuSach
 							 tenSach As String,
 							 maTacGia As Integer,
 							 nhaXuatBan As String,
+	                         tinhTrangSach As String,
 							 minTriGia As Integer,
 							 maxTriGia As Integer,
 	                         minNamXuatBan As Integer,
@@ -34,7 +35,7 @@ Public Class frmTraCuuSach
 	                         maxNgayNhap As String)
 		Dim listSach = New List(Of SachReceive)
 		Dim result As Result
-		result = sachBUS.SelectAllCondition(maSach ,maLoai, tenSach, maTacGia, nhaXuatBan, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap, listSach)
+		result = sachBUS.SelectAllCondition(maSach ,maLoai, tenSach, maTacGia, nhaXuatBan, tinhTrangSach, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap, listSach)
 		If (result.FlagResult = False) Then
 			MessageBox.Show("Lấy danh sách không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			System.Console.WriteLine(result.SystemMessage)
@@ -62,15 +63,15 @@ Public Class frmTraCuuSach
 		dgvListSach.Columns.Add(clTenSach)
 
 		Dim clTheLoai = New DataGridViewTextBoxColumn()
-		clTheLoai.Name = "TheLoai"
+		clTheLoai.Name = "TenTheLoai"
 		clTheLoai.HeaderText = "Thể Loại"
-		clTheLoai.DataPropertyName = "TheLoai"
+		clTheLoai.DataPropertyName = "TenTheLoai"
 		dgvListSach.Columns.Add(clTheLoai)
 
 		Dim clTacGia = New DataGridViewTextBoxColumn()
-		clTacGia.Name = "TacGia"
+		clTacGia.Name = "TenTacGia"
 		clTacGia.HeaderText = "Tác Giả"
-		clTacGia.DataPropertyName = "TacGia"
+		clTacGia.DataPropertyName = "TenTacGia"
 		dgvListSach.Columns.Add(clTacGia)
 
 		Dim clNamXuatBan = New DataGridViewTextBoxColumn()
@@ -152,6 +153,7 @@ Public Class frmTraCuuSach
 			Dim tenSach = txtTenSach.Text
 			Dim maTacGia = Convert.ToInt32(cbTacGia.SelectedValue)
 			Dim nhaXuatBan = txtNhaXuatBan.Text
+			Dim tinhTrangSach = txtTinhTrangSach.Text
 			Dim minNgayNhap = dtpMinNgayNhap.Value
 			Dim maxNgayNhap = dtpMaxNgayNhap.Value
 			Dim minTriGia
@@ -164,7 +166,7 @@ Public Class frmTraCuuSach
 			minNamXuatBan = SachBUS.GetMinAndMaxValue(nudMinNamXuatBan.Text)
 			maxNamXuatBan = SachBUS.GetMinAndMaxValue(nudMaxNamXuatBan.Text)
 
-			LoadListSach(maSach, maLoai, tenSach, maTacGia, nhaXuatBan, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap)
+			LoadListSach(maSach, maLoai, tenSach, maTacGia, nhaXuatBan, tinhTrangSach, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap)
 		Catch ex As Exception
 		End Try
 	End Sub

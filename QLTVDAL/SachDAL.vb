@@ -141,6 +141,7 @@ Public Class SachDAL
 	                                   tenSach As String,
 	                                   maTacGia As Integer, 
 	                                   nhaXuatBan As String, 
+									   tinhTrangSach As String,
 	                                   minTriGia As Integer,
 									   maxTriGia As Integer, 
 	                                   minNamXuatBan as Integer,
@@ -157,10 +158,11 @@ Public Class SachDAL
 				 Condition.CheckGUIRangeAndGetQuery(minTriGia, maxTriGia, "mintrigia", "maxtrigia", "trigia") + " AND " +
 				 Condition.CheckGUIRangeAndGetQuery(minNamXuatBan, maxNamXuatBan, "minnamxuatban", "maxnamxuatban", "namxuatban") + " AND " +
 				 "ngaynhap BETWEEN @minngaynhap AND @maxngaynhap AND " +
-				 Condition.CheckGUIEmptyAndGetQuery(maLoai, "matheloaisach") + " AND " +
+		         Condition.CheckGUIEmptyAndGetQuery(nhaXuatBan, "nhaxuatban")  + " AND " +
+				 Condition.CheckGUIEmptyAndGetQueryAmbiguous(maLoai, "matheloaisach") + " AND " +
 				 Condition.CheckGUIEmptyAndGetQuery(tenSach, "tensach") + " AND " +
-				 Condition.CheckGUIEmptyAndGetQuery(maTacGia, "matacgia") + " AND " +
-				 Condition.CheckGUIEmptyAndGetQuery(nhaXuatBan, "nhaxuatban")  + " AND " +
+		         Condition.CheckGUIEmptyAndGetQuery(tinhTrangSach, "tinhtrangsach") + " AND " +
+				 Condition.CheckGUIEmptyAndGetQueryAmbiguous(maTacGia, "matacgia") + " AND " +
 				 Condition.CheckGUIEmptyAndGetQuery(maSach, "masach")
 
 
@@ -172,6 +174,7 @@ Public Class SachDAL
 					.CommandText = query
 					.Parameters.AddWithValue("@matheloaisach", maLoai)
 					.Parameters.AddWithValue("@tensach", tenSach)
+					.Parameters.AddWithValue("@tinhtrangsach", tinhTrangSach)
 					.Parameters.AddWithValue("@matacgia", maTacGia)
 					.Parameters.AddWithValue("@nhaxuatban", nhaXuatBan)
 					.Parameters.AddWithValue("@mintrigia", minTriGia)
