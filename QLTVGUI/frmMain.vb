@@ -80,7 +80,7 @@ Public Class frmMain
 	End Sub
 
 	Private Sub TraCứuSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TraCứuSáchToolStripMenuItem.Click
-		Dim frmTraCuuSach As frmTraCuuSach = new frmTraCuuSach()
+		Dim frmTraCuuSach As frmTraCuuSach = New frmTraCuuSach()
 		frmTraCuuSach.MdiParent = Me
 		frmTraCuuSach.Show()
 	End Sub
@@ -101,5 +101,15 @@ Public Class frmMain
 		Dim frmQuanLiPhieuMuonSach As frmQuanLyPhieuMuonSach = New frmQuanLyPhieuMuonSach()
 		frmQuanLyPhieuMuonSach.MdiParent = Me
 		frmQuanLyPhieuMuonSach.Show()
+	End Sub
+
+	Private Sub BáoCáoTìnhHìnhMượnSáchTheoThểLoạiToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BáoCáoTìnhHìnhMượnSáchTheoThểLoạiToolStripMenuItem.Click
+		Dim frmBaoCaoTinhHinhMuonSachTheoTheLoai As frmBaoCaoTinhHinhMuonSachTheoTheLoai = New frmBaoCaoTinhHinhMuonSachTheoTheLoai()
+		frmBaoCaoTinhHinhMuonSachTheoTheLoai.MdiParent = Me
+		frmBaoCaoTinhHinhMuonSachTheoTheLoai.Show()
+	End Sub
+
+	Private Sub btnBaoCao_Click(sender As Object, e As EventArgs) Handles btnBaoCao.Click
+		cmBaoCao.Show(btnBaoCao, 0, btnBaoCao.Height)
 	End Sub
 End Class
