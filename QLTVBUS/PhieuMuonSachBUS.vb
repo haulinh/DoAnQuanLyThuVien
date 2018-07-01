@@ -56,4 +56,12 @@ Public Class PhieuMuonSachBUS
 	Public Function SelectAll(ByRef listPhieuMuonSach As List(Of PhieuMuonSachDTO))
 		Return phieuMuonSachDAL.SelectALL(listPhieuMuonSach)
 	End Function
+
+	Public Function Update(phieuMuonSach As PhieuMuonSachDTO, maPhieuMuonSach As String) As Result
+		Return phieuMuonSachDAL.Update(phieuMuonSach, maPhieuMuonSach)
+	End Function
+
+	Public Function Delete(maPhieuMuonSach As String) As Result
+		Return phieuMuonSachDAL.Delete(maPhieuMuonSach)
+	End Function
 End Class

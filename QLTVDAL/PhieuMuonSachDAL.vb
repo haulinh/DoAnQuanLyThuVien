@@ -168,4 +168,64 @@ Public Class PhieuMuonSachDAL
 	End Function
 
 
+	Public Function Update(phieuMuonSach As PhieuMuonSachDTO, maPhieuMuonSach As String) As Result
+		Dim query As String = String.Empty
+
+		query &= " UPDATE [tblPhieuMuonSach] SET"
+		query &= " [ngaymuonsach] = @ngaymuonsach "
+		query &= " ,[ngaytrasach] = @ngaytrasach "
+		query &= " WHERE "
+		query &= " [maphieumuonsach] = @maphieumuonsach"
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+					.Parameters.AddWithValue("@maphieumuonsach", maPhieuMuonSach)
+					.Parameters.AddWithValue("@ngaymuonsach", phieuMuonSach.NgayMuonSach)
+					.Parameters.AddWithValue("@ngaytrasach", phieuMuonSach.NgayTraSach)
+				End With
+				Try
+					conn.Open()
+					comm.ExecuteNonQuery()
+				Catch ex As Exception
+					conn.Close()
+					System.Console.WriteLine(ex.StackTrace)
+					Return New Result(False, "Cập nhập phiếu mượn sách không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+		Return New Result(True) ' thanh cong
+
+	End Function
+
+	Public Function Delete(maPhieuMuonSach As String) As Result
+		Dim query As String = String.Empty
+		query &= " DELETE FROM [tblPhieuMuonSach] "
+		query &= " WHERE "
+		query &= " [maphieumuonsach] = @maphieumuonsach"
+
+		Using conn As New SqlConnection(connectionString)
+			Using comm As New SqlCommand()
+				With comm
+					.Connection = conn
+					.CommandType = CommandType.Text
+					.CommandText = query
+					.Parameters.AddWithValue("@maphieumuonsach", maPhieuMuonSach)
+				End With
+				Try
+					conn.Open()
+					comm.ExecuteNonQuery()
+				Catch ex As Exception
+					Console.WriteLine(ex.StackTrace)
+					conn.Close()
+					System.Console.WriteLine(ex.StackTrace)
+					Return New Result(False, "Xóa phiếu mượn sách không thành công", ex.StackTrace)
+				End Try
+			End Using
+		End Using
+		Return New Result(True)  ' thanh cong
+	End Function
 End Class
