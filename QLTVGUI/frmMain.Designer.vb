@@ -42,162 +42,185 @@ Partial Class frmMain
 		Me.cmQuyDinh = New MetroFramework.Controls.MetroContextMenu(Me.components)
 		Me.QuyĐịnhToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.btnQuyDinh = New MetroFramework.Controls.MetroButton()
-		Me.cmHoSoDocGia.SuspendLayout
-		Me.cmQuanLi.SuspendLayout
-		Me.cmQuyDinh.SuspendLayout
-		Me.SuspendLayout
+		Me.cmBaoCao = New MetroFramework.Controls.MetroContextMenu(Me.components)
+		Me.BáoCáoTìnhHìnhMượnSáchTheoThểLoạiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.btnBaoCao = New MetroFramework.Controls.MetroButton()
+		Me.cmHoSoDocGia.SuspendLayout()
+		Me.cmQuanLi.SuspendLayout()
+		Me.cmQuyDinh.SuspendLayout()
+		Me.cmBaoCao.SuspendLayout()
+		Me.SuspendLayout()
 		'
 		'cmHoSoDocGia
 		'
 		Me.cmHoSoDocGia.ImageScalingSize = New System.Drawing.Size(20, 20)
 		Me.cmHoSoDocGia.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuảnLýToolStripMenuItem, Me.QuảnLíToolStripMenuItem, Me.ThêmLoạiĐộcGiảToolStripMenuItem, Me.QuảnLíĐộcGiảToolStripMenuItem, Me.LậpThẻMượnSáchToolStripMenuItem, Me.ThêmTácGiảToolStripMenuItem, Me.QuảnLíThẻMượnSáchToolStripMenuItem})
 		Me.cmHoSoDocGia.Name = "MetroContextMenu1"
-		Me.cmHoSoDocGia.Size = New System.Drawing.Size(247, 172)
+		Me.cmHoSoDocGia.Size = New System.Drawing.Size(212, 158)
 		Me.cmHoSoDocGia.Text = "Hồ sơ độc giả"
 		'
 		'QuảnLýToolStripMenuItem
 		'
 		Me.QuảnLýToolStripMenuItem.Name = "QuảnLýToolStripMenuItem"
-		Me.QuảnLýToolStripMenuItem.Size = New System.Drawing.Size(246, 24)
+		Me.QuảnLýToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
 		Me.QuảnLýToolStripMenuItem.Text = "Thêm loại độc giả "
 		'
 		'QuảnLíToolStripMenuItem
 		'
 		Me.QuảnLíToolStripMenuItem.Name = "QuảnLíToolStripMenuItem"
-		Me.QuảnLíToolStripMenuItem.Size = New System.Drawing.Size(246, 24)
+		Me.QuảnLíToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
 		Me.QuảnLíToolStripMenuItem.Text = "Quản lí loại độc giả "
 		'
 		'ThêmLoạiĐộcGiảToolStripMenuItem
 		'
 		Me.ThêmLoạiĐộcGiảToolStripMenuItem.Name = "ThêmLoạiĐộcGiảToolStripMenuItem"
-		Me.ThêmLoạiĐộcGiảToolStripMenuItem.Size = New System.Drawing.Size(246, 24)
+		Me.ThêmLoạiĐộcGiảToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
 		Me.ThêmLoạiĐộcGiảToolStripMenuItem.Text = "Thêm độc giả "
 		'
 		'QuảnLíĐộcGiảToolStripMenuItem
 		'
 		Me.QuảnLíĐộcGiảToolStripMenuItem.Name = "QuảnLíĐộcGiảToolStripMenuItem"
-		Me.QuảnLíĐộcGiảToolStripMenuItem.Size = New System.Drawing.Size(246, 24)
+		Me.QuảnLíĐộcGiảToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
 		Me.QuảnLíĐộcGiảToolStripMenuItem.Text = "Quản lí độc giả"
 		'
 		'LậpThẻMượnSáchToolStripMenuItem
 		'
 		Me.LậpThẻMượnSáchToolStripMenuItem.Name = "LậpThẻMượnSáchToolStripMenuItem"
-		Me.LậpThẻMượnSáchToolStripMenuItem.Size = New System.Drawing.Size(246, 24)
+		Me.LậpThẻMượnSáchToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
 		Me.LậpThẻMượnSáchToolStripMenuItem.Text = "Lập Thẻ Mượn Sách"
 		'
 		'ThêmTácGiảToolStripMenuItem
 		'
 		Me.ThêmTácGiảToolStripMenuItem.Name = "ThêmTácGiảToolStripMenuItem"
-		Me.ThêmTácGiảToolStripMenuItem.Size = New System.Drawing.Size(246, 24)
+		Me.ThêmTácGiảToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
 		Me.ThêmTácGiảToolStripMenuItem.Text = "Thêm Tác Giả"
 		'
 		'QuảnLíThẻMượnSáchToolStripMenuItem
 		'
 		Me.QuảnLíThẻMượnSáchToolStripMenuItem.Name = "QuảnLíThẻMượnSáchToolStripMenuItem"
-		Me.QuảnLíThẻMượnSáchToolStripMenuItem.Size = New System.Drawing.Size(246, 24)
+		Me.QuảnLíThẻMượnSáchToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
 		Me.QuảnLíThẻMượnSáchToolStripMenuItem.Text = "Quản Lí Phiếu Mượn Sách"
 		'
 		'btnHoSoDocGia
 		'
-		Me.btnHoSoDocGia.Location = New System.Drawing.Point(171, 91)
-		Me.btnHoSoDocGia.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnHoSoDocGia.Location = New System.Drawing.Point(130, 76)
 		Me.btnHoSoDocGia.Name = "btnHoSoDocGia"
-		Me.btnHoSoDocGia.Size = New System.Drawing.Size(133, 28)
+		Me.btnHoSoDocGia.Size = New System.Drawing.Size(100, 23)
 		Me.btnHoSoDocGia.TabIndex = 1
 		Me.btnHoSoDocGia.Text = "Hồ sơ độc giả"
-		Me.btnHoSoDocGia.UseSelectable = true
+		Me.btnHoSoDocGia.UseSelectable = True
 		'
 		'cmQuanLi
 		'
 		Me.cmQuanLi.ImageScalingSize = New System.Drawing.Size(20, 20)
 		Me.cmQuanLi.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ThemSachToolTrip, Me.ThêmThểLoạiSáchToolStripMenuItem, Me.QuảnLýThểLoạiSáchToolStripMenuItem, Me.QuảnLýSáchToolStripMenuItem, Me.TraCứuSáchToolStripMenuItem})
 		Me.cmQuanLi.Name = "cmQuanLi"
-		Me.cmQuanLi.Size = New System.Drawing.Size(226, 124)
+		Me.cmQuanLi.Size = New System.Drawing.Size(194, 114)
 		'
 		'ThemSachToolTrip
 		'
 		Me.ThemSachToolTrip.Name = "ThemSachToolTrip"
-		Me.ThemSachToolTrip.Size = New System.Drawing.Size(225, 24)
+		Me.ThemSachToolTrip.Size = New System.Drawing.Size(193, 22)
 		Me.ThemSachToolTrip.Text = "Thêm Sách"
 		'
 		'ThêmThểLoạiSáchToolStripMenuItem
 		'
 		Me.ThêmThểLoạiSáchToolStripMenuItem.Name = "ThêmThểLoạiSáchToolStripMenuItem"
-		Me.ThêmThểLoạiSáchToolStripMenuItem.Size = New System.Drawing.Size(225, 24)
+		Me.ThêmThểLoạiSáchToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
 		Me.ThêmThểLoạiSáchToolStripMenuItem.Text = "Thêm Thể Loại Sách"
 		'
 		'QuảnLýThểLoạiSáchToolStripMenuItem
 		'
 		Me.QuảnLýThểLoạiSáchToolStripMenuItem.Name = "QuảnLýThểLoạiSáchToolStripMenuItem"
-		Me.QuảnLýThểLoạiSáchToolStripMenuItem.Size = New System.Drawing.Size(225, 24)
+		Me.QuảnLýThểLoạiSáchToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
 		Me.QuảnLýThểLoạiSáchToolStripMenuItem.Text = "Quản Lý Thể Loại Sách"
 		'
 		'QuảnLýSáchToolStripMenuItem
 		'
 		Me.QuảnLýSáchToolStripMenuItem.Name = "QuảnLýSáchToolStripMenuItem"
-		Me.QuảnLýSáchToolStripMenuItem.Size = New System.Drawing.Size(225, 24)
+		Me.QuảnLýSáchToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
 		Me.QuảnLýSáchToolStripMenuItem.Text = "Quản Lý Sách"
 		'
 		'TraCứuSáchToolStripMenuItem
 		'
 		Me.TraCứuSáchToolStripMenuItem.Name = "TraCứuSáchToolStripMenuItem"
-		Me.TraCứuSáchToolStripMenuItem.Size = New System.Drawing.Size(225, 24)
+		Me.TraCứuSáchToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
 		Me.TraCứuSáchToolStripMenuItem.Text = "Tra cứu Sách"
 		'
 		'btnQuanLi
 		'
-		Me.btnQuanLi.Location = New System.Drawing.Point(304, 91)
-		Me.btnQuanLi.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnQuanLi.Location = New System.Drawing.Point(230, 76)
 		Me.btnQuanLi.Name = "btnQuanLi"
-		Me.btnQuanLi.Size = New System.Drawing.Size(133, 28)
+		Me.btnQuanLi.Size = New System.Drawing.Size(100, 23)
 		Me.btnQuanLi.TabIndex = 0
 		Me.btnQuanLi.Text = "Quản Lí Sách"
-		Me.btnQuanLi.UseSelectable = true
+		Me.btnQuanLi.UseSelectable = True
 		'
 		'cmQuyDinh
 		'
 		Me.cmQuyDinh.ImageScalingSize = New System.Drawing.Size(20, 20)
 		Me.cmQuyDinh.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuyĐịnhToolStripMenuItem})
 		Me.cmQuyDinh.Name = "cmQuyDinh"
-		Me.cmQuyDinh.Size = New System.Drawing.Size(140, 28)
+		Me.cmQuyDinh.Size = New System.Drawing.Size(125, 26)
 		'
 		'QuyĐịnhToolStripMenuItem
 		'
 		Me.QuyĐịnhToolStripMenuItem.Name = "QuyĐịnhToolStripMenuItem"
-		Me.QuyĐịnhToolStripMenuItem.Size = New System.Drawing.Size(139, 24)
+		Me.QuyĐịnhToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
 		Me.QuyĐịnhToolStripMenuItem.Text = "Quy Định"
 		'
 		'btnQuyDinh
 		'
-		Me.btnQuyDinh.Location = New System.Drawing.Point(37, 91)
-		Me.btnQuyDinh.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnQuyDinh.Location = New System.Drawing.Point(30, 76)
 		Me.btnQuyDinh.Name = "btnQuyDinh"
-		Me.btnQuyDinh.Size = New System.Drawing.Size(133, 28)
+		Me.btnQuyDinh.Size = New System.Drawing.Size(100, 23)
 		Me.btnQuyDinh.TabIndex = 4
 		Me.btnQuyDinh.Text = "Quy Định"
-		Me.btnQuyDinh.UseSelectable = true
+		Me.btnQuyDinh.UseSelectable = True
+		'
+		'cmBaoCao
+		'
+		Me.cmBaoCao.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BáoCáoTìnhHìnhMượnSáchTheoThểLoạiToolStripMenuItem})
+		Me.cmBaoCao.Name = "cmBaoCao"
+		Me.cmBaoCao.Size = New System.Drawing.Size(299, 26)
+		'
+		'BáoCáoTìnhHìnhMượnSáchTheoThểLoạiToolStripMenuItem
+		'
+		Me.BáoCáoTìnhHìnhMượnSáchTheoThểLoạiToolStripMenuItem.Name = "BáoCáoTìnhHìnhMượnSáchTheoThểLoạiToolStripMenuItem"
+		Me.BáoCáoTìnhHìnhMượnSáchTheoThểLoạiToolStripMenuItem.Size = New System.Drawing.Size(298, 22)
+		Me.BáoCáoTìnhHìnhMượnSáchTheoThểLoạiToolStripMenuItem.Text = "Báo cáo tình hình mượn sách theo thể loại"
+		'
+		'btnBaoCao
+		'
+		Me.btnBaoCao.Location = New System.Drawing.Point(330, 76)
+		Me.btnBaoCao.Name = "btnBaoCao"
+		Me.btnBaoCao.Size = New System.Drawing.Size(75, 23)
+		Me.btnBaoCao.TabIndex = 7
+		Me.btnBaoCao.Text = "Báo Cáo"
+		Me.btnBaoCao.UseSelectable = True
 		'
 		'frmMain
 		'
-		Me.AutoScaleDimensions = New System.Drawing.SizeF(8!, 16!)
+		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(1387, 788)
+		Me.ClientSize = New System.Drawing.Size(1040, 640)
+		Me.Controls.Add(Me.btnBaoCao)
 		Me.Controls.Add(Me.btnQuyDinh)
 		Me.Controls.Add(Me.btnQuanLi)
 		Me.Controls.Add(Me.btnHoSoDocGia)
-		Me.IsMdiContainer = true
-		Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.IsMdiContainer = True
 		Me.Name = "frmMain"
-		Me.Padding = New System.Windows.Forms.Padding(36, 91, 36, 31)
+		Me.Padding = New System.Windows.Forms.Padding(27, 74, 27, 25)
 		Me.Text = "Quản lí độc giả"
 		Me.TransparencyKey = System.Drawing.Color.Empty
 		Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-		Me.cmHoSoDocGia.ResumeLayout(false)
-		Me.cmQuanLi.ResumeLayout(false)
-		Me.cmQuyDinh.ResumeLayout(false)
-		Me.ResumeLayout(false)
+		Me.cmHoSoDocGia.ResumeLayout(False)
+		Me.cmQuanLi.ResumeLayout(False)
+		Me.cmQuyDinh.ResumeLayout(False)
+		Me.cmBaoCao.ResumeLayout(False)
+		Me.ResumeLayout(False)
 
-End Sub
+	End Sub
 
 	Friend WithEvents cmHoSoDocGia As MetroFramework.Controls.MetroContextMenu
 	Friend WithEvents QuảnLýToolStripMenuItem As ToolStripMenuItem
@@ -218,4 +241,7 @@ End Sub
 	Friend WithEvents LậpThẻMượnSáchToolStripMenuItem As ToolStripMenuItem
 	Friend WithEvents ThêmTácGiảToolStripMenuItem As ToolStripMenuItem
 	Friend WithEvents QuảnLíThẻMượnSáchToolStripMenuItem As ToolStripMenuItem
+	Friend WithEvents cmBaoCao As MetroFramework.Controls.MetroContextMenu
+	Friend WithEvents btnBaoCao As MetroFramework.Controls.MetroButton
+	Friend WithEvents BáoCáoTìnhHìnhMượnSáchTheoThểLoạiToolStripMenuItem As ToolStripMenuItem
 End Class

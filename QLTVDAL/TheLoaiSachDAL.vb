@@ -180,4 +180,45 @@ Public Class TheLoaiSachDAL
 
 		Return New Result(True) ' thanh cong
 	End Function
+
+	Public Function DemSoLanMuon(maTheLoai As String, month As Integer, year As Integer) As Integer
+		Dim query As String = String.Empty
+		Dim soLanMuon As Integer
+		query &= " SELECT COUNT (*) AS SoLanMuon "
+		query &= " FROM [tblPhieuMuonSach] AS pms, [tblChiTietPhieuMuonSach] AS chitiet, [tblTheLoaiSach] AS theloai, [tblSach] AS sach "
+		query &= " WHERE sach.[masach] = chitiet.[masach] AND chitiet.[masach] = sach.[masach] AND pms.[maphieumuonsach] = chitiet.[maphieumuonsach]
+					  AND sach.[matheloaisach] = theloai.[matheloaisach]
+					  AND theloai.[matheloaisach] = @matheloaisach
+					  AND YEAR([ngaymuonsach]) = @year
+					  AND MONTH([ngaymuonsach]) = @month "
+		Using connection As New SqlConnection(connectionString)
+			Using command As New SqlCommand()
+				With command
+					.Connection = connection
+					.CommandType = CommandType.Text
+					.CommandText = query
+					.Parameters.AddWithValue("@matheloaisach", maTheLoai)
+					.Parameters.AddWithValue("@month", month)
+					.Parameters.AddWithValue("@year", year)
+				End With
+				Try
+					connection.Open()
+					Dim reader As SqlDataReader
+					reader = command.ExecuteReader()
+					If reader.HasRows = True Then
+						While reader.Read()
+							soLanMuon = reader("SoLanMuon")
+						End While
+					End If
+				Catch ex As Exception
+					Console.WriteLine(ex.StackTrace)
+					connection.Close()
+					Return -1
+				End Try
+			End Using
+		End Using
+		Return soLanMuon
+	End Function
+
+
 End Class
