@@ -48,6 +48,7 @@ Public Class frmQuanLyPhieuMuonSach
 		dgvPhieuMuonSach.DataSource = Nothing
 		dgvPhieuMuonSach.AutoGenerateColumns = False
 		dgvPhieuMuonSach.AllowUserToAddRows = False
+		dgvPhieuMuonSach.AutoResizeColumns()
 
 		dgvPhieuMuonSach.DataSource = listSach
 
@@ -74,13 +75,6 @@ Public Class frmQuanLyPhieuMuonSach
 		clTacGia.HeaderText = "Tác Giả"
 		clTacGia.DataPropertyName = "TenTacGia"
 		dgvPhieuMuonSach.Columns.Add(clTacGia)
-
-		''dgvPhieuMuonSach.Columns(0).Width = 70
-		''dgvPhieuMuonSach.Columns(1).Width = 160
-		''dgvPhieuMuonSach.Columns(2).Width = 70
-		''dgvPhieuMuonSach.Columns(3).Width = 160
-
-
 
 	End Sub
 
