@@ -85,7 +85,7 @@ Public Class frmMain
 		frmTraCuuSach.Show()
 	End Sub
 
-	Private Sub LậpThẻMượnSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LậpThẻMượnSáchToolStripMenuItem.Click
+	Private Sub LậpThẻMượnSáchToolStripMenuItem_Click(sender As Object, e As EventArgs)
 		Dim frmLapTheMuonSach As frmLapPhieuMuonSach = New frmLapPhieuMuonSach()
 		frmLapTheMuonSach.MdiParent = Me
 		frmLapTheMuonSach.Show()
@@ -97,7 +97,7 @@ Public Class frmMain
 		frmTacGia.Show()
 	End Sub
 
-	Private Sub QuảnLíThẻMượnSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuảnLíThẻMượnSáchToolStripMenuItem.Click
+	Private Sub QuảnLíThẻMượnSáchToolStripMenuItem_Click(sender As Object, e As EventArgs)
 		Dim frmQuanLiPhieuMuonSach As frmQuanLyPhieuMuonSach = New frmQuanLyPhieuMuonSach()
 		frmQuanLyPhieuMuonSach.MdiParent = Me
 		frmQuanLyPhieuMuonSach.Show()
@@ -119,9 +119,35 @@ Public Class frmMain
 		frmBaoCaoThongKeSachTraTre.Show()
 	End Sub
 
-	Private Sub NhậnTrảSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NhậnTrảSáchToolStripMenuItem.Click
+	Private Sub NhậnTrảSáchToolStripMenuItem_Click(sender As Object, e As EventArgs)
 		Dim frmNhanTraSach As frmLapPhieuTraSach = New frmLapPhieuTraSach()
 		frmNhanTraSach.MdiParent = Me
 		frmNhanTraSach.Show()
+	End Sub
+
+	Private Sub btnPhieuMuonSach_Click(sender As Object, e As EventArgs) Handles btnPhieuMuonSach.Click
+		cmPhieuMuonSach.Show(btnPhieuMuonSach, 0, btnPhieuMuonSach.Height)
+	End Sub
+
+	Private Sub LậpPhiếuMượnSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LậpPhiếuMượnSáchToolStripMenuItem.Click
+		Dim frmLapTheMuonSach As frmLapPhieuMuonSach = New frmLapPhieuMuonSach()
+		frmLapTheMuonSach.MdiParent = Me
+		frmLapTheMuonSach.Show()
+	End Sub
+
+	Private Sub QuảnLíPhiếuMượnSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuảnLíPhiếuMượnSáchToolStripMenuItem.Click
+		Dim frmQuanLiPhieuMuonSach As frmQuanLyPhieuMuonSach = New frmQuanLyPhieuMuonSach()
+		frmQuanLyPhieuMuonSach.MdiParent = Me
+		frmQuanLyPhieuMuonSach.Show()
+	End Sub
+
+	Private Sub btnPhieuTraSach_Click(sender As Object, e As EventArgs) Handles btnPhieuTraSach.Click
+		cmPhieuTraSach.Show(btnPhieuTraSach, 0, btnPhieuTraSach.Height)
+	End Sub
+
+	Private Sub LậpPhiếuTrảSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LậpPhiếuTrảSáchToolStripMenuItem.Click
+		Dim frmLapPhieuTraSach As frmLapPhieuTraSach = New frmLapPhieuTraSach()
+		frmLapPhieuTraSach.MdiParent = Me
+		frmLapPhieuTraSach.Show()
 	End Sub
 End Class
