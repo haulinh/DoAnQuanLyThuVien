@@ -89,6 +89,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBaoCaoThongKeSachTraTre.Designer.vb">
+      <DependentUpon>frmBaoCaoThongKeSachTraTre.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBaoCaoThongKeSachTraTre.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmBaoCaoTinhHinhMuonSachTheoTheLoai.Designer.vb">
       <DependentUpon>frmBaoCaoTinhHinhMuonSachTheoTheLoai.vb</DependentUpon>
     </Compile>
@@ -112,6 +118,12 @@
     </Compile>
     <Compile Include="frmMain.Designer.vb">
       <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLapPhieuTraSach.Designer.vb">
+      <DependentUpon>frmLapPhieuTraSach.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLapPhieuTraSach.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmQuanLyDocGia.Designer.vb">
@@ -205,6 +217,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmBaoCaoThongKeSachTraTre.resx">
+      <DependentUpon>frmBaoCaoThongKeSachTraTre.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBaoCaoTinhHinhMuonSachTheoTheLoai.resx">
       <DependentUpon>frmBaoCaoTinhHinhMuonSachTheoTheLoai.vb</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLapPhieuTraSach.resx">
+      <DependentUpon>frmLapPhieuTraSach.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyDocGia.resx">
       <DependentUpon>frmQuanLyDocGia.vb</DependentUpon>

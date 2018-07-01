@@ -137,18 +137,18 @@ Public Class SachDAL
 	End Function
 
 	Public Function SelectAllCondition(maSach As String,
-	                                   maLoai As Integer, 
-	                                   tenSach As String,
-	                                   maTacGia As Integer, 
-	                                   nhaXuatBan As String, 
-									   tinhTrangSach As String,
-	                                   minTriGia As Integer,
-									   maxTriGia As Integer, 
-	                                   minNamXuatBan as Integer,
-	                                   maxNamXuatBan as Integer,
-	                                   minNgayNhap As String,
-	                                   maxNgayNhap As String,
-	                                   listSach As List(Of SachReceive)) As Result
+												  maLoai As Integer,
+												  tenSach As String,
+												  maTacGia As Integer,
+												  nhaXuatBan As String,
+										tinhTrangSach As String,
+												  minTriGia As Integer,
+										maxTriGia As Integer,
+												  minNamXuatBan As Integer,
+												  maxNamXuatBan As Integer,
+												  minNgayNhap As String,
+												  maxNgayNhap As String,
+												  listSach As List(Of SachReceive)) As Result
 
 		Dim query As String = String.Empty
 
@@ -158,10 +158,10 @@ Public Class SachDAL
 				 Condition.CheckGUIRangeAndGetQuery(minTriGia, maxTriGia, "mintrigia", "maxtrigia", "trigia") + " AND " +
 				 Condition.CheckGUIRangeAndGetQuery(minNamXuatBan, maxNamXuatBan, "minnamxuatban", "maxnamxuatban", "namxuatban") + " AND " +
 				 "ngaynhap BETWEEN @minngaynhap AND @maxngaynhap AND " +
-		         Condition.CheckGUIEmptyAndGetQuery(nhaXuatBan, "nhaxuatban")  + " AND " +
+					Condition.CheckGUIEmptyAndGetQuery(nhaXuatBan, "nhaxuatban") + " AND " +
 				 Condition.CheckGUIEmptyAndGetQueryAmbiguous(maLoai, "matheloaisach") + " AND " +
 				 Condition.CheckGUIEmptyAndGetQuery(tenSach, "tensach") + " AND " +
-		         Condition.CheckGUIEmptyAndGetQuery(tinhTrangSach, "tinhtrangsach") + " AND " +
+					Condition.CheckGUIEmptyAndGetQuery(tinhTrangSach, "tinhtrangsach") + " AND " +
 				 Condition.CheckGUIEmptyAndGetQueryAmbiguous(maTacGia, "matacgia") + " AND " +
 				 Condition.CheckGUIEmptyAndGetQuery(maSach, "masach")
 
@@ -204,7 +204,7 @@ Public Class SachDAL
 			End Using
 		End Using
 		Return New Result(True) ' thanh cong
-	 End Function
+	End Function
 
 	Public Function Update(sach As SachDTO) As Result
 		Dim query As String = String.Empty
@@ -346,4 +346,6 @@ Public Class SachDAL
 		End Using
 		Return New Result(True) ' thanh cong
 	End Function
+
+
 End Class

@@ -63,6 +63,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaoCaoThongKeSachTraTreBUS.vb" />
     <Compile Include="BaoCaoTinhHinhMuonSachTheoTheLoaiBUS.vb" />
     <Compile Include="ChiTietPhieuMuonSachBUS.vb" />
     <Compile Include="DocGiaBUS.vb" />
@@ -83,6 +84,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PhieuTraSachBUS.vb" />
     <Compile Include="QuyDinhBUS.vb" />
     <Compile Include="SachBUS.vb" />
     <Compile Include="TacGiaBUS.vb" />

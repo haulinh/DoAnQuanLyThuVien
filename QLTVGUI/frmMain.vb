@@ -112,4 +112,16 @@ Public Class frmMain
 	Private Sub btnBaoCao_Click(sender As Object, e As EventArgs) Handles btnBaoCao.Click
 		cmBaoCao.Show(btnBaoCao, 0, btnBaoCao.Height)
 	End Sub
+
+	Private Sub BáoCáoThốngKêSáchTrảTrểToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BáoCáoThốngKêSáchTrảTrểToolStripMenuItem.Click
+		Dim frmBaoCaoThongKeSachTraTre As frmBaoCaoThongKeSachTraTre = New frmBaoCaoThongKeSachTraTre()
+		frmBaoCaoThongKeSachTraTre.MdiParent = Me
+		frmBaoCaoThongKeSachTraTre.Show()
+	End Sub
+
+	Private Sub NhậnTrảSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NhậnTrảSáchToolStripMenuItem.Click
+		Dim frmNhanTraSach As frmLapPhieuTraSach = New frmLapPhieuTraSach()
+		frmNhanTraSach.MdiParent = Me
+		frmNhanTraSach.Show()
+	End Sub
 End Class

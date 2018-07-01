@@ -85,7 +85,7 @@ Public Class frmLapPhieuMuonSach
 
 	End Sub
 
-	Private Sub frmLapPhieuMuonSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load  
+	Private Sub frmLapPhieuMuonSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		docGiaBUS = New DocGiaBUS()
 		sachBUS = New SachBUS()
 		phieuMuonSachBUS = New PhieuMuonSachBUS()

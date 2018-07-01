@@ -43,18 +43,18 @@ Public Class SachBUS
 	End Function
 
 	Public Function SelectAllCondition(maSach As String,
-	                                   maLoai As Integer,
-									   tenSach As String,
-									   maTacGia As Integer,
-									   nhaXuatBan As String, 
-	                                   tinhTrangSach As String,
-									   minTriGia As Integer,
-									   maxTriGia As Integer, 
-	                                   minNamXuatBan as Integer, 
-	                                   maxNamXuatBan as Integer, 
-	                                   minNgayNhap As String, 
-	                                   maxNgayNhap As String,
-									   Byref listSach As List(Of SachReceive)) As Result
+												  maLoai As Integer,
+										tenSach As String,
+										maTacGia As Integer,
+										nhaXuatBan As String,
+												  tinhTrangSach As String,
+										minTriGia As Integer,
+										maxTriGia As Integer,
+												  minNamXuatBan As Integer,
+												  maxNamXuatBan As Integer,
+												  minNgayNhap As String,
+												  maxNgayNhap As String,
+										ByRef listSach As List(Of SachReceive)) As Result
 		Return sachDAL.SelectAllCondition(maSach, maLoai, tenSach, maTacGia, nhaXuatBan, tinhTrangSach, minTriGia, maxTriGia, minNamXuatBan, maxNamXuatBan, minNgayNhap, maxNgayNhap, listSach)
 	End Function
 
