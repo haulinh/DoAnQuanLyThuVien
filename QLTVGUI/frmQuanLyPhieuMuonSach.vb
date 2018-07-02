@@ -108,6 +108,7 @@ Public Class frmQuanLyPhieuMuonSach
 				If (result.FlagResult = True) Then
 					' Re-Load docGia list
 					LoadPhieuMuonSach(txtMaPhieuMuonSach.Text)
+					LoadChiTietPhieuMuonSach(txtMaPhieuMuonSach.Text)
 					' Hightlight the row has been updated on table
 					dgvPhieuMuonSach.Rows(currentRowIndex).Selected = True
 
@@ -164,6 +165,7 @@ Public Class frmQuanLyPhieuMuonSach
 
 							' Re-Load LoaiHocSinh list
 							LoadPhieuMuonSach(txtMaPhieuMuonSach.Text)
+							LoadChiTietPhieuMuonSach(txtMaPhieuMuonSach.Text)
 
 							' Hightlight the next row on table
 							If (currentRowIndex >= dgvPhieuMuonSach.Rows.Count) Then
