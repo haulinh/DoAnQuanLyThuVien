@@ -22,9 +22,9 @@ Partial Class frmBaoCaoTinhHinhMuonSachTheoTheLoai
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
-		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-		Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-		Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Me.dtThangBaoCao = New MetroFramework.Controls.MetroDateTime()
 		Me.dgvChiTietBaoCao = New MetroFramework.Controls.MetroGrid()
 		Me.lblTongSoLuotMuon = New MetroFramework.Controls.MetroLabel()
@@ -34,7 +34,7 @@ Partial Class frmBaoCaoTinhHinhMuonSachTheoTheLoai
 		'dtThangBaoCao
 		'
 		Me.dtThangBaoCao.Location = New System.Drawing.Point(109, 112)
-		Me.dtThangBaoCao.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.dtThangBaoCao.Margin = New System.Windows.Forms.Padding(4)
 		Me.dtThangBaoCao.MinimumSize = New System.Drawing.Size(0, 30)
 		Me.dtThangBaoCao.Name = "dtThangBaoCao"
 		Me.dtThangBaoCao.Size = New System.Drawing.Size(265, 30)
@@ -42,46 +42,46 @@ Partial Class frmBaoCaoTinhHinhMuonSachTheoTheLoai
 		'
 		'dgvChiTietBaoCao
 		'
-		Me.dgvChiTietBaoCao.AllowUserToResizeRows = False
-		Me.dgvChiTietBaoCao.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+		Me.dgvChiTietBaoCao.AllowUserToResizeRows = false
+		Me.dgvChiTietBaoCao.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer))
 		Me.dgvChiTietBaoCao.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.dgvChiTietBaoCao.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
 		Me.dgvChiTietBaoCao.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-		DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-		DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer))
-		DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-		DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Info
-		DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-		DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-		DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-		Me.dgvChiTietBaoCao.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+		DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+		DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(52,Byte),Integer), CType(CType(52,Byte),Integer), CType(CType(52,Byte),Integer))
+		DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 11!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+		DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Info
+		DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.dgvChiTietBaoCao.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
 		Me.dgvChiTietBaoCao.ColumnHeadersHeight = 30
 		Me.dgvChiTietBaoCao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-		DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-		DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
-		DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Highlight
-		DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-		DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-		DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-		Me.dgvChiTietBaoCao.DefaultCellStyle = DataGridViewCellStyle2
-		Me.dgvChiTietBaoCao.EnableHeadersVisualStyles = False
-		Me.dgvChiTietBaoCao.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-		Me.dgvChiTietBaoCao.GridColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+		DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+		DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
+		DataGridViewCellStyle8.Font = New System.Drawing.Font("Tahoma", 9!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White
+		DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+		Me.dgvChiTietBaoCao.DefaultCellStyle = DataGridViewCellStyle8
+		Me.dgvChiTietBaoCao.EnableHeadersVisualStyles = false
+		Me.dgvChiTietBaoCao.Font = New System.Drawing.Font("Segoe UI", 11!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+		Me.dgvChiTietBaoCao.GridColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer))
 		Me.dgvChiTietBaoCao.Location = New System.Drawing.Point(109, 192)
-		Me.dgvChiTietBaoCao.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.dgvChiTietBaoCao.Margin = New System.Windows.Forms.Padding(4)
 		Me.dgvChiTietBaoCao.Name = "dgvChiTietBaoCao"
-		Me.dgvChiTietBaoCao.ReadOnly = True
+		Me.dgvChiTietBaoCao.ReadOnly = true
 		Me.dgvChiTietBaoCao.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-		DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-		DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(219, Byte), Integer))
-		DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-		DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-		DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(247, Byte), Integer))
-		DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
-		DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-		Me.dgvChiTietBaoCao.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-		Me.dgvChiTietBaoCao.RowHeadersVisible = False
+		DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+		DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(174,Byte),Integer), CType(CType(219,Byte),Integer))
+		DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 11!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+		DataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer))
+		DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(198,Byte),Integer), CType(CType(247,Byte),Integer))
+		DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White
+		DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.dgvChiTietBaoCao.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
+		Me.dgvChiTietBaoCao.RowHeadersVisible = false
 		Me.dgvChiTietBaoCao.RowHeadersWidth = 600
 		Me.dgvChiTietBaoCao.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
 		Me.dgvChiTietBaoCao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -90,7 +90,7 @@ Partial Class frmBaoCaoTinhHinhMuonSachTheoTheLoai
 		'
 		'lblTongSoLuotMuon
 		'
-		Me.lblTongSoLuotMuon.AutoSize = True
+		Me.lblTongSoLuotMuon.AutoSize = true
 		Me.lblTongSoLuotMuon.BackColor = System.Drawing.Color.White
 		Me.lblTongSoLuotMuon.FontWeight = MetroFramework.MetroLabelWeight.Bold
 		Me.lblTongSoLuotMuon.ForeColor = System.Drawing.Color.White
@@ -103,24 +103,24 @@ Partial Class frmBaoCaoTinhHinhMuonSachTheoTheLoai
 		'
 		'frmBaoCaoTinhHinhMuonSachTheoTheLoai
 		'
-		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+		Me.AutoScaleDimensions = New System.Drawing.SizeF(8!, 16!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle
-		Me.ClientSize = New System.Drawing.Size(680, 415)
+		Me.ClientSize = New System.Drawing.Size(762, 415)
 		Me.Controls.Add(Me.lblTongSoLuotMuon)
 		Me.Controls.Add(Me.dgvChiTietBaoCao)
 		Me.Controls.Add(Me.dtThangBaoCao)
-		Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-		Me.MaximizeBox = False
-		Me.MinimizeBox = False
+		Me.Margin = New System.Windows.Forms.Padding(4)
+		Me.MaximizeBox = false
+		Me.MinimizeBox = false
 		Me.Name = "frmBaoCaoTinhHinhMuonSachTheoTheLoai"
 		Me.Padding = New System.Windows.Forms.Padding(27, 74, 27, 25)
-		Me.Text = "frmBaoCaoTinhHinhMuonSachTheoTheLoai"
-		CType(Me.dgvChiTietBaoCao, System.ComponentModel.ISupportInitialize).EndInit()
-		Me.ResumeLayout(False)
-		Me.PerformLayout()
+		Me.Text = "Báo Cáo Tình Hình Mượn Sách Theo Thể Loại"
+		CType(Me.dgvChiTietBaoCao,System.ComponentModel.ISupportInitialize).EndInit
+		Me.ResumeLayout(false)
+		Me.PerformLayout
 
-	End Sub
+End Sub
 
 	Friend WithEvents dtThangBaoCao As MetroFramework.Controls.MetroDateTime
 	Friend WithEvents dgvChiTietBaoCao As MetroFramework.Controls.MetroGrid

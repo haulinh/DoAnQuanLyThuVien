@@ -158,10 +158,10 @@ Public Class SachDAL
 				 Condition.CheckGUIRangeAndGetQuery(minTriGia, maxTriGia, "mintrigia", "maxtrigia", "trigia") + " AND " +
 				 Condition.CheckGUIRangeAndGetQuery(minNamXuatBan, maxNamXuatBan, "minnamxuatban", "maxnamxuatban", "namxuatban") + " AND " +
 				 "ngaynhap BETWEEN @minngaynhap AND @maxngaynhap AND " +
-					Condition.CheckGUIEmptyAndGetQuery(nhaXuatBan, "nhaxuatban") + " AND " +
+				 Condition.CheckGUIEmptyAndGetQuery(nhaXuatBan, "nhaxuatban") + " AND " +
 				 Condition.CheckGUIEmptyAndGetQueryAmbiguous(maLoai, "matheloaisach") + " AND " +
 				 Condition.CheckGUIEmptyAndGetQuery(tenSach, "tensach") + " AND " +
-					Condition.CheckGUIEmptyAndGetQuery(tinhTrangSach, "tinhtrangsach") + " AND " +
+				 Condition.CheckGUIEmptyAndGetQuery(tinhTrangSach, "tinhtrangsach") + " AND " +
 				 Condition.CheckGUIEmptyAndGetQueryAmbiguous(maTacGia, "matacgia") + " AND " +
 				 Condition.CheckGUIEmptyAndGetQuery(maSach, "masach")
 
@@ -199,7 +199,7 @@ Public Class SachDAL
 				Catch ex As Exception
 					conn.Close()
 					System.Console.WriteLine(ex.StackTrace)
-					Return New Result(False, "Lấy tất cả Sách theo Loại không thành công", ex.StackTrace)
+					Return New Result(False, "Lấy tất cả Sách theo điều kiện không thành công", ex.StackTrace)
 				End Try
 			End Using
 		End Using

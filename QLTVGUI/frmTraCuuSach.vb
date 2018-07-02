@@ -155,7 +155,7 @@ Public Class frmTraCuuSach
 			Dim nhaXuatBan = txtNhaXuatBan.Text
 			Dim tinhTrangSach = txtTinhTrangSach.Text
 			Dim minNgayNhap = dtpMinNgayNhap.Value
-			Dim maxNgayNhap = dtpMaxNgayNhap.Value
+			Dim maxNgayNhap = dtpMaxNgayNhap.Value.AddDays(10)
 			Dim minTriGia
 			Dim maxTriGia
 			Dim minNamXuatBan

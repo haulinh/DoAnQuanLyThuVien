@@ -61,6 +61,8 @@ Public Class frmLapPhieuTraSach
 		phieuMuonSachBUS = New PhieuMuonSachBUS()
 		phieuTraSachBUS = New PhieuTraSachBUS()
 		chiTietPhieuMuonSachBUS = New ChiTietPhieuMuonSachBUS()
+		sachBUS = New SachBUS()
+
 		dtNgayTraSach.Enabled = False
 	End Sub
 
@@ -106,5 +108,14 @@ Public Class frmLapPhieuTraSach
 			MessageBox.Show("Thêm Phiếu trả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			System.Console.WriteLine(result.SystemMessage)
 		End If
+
+		Dim sach = new SachDTO
+		Dim numberOfRows = dgvNhanTraSach.Rows.Count - 1
+		For i As Integer = 0 To numberOfRows
+			sach.MaSach = dgvNhanTraSach.Rows(i).Cells("MaSach").Value.ToString()
+			sach.TinhTrangSach = "Chưa được mượn"
+			sachBUS.UpdateStatusBook(sach)
+		Next
+
 	End Sub
 End Class
