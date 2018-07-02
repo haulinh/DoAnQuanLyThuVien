@@ -16,9 +16,9 @@ Public Class BaoCaoThongKeSachTraTreDAL
 
 	Public Function SelectSoSachTraTre(ByRef listBaoCaoSachTraTre As List(Of BaoCaoThongKeSachTraTreDTO)) As Result
 		Dim query As String = String.Empty
-		query &= "SELECT DATEDIFF(DAY, pts.ngaytrasach, GETDATE()) AS SoNgayTraTre, [tensach], [ngaymuonsach] "
+		query &= "SELECT DATEDIFF(DAY, pms.ngaytrasach, pts.ngaytrasach) AS SoNgayTraTre, [tensach], [ngaymuonsach] "
 		query &= "FROM [tblSach] AS sach, [tblPhieuMuonSach] AS pms, [tblChiTietPhieuMuonSach] AS chitiet, [tblPhieuTraSach] AS pts "
-		query &= "WHERE sach.[masach] = chitiet.[masach] AND	pms.[maphieumuonsach] = chitiet.[maphieumuonsach] AND pts.[maphieumuonsach] = pms.[maphieumuonsach] AND pts.[ngaytrasach] < GETDATE() "
+		query &= "WHERE sach.[masach] = chitiet.[masach] AND pms.[maphieumuonsach] = chitiet.[maphieumuonsach] AND pts.[maphieumuonsach] = pms.[maphieumuonsach] AND pms.[ngaytrasach] < pts.[ngaytrasach] "
 
 		Using conn As New SqlConnection(connectionString)
 			Using comm As New SqlCommand()
