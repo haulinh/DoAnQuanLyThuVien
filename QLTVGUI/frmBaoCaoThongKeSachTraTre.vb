@@ -40,6 +40,8 @@ Public Class frmBaoCaoThongKeSachTraTre
 			clSoNgayTraTre.HeaderText = "Số Ngày Trả Trể"
 			clSoNgayTraTre.DataPropertyName = "SoNgayTraTre"
 			dgvBaoCaoThongKeSachTraTre.Columns.Add(clSoNgayTraTre)
+
+			dgvBaoCaoThongKeSachTraTre.Columns(0).Width = 150
 		End If
 	End Sub
 
